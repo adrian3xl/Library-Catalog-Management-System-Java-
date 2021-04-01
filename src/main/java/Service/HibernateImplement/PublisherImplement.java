@@ -100,20 +100,20 @@ public class PublisherImplement extends HibernateMainConfig implements IPublishe
     }
 
     @Override
-    public ResultSet getAllPublishers() throws Exception {
+    public List<Publisher> getAllPublishers() throws Exception {
         Session session1 = this.getSession();
          Transaction transact=null;
          List<Publisher> publisherList =  new ArrayList<>();
          try{
              transact=session1.beginTransaction();
-             publisherList = (List<Publisher>) session1.createQuery("from publisher").list();
+             publisherList = (List<Publisher>) session1.createQuery("from Publisher p").list();
              transact.commit();
              }
          catch(HibernateException hex){
              if(session1!=null)
              {
                  transact.rollback();
-                 throw new HibernateException("Not able to load all authors; rolling back transaction " + hex.getMessage());
+                 throw new HibernateException("Not able to load all publisher; rolling back transaction " + hex.getMessage());
              }
              
          }
@@ -121,7 +121,7 @@ public class PublisherImplement extends HibernateMainConfig implements IPublishe
                       //session1.flush();
                       //session1.close();
                      }
-         return (ResultSet) publisherList;
+         return  publisherList;
     }
 
 

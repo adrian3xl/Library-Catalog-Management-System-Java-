@@ -5,10 +5,17 @@
  */
 package Service;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
 /**
  *
  * @author Adrian
  */
+
+@Configuration
+@ComponentScan ({"CrudManager","Domain","Service","Service.HibernateImplement","Service.JDBCImplementation","presentation"})
+
 public class SpringConfig {
     
 }

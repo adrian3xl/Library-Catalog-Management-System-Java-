@@ -4,38 +4,28 @@
  * and open the template in the editor.
  */
 package Domain;
-import Domain.Person;
-import java.io.Serializable;	
+
 import java.util.List;
-import javax.persistence.Column;	
-import javax.persistence.Entity;	
-//import com.mycompany.librarycatalogmanagementsystem.*;	
-import java.util.Set;	
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  *
- * @author Adrian Bailey
+ * @author Adrian
  */
 
 @Entity
 @Table(name="publisher")
-public class Publisher extends Person{
- 
-
+public class Publisher extends Person {
     
-    @Column(name="publishercode")
+    
     private String publishercode;
     
-      private int id;
     
-
-    public Publisher(int id, String fname, String lname, String publishercode) {
+     public Publisher(int id, String fname, String lname, String publishercode) {
         this.publishercode = publishercode;
         this.setFname(fname);
         this.setLname(lname);
@@ -43,26 +33,15 @@ public class Publisher extends Person{
        
     }
 
-        
-     @OneToMany(fetch = FetchType.LAZY,mappedBy = "publisher", cascade = CascadeType.ALL)
-    private List<Catalogrecord> Catalogrecords;
-    
-   public Publisher()
+      @OneToMany(fetch = FetchType.LAZY,mappedBy = "publisher", cascade = CascadeType.ALL)
+     private List<Catalogrecord> Catalogrecords;
+     
+      public Publisher()
     {
         
     }
 
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void getId(int id) {
-        this.id = id;
-    }
-
-
-    public void setPublishercode(String publishercode) {
+     public void setPublishercode(String publishercode) {
         this.publishercode = publishercode;
     }
 
@@ -73,13 +52,10 @@ public class Publisher extends Person{
   public void setCatalogrecords(List<Catalogrecord> Catalogrecords) {
         this.Catalogrecords = Catalogrecords;
     }
-
   
-    
-    @Override
+   @Override
     public String toString() {
         return "{" + super.toString() + "Publisher{publishercode=" + publishercode + '}';
-    }
-    
-    
+    }  
+     
 }

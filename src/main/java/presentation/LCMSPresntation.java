@@ -226,7 +226,7 @@ public class LCMSPresntation {
         if(jdbcChoice==1)
         {
             Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();
+            AuthorManager authJDBC = new AuthorManager();
             
              Scanner aScanner = new Scanner(System.in);
             
@@ -239,14 +239,14 @@ public class LCMSPresntation {
             System.out.println("Enter author code : ");
             anAuthor.setAuthorcode(aScanner.nextLine());
             
-            authJDBC.addAuthorJDBC(anAuthor);
+            authJDBC.addAuthor(anAuthor,"JDBC");
             System.out.println("Author Added Using JDBC");
             
         }
         else if(jdbcChoice==2)
         {
             Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();
+            AuthorManager authJDBC = new AuthorManager();
             
              Scanner aScanner = new Scanner(System. in);
             
@@ -262,7 +262,7 @@ public class LCMSPresntation {
             System.out.println("Enter author code: ");
             anAuthor.setAuthorcode(aScanner.nextLine());
             
-            authJDBC.updateAuthorJDBC(anAuthor);
+            authJDBC.updateAuthor(anAuthor,"JDBC");
             System.out.println("Author updated Using JDBC");
         }
         else if(jdbcChoice==3)
@@ -1344,7 +1344,7 @@ public class LCMSPresntation {
             System.out.println("Enter author code : ");
             anAuthor.setAuthorcode(aScanner.nextLine());
             
-            authORM.addAuthor(anAuthor);
+            authORM.addAuthor(anAuthor,"HIBER");
             System.out.println(" Author Added Using ORM");
             
         }
@@ -1367,7 +1367,7 @@ public class LCMSPresntation {
             System.out.println("Enter author code: ");
             anAuthor.setAuthorcode(aScanner.nextLine());
             
-            authORM.updateAuthor(anAuthor);
+            authORM.updateAuthor(anAuthor,"HIBER");
             System.out.println("Author updated Using ORM");
         }
         else if(ORMChoice==3)

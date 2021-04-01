@@ -7,6 +7,7 @@ package Service;
 
 import Domain.Publisher;
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  *
@@ -22,7 +23,7 @@ public interface IPublisherService extends IService {
     
     public Publisher getPublisher (int id) throws Exception ; //method to select Publisher
     
-    public ResultSet getAllPublishers () throws Exception;
+    public List getAllPublishers () throws Exception;
 
     public void deletePublisher(Class<?> Publisher, int publisherId);
 

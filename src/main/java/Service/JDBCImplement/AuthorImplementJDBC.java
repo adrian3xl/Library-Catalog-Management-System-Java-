@@ -7,17 +7,21 @@ package Service.JDBCImplement;
 
 import Service.HibernateImplement.*;
 import Domain.Author;
+import Service.IAuthorService;
 import java.util.ArrayList;
 import java.util.List;
 import Service.IAuthorServiceJDBC;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Abailey
  */
-public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAuthorServiceJDBC {
+
+@Component("JDBC")
+public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAuthorService {
     
  Statement statement;
  
@@ -88,6 +92,31 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
     public void deleteAuthorJDBC(int authorId) throws Exception {
         statement=this.getConnection().createStatement();
         statement.execute("Delete From author Where id = " + authorId);
+    }
+
+    @Override
+    public void addAuthor(Author author) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateAuthor(Author author) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Author getAuthor(int authorID) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Author> getAllAuthors() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteAuthor(Class<?> Author, int authorId) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

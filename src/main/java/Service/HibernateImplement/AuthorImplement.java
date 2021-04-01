@@ -16,13 +16,18 @@ import Service.IAuthorService;
 import Service.IAuthorService;
 import com.mysql.cj.protocol.Resultset;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author KRichards
  */
+@Component("HIBER")
 public class AuthorImplement extends HibernateMainConfig implements IAuthorService {
-     
+
+    Statement statement;
+    
     @Override
     public void addAuthor(Author author) throws Exception  //method for adding book
      {
@@ -151,6 +156,31 @@ public class AuthorImplement extends HibernateMainConfig implements IAuthorServi
                       //session1.close();
                      }
          return authorList;
+    }
+
+    @Override
+    public void addAuthorJDBC(Author author) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateAuthorJDBC(Author author) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Author getAuthorJDBC(int id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ResultSet getAllAuthorsJDBC() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteAuthorJDBC(int id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

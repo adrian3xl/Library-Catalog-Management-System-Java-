@@ -455,3 +455,206 @@ INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernat
 INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
 ERROR main CrudManager.PublisherManager - org.hibernate.hql.internal.ast.QuerySyntaxException: publisher is not mapped [from publisher]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ERROR main CrudManager.PublisherManager - org.hibernate.hql.internal.ast.QuerySyntaxException: publisher is not mapped [from publisher]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ERROR main CrudManager.PublisherManager - org.hibernate.hql.internal.ast.QuerySyntaxException: publisher is not mapped [from publisher]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+ERROR main CrudManager.PublisherManager - org.hibernate.hql.internal.ast.QuerySyntaxException: publisher is not mapped [from publisher]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ERROR main org.hibernate.hql.internal.ast.ErrorTracker - line 1:6: unexpected token: publisher
+ERROR main org.hibernate.hql.internal.ast.ErrorTracker - line 1:6: unexpected token: publisher
+line 1:6: unexpected token: publisher
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromRange(HqlBaseParser.java:1666)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromClause(HqlBaseParser.java:1465)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectFrom(HqlBaseParser.java:1165)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:825)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:336)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:200)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:294)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:113)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:613)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:725)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at Service.HibernateImplement.PublisherImplement.getAllPublishers(PublisherImplement.java:109)
+	at CrudManager.PublisherManager.getAllPublishers(PublisherManager.java:86)
+	at presentation.LCMSPresntation.PublisherORMMenu(LCMSPresntation.java:1519)
+	at presentation.LCMSPresntation.ORMMenu(LCMSPresntation.java:1222)
+	at presentation.LCMSPresntation.main(LCMSPresntation.java:75)
+ERROR main CrudManager.PublisherManager - org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: publisher near line 1, column 6 [from publisher SELECT p.id, p.firstname, p.lastname as p]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ERROR main org.hibernate.hql.internal.ast.ErrorTracker - line 1:6: unexpected token: publisher
+ERROR main org.hibernate.hql.internal.ast.ErrorTracker - line 1:6: unexpected token: publisher
+line 1:6: unexpected token: publisher
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromRange(HqlBaseParser.java:1666)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromClause(HqlBaseParser.java:1465)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectFrom(HqlBaseParser.java:1165)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:825)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:336)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:200)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:294)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:113)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:613)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:725)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at Service.HibernateImplement.PublisherImplement.getAllPublishers(PublisherImplement.java:109)
+	at CrudManager.PublisherManager.getAllPublishers(PublisherManager.java:86)
+	at presentation.LCMSPresntation.PublisherORMMenu(LCMSPresntation.java:1519)
+	at presentation.LCMSPresntation.ORMMenu(LCMSPresntation.java:1222)
+	at presentation.LCMSPresntation.main(LCMSPresntation.java:75)
+ERROR main CrudManager.PublisherManager - org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: publisher near line 1, column 6 [from publisher SELECT p.id p.firstname p.lastname as p]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ERROR main org.hibernate.hql.internal.ast.ErrorTracker - line 1:14: unexpected token: p
+ERROR main org.hibernate.hql.internal.ast.ErrorTracker - line 1:14: unexpected token: p
+line 1:14: unexpected token: p
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.aliasedExpression(HqlBaseParser.java:2620)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectedPropertiesList(HqlBaseParser.java:1517)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectClause(HqlBaseParser.java:1417)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectFrom(HqlBaseParser.java:1142)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:825)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:336)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:200)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:294)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:113)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:613)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:725)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at Service.HibernateImplement.PublisherImplement.getAllPublishers(PublisherImplement.java:109)
+	at CrudManager.PublisherManager.getAllPublishers(PublisherManager.java:86)
+	at presentation.LCMSPresntation.PublisherORMMenu(LCMSPresntation.java:1519)
+	at presentation.LCMSPresntation.ORMMenu(LCMSPresntation.java:1222)
+	at presentation.LCMSPresntation.main(LCMSPresntation.java:75)
+ERROR main CrudManager.PublisherManager - org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: p near line 1, column 14 [SELECT  p.id p.firstname p.lastname from publisher p]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ERROR main CrudManager.PublisherManager - org.hibernate.hql.internal.ast.QuerySyntaxException: publisher is not mapped [from publisher p]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ERROR main CrudManager.PublisherManager - Unable to build Session factory @OneToOne or @ManyToOne on Domain.Catalogrecord.publisher references an unknown entity: Domain.Publisher
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+ERROR main CrudManager.PublisherManager - Unable to build Session factory Could not determine type for: java.util.List, at table: publisher, for columns: [org.hibernate.mapping.Column(Catalogrecords)]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ERROR main CrudManager.PublisherManager - org.hibernate.hql.internal.ast.QuerySyntaxException: publisher is not mapped [from publisher p]
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ERROR main CrudManager.PublisherManager - class java.util.ArrayList cannot be cast to class java.sql.ResultSet (java.util.ArrayList is in module java.base of loader 'bootstrap'; java.sql.ResultSet is in module java.sql of loader 'platform')
+INFO main CrudManager.PublisherManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO main CrudManager.CustomerManager - In Business Layer getAllCustomer method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+WARN main org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+INFO main org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/librarycatalogmanagement_db]
+INFO main org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=root}
+INFO main org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+INFO main org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+INFO main org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO main CrudManager.DocumenttypeManager - In Business Layer getAllDocumenttypeService   method
+INFO main CrudManager.DocumenttypeManager - In Business Layer getAllDocumenttypeService   method

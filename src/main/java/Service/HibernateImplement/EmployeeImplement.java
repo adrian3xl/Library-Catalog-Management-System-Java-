@@ -85,7 +85,7 @@ public class EmployeeImplement extends HibernateMainConfig implements IEmployeeS
              if(session!=null)
              {
                  transact.rollback();
-                 throw new HibernateException("Not able to load author with id " + id + "; rolling back transaction " + hex.getMessage());
+                 throw new HibernateException("Not able to load employee with id " + id + "; rolling back transaction " + hex.getMessage());
              }
              
          }
@@ -104,7 +104,7 @@ public class EmployeeImplement extends HibernateMainConfig implements IEmployeeS
          List<Employee> employeeList =  new ArrayList<>();
          try{
              transact=session1.beginTransaction();
-             employeeList = (List<Employee>) session1.createQuery("from employee").list();
+             employeeList = (List<Employee>) session1.createQuery("from Employee").list();
              transact.commit();
              }
          catch(HibernateException hex){

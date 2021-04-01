@@ -8,11 +8,13 @@ package Service;
 import Domain.Author;
 import java.sql.ResultSet;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author KRichards
  */
+@Component
 public interface IAuthorService extends IService {
     
     public final String NAME="IAuthorService";
@@ -27,6 +29,15 @@ public interface IAuthorService extends IService {
     
     public void deleteAuthor(Class<?> Author, int authorId) throws Exception;
     
+        
+    public void addAuthorJDBC(Author author) throws Exception ; //method for adding author
     
+    public void updateAuthorJDBC(Author author) throws Exception ; //method for updating a author
+    
+    public Author getAuthorJDBC(int id) throws Exception ; //method to select author
+    
+    public ResultSet getAllAuthorsJDBC() throws Exception;
+    
+    public void deleteAuthorJDBC(int id) throws Exception;
     
 }

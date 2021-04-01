@@ -81,8 +81,8 @@ public void addDocumenttype (Documenttype anDocumenttype)
      
         List<Documenttype> documenttypesList = new ArrayList<>();
         try {
-            logger.info("In Business Layer getAllDocumenttypeService   method");
-            System.out.println("In Business Layer getAllDocumenttypeService    method");
+            logger.info("In Business Layer getAllDocumenttypeService method");
+            System.out.println("In Business Layer getAllDocumenttypeService method");
             Factory factory = new Factory();
             IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
             documenttypesList=iDocumenttypeMgr .getAllDocumenttype ();

@@ -105,7 +105,7 @@ public class GenreImplement extends HibernateMainConfig implements IGenreService
          List<Genre> genreList =  new ArrayList<>();
          try{
              transact=session1.beginTransaction();
-             genreList = (List<Genre>) session1.createQuery("from genre").list();
+             genreList = (List<Genre>) session1.createQuery("from Genre").list();
              transact.commit();
              }
          catch(HibernateException hex){
