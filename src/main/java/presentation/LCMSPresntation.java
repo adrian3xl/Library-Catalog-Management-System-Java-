@@ -1335,13 +1335,13 @@ public class LCMSPresntation {
             
              Scanner aScanner = new Scanner(System.in);
             
-            System.out.println("Enter author first name: ");
+            System.out.println("Enter author first name: \n");
             anAuthor.setFname(aScanner.nextLine());
             
-            System.out.println("Enter author last name: ");
+            System.out.println("Enter author last name: \n");
             anAuthor.setLname(aScanner.nextLine());
             
-            System.out.println("Enter author code : ");
+            System.out.println("Enter author code : \n");
             anAuthor.setAuthorcode(aScanner.nextLine());
             
             authORM.addAuthor(anAuthor,"HIBER");
@@ -1353,10 +1353,10 @@ public class LCMSPresntation {
             Author anAuthor=new Author();
             AuthorManager authORM = new AuthorManager();
             
-             Scanner aScanner = new Scanner(System. in);
+             Scanner aScanner = new Scanner(System.in);
             
             System.out.println("Enter ID: ");
-            anAuthor.setId(System.in.read()); 
+               anAuthor.setId(System.in.read());
              
             System.out.println("Enter author first name: ");
             anAuthor.setFname(aScanner.nextLine());
@@ -1372,11 +1372,14 @@ public class LCMSPresntation {
         }
         else if(ORMChoice==3)
         {
+             Author anAuthor=new Author();
             AuthorManager auth = new AuthorManager();            
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
+             anAuthor.getId(System.in.read());
             
-            auth.deleteAuthor(Author.class,aScanner.nextInt());
+            auth.deleteAuthor(Author.class,aScanner.nextInt(),"HIBER");
+            //auth.deleteAuthor(Author.class,aScanner.nextInt());
             System.out.println("Author deleted using ORM");
         }
         else if(ORMChoice==4)
@@ -1387,7 +1390,7 @@ public class LCMSPresntation {
             
             System.out.println("Enter ID: ");
             int id = aScanner.nextInt();
-            anAuthor = authORM.getAuthor(id);
+            anAuthor = authORM.getAuthor(id,"HIBER");
             
             //Runtime.getRuntime().exec("cls");
             
@@ -1404,7 +1407,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System.in);
             
             
-             authors = authORM.getAllAuthors();
+             authors = authORM.getAllAuthors("HIBER");
             
            // Runtime.getRuntime().exec("cls");
             

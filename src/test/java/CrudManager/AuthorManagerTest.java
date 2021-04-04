@@ -49,7 +49,7 @@ public class AuthorManagerTest {
         System.out.println("addAuthor");
         Author anAuthor = null;
         AuthorManager instance = new AuthorManager();
-        instance.addAuthor(anAuthor);
+       // instance.addAuthor(anAuthor);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -63,8 +63,8 @@ public class AuthorManagerTest {
         int authorId = 0;
         AuthorManager instance = new AuthorManager();
         Author expResult = null;
-        Author result = instance.getAuthor(authorId);
-        assertEquals(expResult, result);
+       // Author result = instance.getAuthor(authorId);
+      //  assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -77,7 +77,7 @@ public class AuthorManagerTest {
         System.out.println("updateAuthor");
         Author anAuthor = null;
         AuthorManager instance = new AuthorManager();
-        instance.updateAuthor(anAuthor);
+      //  instance.updateAuthor(anAuthor);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -90,8 +90,8 @@ public class AuthorManagerTest {
         System.out.println("getAllAuthors");
         AuthorManager instance = new AuthorManager();
         List<Author> expResult = null;
-        List<Author> result = instance.getAllAuthors();
-        assertEquals(expResult, result);
+      //  List<Author> result = instance.getAllAuthors();
+      //  assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -105,7 +105,7 @@ public class AuthorManagerTest {
         Class Author = null;
         int authorId = 0;
         AuthorManager instance = new AuthorManager();
-        instance.deleteAuthor(Author, authorId);
+    //    instance.deleteAuthor(Author, authorId);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
