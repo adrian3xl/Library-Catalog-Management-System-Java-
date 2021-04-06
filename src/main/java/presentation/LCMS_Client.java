@@ -20,6 +20,7 @@ import java.io.StreamCorruptedException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,11 @@ public class LCMS_Client {
         try
         {
           connection= new Socket(InetAddress.getLocalHost(),49999);
+           System.out.println("Client Connection Established with Server");
+        }
+         catch(UnknownHostException ex)
+        {
+            ex.printStackTrace();
         }
         catch(IOException ex)
         {
@@ -58,25 +64,10 @@ public class LCMS_Client {
     }  
     
     
-    public void closeConnection()
-    {
-        try
-    {
-          os.close();
-          is.close();
-         connection.close();  
-    }
-    catch(IOException ex)
-    {
-      ex.printStackTrace();
-      ex.getMessage();
-    }
-
-    }
-
     
     
-    public void getStreams()
+    
+     public void getStreams()
     {
         try
         {
@@ -92,73 +83,63 @@ public class LCMS_Client {
         }
     }
    
-    /*
-    public void sendAction(String action){
-        
-        
-        try{
-            
-            os.writeObject(action);
-            
-        }
-        catch(IOException ex){
-            
-            ex.printStackTrace();
-        }
-    }
     
-*/
-
-    public void sendEmpllogin(Employee obj){
-        
-        try{
-            
-            os.writeObject(obj);
-        }
-        catch(IOException ex){
-            
-            ex.printStackTrace();
-        }
-    }
-    
-    
-    
-    public void receiveResponse()
-{
-try
+       public void closeStreams()
     {
-      Boolean flag = (Boolean)is.readObject();
+        try
+        {
+            os.close();
+            is.close();
+            connection.close();
+            System.out.println("Client ends connection with server");
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
     }
-catch(ClassCastException ex)
-{
-    ex.printStackTrace();
-}
-catch(ClassNotFoundException ex)
-{
-    ex.printStackTrace();
-
-}
-    catch(IOException ex)
-            
- 
-            
-{   
     
-    ex.printStackTrace();
-}
+    
+ 
+
+    public void sendEmpllogin(Employee employee){
+        
+        try
+        {
+            System.out.println("creating student on client");
+            os.writeObject(employee);
             
-}
-
-  
-
-public static void main(String[] args) 
-{ 
-     LCMS_Client lcms_client = new LCMS_Client(49999); 
-//     lcms_client.sendAction("Login");
-//    lcms_client.receiveResponse();
-  }
-
-
+            System.out.println("Student sent to server");
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+public String receiveResponse()
+    {
+        String response="";
+        try
+        {
+            response = (String)is.readObject();
+            System.out.println("Server's response "+response);
+            
+        }
+        catch(ClassCastException ex)
+        {
+            ex.printStackTrace();
+        }
+        catch(ClassNotFoundException ex)
+        {
+            ex.printStackTrace();
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
+       return response;
+    }
     
     
 }
