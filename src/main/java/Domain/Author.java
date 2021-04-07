@@ -30,8 +30,6 @@ public class Author extends Person{
 
     @Column(name="authorcode")
     private String authorcode;
- 
-    private int id;
 
     
     public Author(int id, String fname, String lname, String authorcode) {
@@ -52,16 +50,6 @@ public class Author extends Person{
     public Author()
     {    }
 
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    
-public void getId(int id) {
-        this.id = id;
-    }
-    
 
     public String getAuthorCode() {
         return authorcode;

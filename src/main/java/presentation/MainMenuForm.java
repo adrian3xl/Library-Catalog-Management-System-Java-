@@ -32,10 +32,10 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        viewItem = new javax.swing.JMenuItem();
+        AddItem = new javax.swing.JMenuItem();
+        updateItem = new javax.swing.JMenuItem();
+        deleteItem = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -81,36 +81,43 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         jdp1.setLayout(jdp1Layout);
         jdp1Layout.setHorizontalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 889, Short.MAX_VALUE)
+            .addGap(0, 792, Short.MAX_VALUE)
         );
         jdp1Layout.setVerticalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 447, Short.MAX_VALUE)
+            .addGap(0, 487, Short.MAX_VALUE)
         );
 
         jMenu3.setText("Manage Records");
 
         jMenu1.setText("Manage Authors");
 
-        jMenuItem6.setText("View");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        viewItem.setText("View");
+        viewItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                viewItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
-        jMenu1.add(jMenuItem7);
+        jMenu1.add(viewItem);
 
-        jMenuItem8.setText("Update");
-        jMenu1.add(jMenuItem8);
-
-        jMenuItem9.setText("Delete");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        AddItem.setText("Add");
+        AddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                AddItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem9);
+        jMenu1.add(AddItem);
+
+        updateItem.setText("Update");
+        jMenu1.add(updateItem);
+
+        deleteItem.setText("Delete");
+        deleteItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteItemActionPerformed(evt);
+            }
+        });
+        jMenu1.add(deleteItem);
 
         jMenu3.add(jMenu1);
 
@@ -324,9 +331,9 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void deleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_deleteItemActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -388,17 +395,33 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem32ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void viewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewItemActionPerformed
         TblForm tblform = new TblForm();
         ResultSetTblModel tblModel= new ResultSetTblModel();
         jdp1.add(tblform);
         this.validate();
         this.repaint();
                 
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_viewItemActionPerformed
+
+    private void AddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddItemActionPerformed
+        JIFAddAuthor addAuthInterface = new JIFAddAuthor();
+  
+        addAuthInterface.setVisible(true);
+        
+      
+        jdp1.add(addAuthInterface);
+        addAuthInterface.moveToFront();
+       
+        this.validate();
+         this.repaint();
+        
+    }//GEN-LAST:event_AddItemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AddItem;
+    private javax.swing.JMenuItem deleteItem;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
@@ -439,10 +462,8 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem jMenuItem32;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JDesktopPane jdp1;
+    private javax.swing.JMenuItem updateItem;
+    private javax.swing.JMenuItem viewItem;
     // End of variables declaration//GEN-END:variables
 }

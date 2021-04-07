@@ -41,7 +41,7 @@ public class LCMS_Server  implements Runnable {
     private EmployeeManager EmployeeMgr;  
     
        
-    public LCMS_Server(int port)
+    public LCMS_Server()
     {     
         
     }
@@ -126,16 +126,20 @@ public class LCMS_Server  implements Runnable {
                         employee = (Employee) is.readObject();                  
                         if(!employee.getEmployeecode().equals("")&&!employee.getPassword().equals(""))
                         {
-                           System.out.println("Student's username is "+employee.getEmployeecode());
-                           System.out.println("Student's password is "+employee.getPassword());         
+                               System.out.println("Employee's firstname is "+employee.getFname());         
+                             System.out.println("Employee's lastname is "+employee.getLname());         
+                             System.out.println("Employee's position is "+employee.getJobtitle());         
+                          
+                           System.out.println("Employee's username is "+employee.getEmployeecode());
+                           System.out.println("Employee's password is "+employee.getPassword());         
                           
                            EmployeeMgr=new EmployeeManager();
                            Boolean exist = EmployeeMgr.validateEmpCodeAndPwd(employee);
                                                       
                            if(exist==true)
                            {
-                               MainMenuForm Main=new MainMenuForm();
-                               Main.show();
+                               MainMenuForm mform=new MainMenuForm();
+                               mform.setVisible(true);
                                
                                os.writeObject("Validation success");
                            }

@@ -1376,7 +1376,6 @@ public class LCMSPresntation {
             AuthorManager auth = new AuthorManager();            
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
-             anAuthor.getId(System.in.read());
             
             auth.deleteAuthor(Author.class,aScanner.nextInt(),"HIBER");
             //auth.deleteAuthor(Author.class,aScanner.nextInt());

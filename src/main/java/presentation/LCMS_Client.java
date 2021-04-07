@@ -38,14 +38,13 @@ public class LCMS_Client {
     private static ObjectOutputStream os;  
     
     
-     public LCMS_Client(int port)
+     public LCMS_Client()
     {     
-        
+        this.createConnection();
+        this.getStreams();
     }
     
-    
      
-      
     public void createConnection()
     {
         try

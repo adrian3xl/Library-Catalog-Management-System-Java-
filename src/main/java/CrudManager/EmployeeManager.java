@@ -166,7 +166,20 @@ public void addEmployee (Employee anEmployee)
     }
 
     public Boolean validateEmpCodeAndPwd(Employee employee) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         Boolean exist=false;        
+        try {
+           // Factory factory = new Factory();                        
+           // IAuthenticateService iAuthenticate = (IAuthenticateService) factory.getTheService(IAuthenticateService.NAME);
+           ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+           IAuthenticateService iAuthenticate = (IAuthenticateService) context.getBean("IAuthenticateImplement");
+            exist=iAuthenticate.validateUsernameAndPwd(employee);     //check username and password       
+        } catch (ServiceLoadException ex) {          
+            System.out.println("Could not load Service (Service oad Exception): "+ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Could not load Service (Base Exception): "+ex.getMessage());
+            
+        }
+        return exist;
     }
     
     
