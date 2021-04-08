@@ -5,15 +5,14 @@
  */
 package presentation;
 
-
 /**
  *
  * @author Adrian
  */
-public class MainMenuForm extends javax.swing.JInternalFrame {
+public class MainMenuForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form MainMenuForm1
+     * Creates new form MainMenuForm
      */
     public MainMenuForm() {
         initComponents();
@@ -28,7 +27,7 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jdp1 = new javax.swing.JDesktopPane();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -74,19 +73,9 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         jMenuItem27 = new javax.swing.JMenuItem();
         jMenuItem28 = new javax.swing.JMenuItem();
 
-        setClosable(true);
-        setName("mainform"); // NOI18N
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jdp1Layout = new javax.swing.GroupLayout(jdp1);
-        jdp1.setLayout(jdp1Layout);
-        jdp1Layout.setHorizontalGroup(
-            jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 792, Short.MAX_VALUE)
-        );
-        jdp1Layout.setVerticalGroup(
-            jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
-        );
+        jInternalFrame1.setVisible(true);
 
         jMenu3.setText("Manage Records");
 
@@ -315,21 +304,58 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
 
         jMenuBar1.add(jMenu8);
 
-        setJMenuBar(jMenuBar1);
+        jInternalFrame1.setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 686, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 508, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdp1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdp1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void viewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewItemActionPerformed
+        TblForm tblform = new TblForm();
+        ResultSetTblModel tblModel= new ResultSetTblModel();
+       // jdp1.add(tblform);
+        this.validate();
+        this.repaint();
+
+    }//GEN-LAST:event_viewItemActionPerformed
+
+    private void AddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddItemActionPerformed
+        JIFAddAuthor addAuthInterface = new JIFAddAuthor();
+
+        addAuthInterface.setVisible(true);
+
+     //   jdp1.add(addAuthInterface);
+        addAuthInterface.moveToFront();
+
+        this.validate();
+        this.repaint();
+
+    }//GEN-LAST:event_AddItemActionPerformed
 
     private void deleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemActionPerformed
         // TODO add your handling code here:
@@ -387,41 +413,53 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem21ActionPerformed
 
-    private void jMenuItem28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem28ActionPerformed
-
     private void jMenuItem32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem32ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem32ActionPerformed
 
-    private void viewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewItemActionPerformed
-        TblForm tblform = new TblForm();
-        ResultSetTblModel tblModel= new ResultSetTblModel();
-        jdp1.add(tblform);
-        this.validate();
-        this.repaint();
-                
-    }//GEN-LAST:event_viewItemActionPerformed
+    private void jMenuItem28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem28ActionPerformed
 
-    private void AddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddItemActionPerformed
-        JIFAddAuthor addAuthInterface = new JIFAddAuthor();
-  
-        addAuthInterface.setVisible(true);
-        
-      
-        jdp1.add(addAuthInterface);
-        addAuthInterface.moveToFront();
-       
-        this.validate();
-         this.repaint();
-        
-    }//GEN-LAST:event_AddItemActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainMenuForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainMenuForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainMenuForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainMenuForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainMenuForm().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AddItem;
     private javax.swing.JMenuItem deleteItem;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
@@ -462,7 +500,6 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem jMenuItem32;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JDesktopPane jdp1;
     private javax.swing.JMenuItem updateItem;
     private javax.swing.JMenuItem viewItem;
     // End of variables declaration//GEN-END:variables
