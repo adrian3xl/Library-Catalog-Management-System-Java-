@@ -28,6 +28,7 @@ public class MainMenuForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        jdp1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -76,6 +77,17 @@ public class MainMenuForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jdp1Layout = new javax.swing.GroupLayout(jdp1);
+        jdp1.setLayout(jdp1Layout);
+        jdp1Layout.setHorizontalGroup(
+            jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 686, Short.MAX_VALUE)
+        );
+        jdp1Layout.setVerticalGroup(
+            jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 536, Short.MAX_VALUE)
+        );
 
         jMenu3.setText("Manage Records");
 
@@ -310,11 +322,11 @@ public class MainMenuForm extends javax.swing.JFrame {
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 686, Short.MAX_VALUE)
+            .addComponent(jdp1)
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addComponent(jdp1)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -336,12 +348,12 @@ public class MainMenuForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewItemActionPerformed
-        TblForm tblform = new TblForm();
-        ResultSetTblModel tblModel= new ResultSetTblModel();
-       // jdp1.add(tblform);
-        this.validate();
-        this.repaint();
-
+     TblForm tblForm=new TblForm();    
+       tblForm.setVisible(true);
+       tblForm.viewTable("author");
+       jdp1.add(tblForm);
+       this.validate();
+       this.repaint();
     }//GEN-LAST:event_viewItemActionPerformed
 
     private void AddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddItemActionPerformed
@@ -349,7 +361,7 @@ public class MainMenuForm extends javax.swing.JFrame {
 
         addAuthInterface.setVisible(true);
 
-     //   jdp1.add(addAuthInterface);
+        jdp1.add(addAuthInterface);
         addAuthInterface.moveToFront();
 
         this.validate();
@@ -500,6 +512,7 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem32;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JDesktopPane jdp1;
     private javax.swing.JMenuItem updateItem;
     private javax.swing.JMenuItem viewItem;
     // End of variables declaration//GEN-END:variables

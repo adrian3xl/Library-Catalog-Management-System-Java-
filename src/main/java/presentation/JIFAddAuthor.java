@@ -144,13 +144,13 @@ public class JIFAddAuthor extends javax.swing.JInternalFrame {
 
     private void createjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createjButton1ActionPerformed
          
-        int Id=Integer.parseInt(idj.getText().trim());
+        int Id=0;
         String fname=firstnameJtf1.getText().trim();
         String lname=lastnameJtf2.getText().trim();
        
         String authorcode=authcodJtf1.getText().trim();
         
-        Author anAuthor=new Author(Id,fname,lname,authorcode);
+        Author anAuthor=new Author(fname,lname,authorcode);
       
         AuthorManager authorMgr = new AuthorManager();
         authorMgr.addAuthor(anAuthor,"HIBER");

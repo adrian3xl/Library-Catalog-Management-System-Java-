@@ -59,6 +59,18 @@ public class TblForm extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void viewTable(String tblName)
+  {
+      ResultSetTblModel tblModel=new ResultSetTblModel();
+      tblModel.viewAll(tblName);
+      displayTable.setModel(tblModel);
+      
+      
+  }
+
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable displayTable;

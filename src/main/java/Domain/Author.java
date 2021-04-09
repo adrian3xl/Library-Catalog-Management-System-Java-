@@ -32,11 +32,11 @@ public class Author extends Person{
     private String authorcode;
 
     
-    public Author(int id, String fname, String lname, String authorcode) {
+    public Author( String fname, String lname, String authorcode) {
         this.authorcode = authorcode;
         this.setFname(fname);
         this.setLname(lname);
-        this.setId(id);
+       // this.setId(id);
        
     }
    

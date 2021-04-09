@@ -44,7 +44,7 @@ public class ResultSetTblModel extends AbstractTableModel{
         {
             authorMgr = new AuthorManager();
             System.out.println("Getting ResultSet");
-         //   resultSet= (ResultSet) authorMgr.getAllAuthors();
+           resultSet= (ResultSet) authorMgr.getAllAuthors("Hiber");
             System.out.println("Got ResultSet");
             connectToDatabase=true;
             System.out.println("connect to database set to true");
