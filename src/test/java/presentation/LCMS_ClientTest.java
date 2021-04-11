@@ -82,7 +82,7 @@ public class LCMS_ClientTest {
     public void testSendEmpllogin() {
         System.out.println("sendEmpllogin");
        // int id=9;
-        Employee employee = new Employee(9,"test","test","job","T1","password");
+        Employee employee = new Employee("test","test","job","T1","password");
         LCMS_Client instance = new LCMS_Client();
         instance.sendEmpllogin(employee);
         // TODO review the generated test code and remove the default call to fail.

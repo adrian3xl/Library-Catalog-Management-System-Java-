@@ -38,27 +38,27 @@ public class MainMenuForm extends javax.swing.JFrame {
         deleteItem = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        addpub_tb = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        addgenre_tb = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        ddoctype = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
+        adddoctype_tb = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
-        jMenuItem18 = new javax.swing.JMenuItem();
+        addcatrec_tb = new javax.swing.JMenuItem();
         jMenuItem19 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem21 = new javax.swing.JMenuItem();
-        jMenuItem22 = new javax.swing.JMenuItem();
+        addloan_tb = new javax.swing.JMenuItem();
         jMenuItem23 = new javax.swing.JMenuItem();
         jMenuItem24 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -86,7 +86,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         );
         jdp1Layout.setVerticalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
 
         jMenu3.setText("Manage Records");
@@ -132,13 +132,13 @@ public class MainMenuForm extends javax.swing.JFrame {
         });
         jMenu9.add(jMenuItem1);
 
-        jMenuItem2.setText("Add");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        addpub_tb.setText("Add");
+        addpub_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                addpub_tbActionPerformed(evt);
             }
         });
-        jMenu9.add(jMenuItem2);
+        jMenu9.add(addpub_tb);
 
         jMenuItem3.setText("Update");
         jMenu9.add(jMenuItem3);
@@ -158,13 +158,13 @@ public class MainMenuForm extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem5);
 
-        jMenuItem10.setText("Add");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+        addgenre_tb.setText("Add");
+        addgenre_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
+                addgenre_tbActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem10);
+        jMenu4.add(addgenre_tb);
 
         jMenuItem11.setText("Update");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +184,7 @@ public class MainMenuForm extends javax.swing.JFrame {
 
         jMenu3.add(jMenu4);
 
-        jMenu5.setText("Manage Document Types");
+        ddoctype.setText("Manage Document Types");
 
         jMenuItem13.setText("View");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
@@ -192,15 +192,15 @@ public class MainMenuForm extends javax.swing.JFrame {
                 jMenuItem13ActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem13);
+        ddoctype.add(jMenuItem13);
 
-        jMenuItem14.setText("Add");
-        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+        adddoctype_tb.setText("Add");
+        adddoctype_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem14ActionPerformed(evt);
+                adddoctype_tbActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem14);
+        ddoctype.add(adddoctype_tb);
 
         jMenuItem15.setText("Update");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +208,7 @@ public class MainMenuForm extends javax.swing.JFrame {
                 jMenuItem15ActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem15);
+        ddoctype.add(jMenuItem15);
 
         jMenuItem16.setText("Delete");
         jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
@@ -216,22 +216,22 @@ public class MainMenuForm extends javax.swing.JFrame {
                 jMenuItem16ActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem16);
+        ddoctype.add(jMenuItem16);
 
-        jMenu3.add(jMenu5);
+        jMenu3.add(ddoctype);
 
         jMenu6.setText("Manage Catalog Records");
 
         jMenuItem17.setText("View");
         jMenu6.add(jMenuItem17);
 
-        jMenuItem18.setText("Add");
-        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+        addcatrec_tb.setText("Add");
+        addcatrec_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem18ActionPerformed(evt);
+                addcatrec_tbActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem18);
+        jMenu6.add(addcatrec_tb);
 
         jMenuItem19.setText("Update");
         jMenu6.add(jMenuItem19);
@@ -256,8 +256,13 @@ public class MainMenuForm extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem21);
 
-        jMenuItem22.setText("Add");
-        jMenu7.add(jMenuItem22);
+        addloan_tb.setText("Add");
+        addloan_tb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addloan_tbActionPerformed(evt);
+            }
+        });
+        jMenu7.add(addloan_tb);
 
         jMenuItem23.setText("Update");
         jMenu7.add(jMenuItem23);
@@ -377,17 +382,34 @@ public class MainMenuForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void addpub_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpub_tbActionPerformed
+       JIFAddPublisher addPublisherInterface = new JIFAddPublisher();
+
+        addPublisherInterface.setVisible(true);
+
+        jdp1.add(addPublisherInterface);
+        addPublisherInterface.moveToFront();
+
+        this.validate();
+        this.repaint();
+    }//GEN-LAST:event_addpub_tbActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+    private void addgenre_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addgenre_tbActionPerformed
+        JIFAddGenre addGenreInterface = new JIFAddGenre();
+
+        addGenreInterface.setVisible(true);
+
+        jdp1.add(addGenreInterface);
+        addGenreInterface.moveToFront();
+
+        this.validate();
+        this.repaint();
+
+    }//GEN-LAST:event_addgenre_tbActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
@@ -401,9 +423,17 @@ public class MainMenuForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
-    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem14ActionPerformed
+    private void adddoctype_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adddoctype_tbActionPerformed
+       JIFAddDocumenttype addDocumenttypeInterface = new JIFAddDocumenttype();
+
+        addDocumenttypeInterface.setVisible(true);
+
+        jdp1.add(addDocumenttypeInterface);
+        addDocumenttypeInterface.moveToFront();
+
+        this.validate();
+        this.repaint();
+    }//GEN-LAST:event_adddoctype_tbActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
         // TODO add your handling code here:
@@ -413,9 +443,18 @@ public class MainMenuForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
-    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem18ActionPerformed
+    private void addcatrec_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addcatrec_tbActionPerformed
+    
+        JIFAddCatalogrecord addCatlogrecordInterface = new JIFAddCatalogrecord();
+
+        addCatlogrecordInterface.setVisible(true);
+
+        jdp1.add(addCatlogrecordInterface);
+        addCatlogrecordInterface.moveToFront();
+
+        this.validate();
+        this.repaint();
+    }//GEN-LAST:event_addcatrec_tbActionPerformed
 
     private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
         // TODO add your handling code here:
@@ -432,6 +471,19 @@ public class MainMenuForm extends javax.swing.JFrame {
     private void jMenuItem28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem28ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem28ActionPerformed
+
+    private void addloan_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addloan_tbActionPerformed
+        
+          JIFAddCatalogloan addCatalogloanInterface = new JIFAddCatalogloan();
+
+        addCatalogloanInterface.setVisible(true);
+
+        jdp1.add(addCatalogloanInterface);
+        addCatalogloanInterface.moveToFront();
+
+        this.validate();
+        this.repaint();
+    }//GEN-LAST:event_addloan_tbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -470,6 +522,12 @@ public class MainMenuForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AddItem;
+    private javax.swing.JMenuItem addcatrec_tb;
+    private javax.swing.JMenuItem adddoctype_tb;
+    private javax.swing.JMenuItem addgenre_tb;
+    private javax.swing.JMenuItem addloan_tb;
+    private javax.swing.JMenuItem addpub_tb;
+    private javax.swing.JMenu ddoctype;
     private javax.swing.JMenuItem deleteItem;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JMenu jMenu1;
@@ -478,27 +536,21 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem19;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem21;
-    private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem23;
     private javax.swing.JMenuItem jMenuItem24;
     private javax.swing.JMenuItem jMenuItem25;

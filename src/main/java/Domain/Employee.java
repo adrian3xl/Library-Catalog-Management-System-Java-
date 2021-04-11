@@ -42,13 +42,13 @@ public class Employee extends Person {
         return Catalogloanrecords;
     }
      
-       public Employee(int id, String fname, String lname,String jobtitle,String password, String employeecode) {
+       public Employee( String fname, String lname,String jobtitle,String password, String employeecode) {
         this.employeecode = employeecode;
         this.setFname(fname);
         this.setLname(lname);
         this.jobtitle=jobtitle;
         this.password=password;
-        this.setId(id);
+       // this.setId(id);
 
     }
 

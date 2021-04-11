@@ -24,6 +24,28 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class EmployeeManager {
     final static Logger logger = Logger.getLogger(EmployeeManager.class); 
     
+       public EmployeeManager() {
+    }
+    public void addEmployee (Employee anEmployee)
+    {
+        try {
+            logger.info("In Business Layer addEmployee(Employee employee) method");
+            System.out.println("In Business Layer addEmployee(Employee employee) method");
+            Factory factory = new Factory();            
+            IEmployeeService  iEmployeeMgr  = (IEmployeeService ) factory.getTheService(IEmployeeService .NAME);
+            iEmployeeMgr .addEmployee (anEmployee);
+            
+        } catch (ServiceLoadException ex) {
+         System.out.println(ex.getMessage());
+           
+        } catch (Exception ex) {
+            
+           System.out.println(ex.getMessage()); 
+           logger.error(ex.getMessage()); 
+        }
+    }
+    
+    
     public Boolean validateUser(String username) //check if user exist, does not check password
     {
         Boolean exist=false;
@@ -65,24 +87,7 @@ public class EmployeeManager {
     
     
     
-public void addEmployee (Employee anEmployee)
-    {
-        try {
-            logger.info("In Business Layer addEmployee(Employee employee) method");
-            System.out.println("In Business Layer addEmployee(Employee employee) method");
-            Factory factory = new Factory();            
-            IEmployeeService  iEmployeeMgr  = (IEmployeeService ) factory.getTheService(IEmployeeService .NAME);
-            iEmployeeMgr .addEmployee (anEmployee);
-            
-        } catch (ServiceLoadException ex) {
-         System.out.println(ex.getMessage());
-           
-        } catch (Exception ex) {
-            
-           System.out.println(ex.getMessage()); 
-           logger.error(ex.getMessage()); 
-        }
-    }
+
     public Employee getEmployee (int employeeId)
     {
         Employee anEmployee=new Employee();
@@ -162,8 +167,7 @@ public void addEmployee (Employee anEmployee)
         }
     }
 
-    public EmployeeManager() {
-    }
+ 
 
     public Boolean validateEmpCodeAndPwd(Employee employee) {
          Boolean exist=false;        

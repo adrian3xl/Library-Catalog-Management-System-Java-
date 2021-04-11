@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
  * @author AB
  */
 @Component("IAuthenticateImplement")
-public class IAuthenticateImplement extends HibernateMainConfig implements IAuthenticateService{
+public class AuthenticateImplement extends HibernateMainConfig implements IAuthenticateService{
     
     @Override
     public Boolean validateUser(String username) throws Exception{

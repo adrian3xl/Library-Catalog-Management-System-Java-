@@ -34,7 +34,7 @@ public class AuthorManager {
         try {            
             ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
             IAuthorService iAuthorMgr=null;            
-            //loose coupling
+           
             if(using.equals("JDBC")){
                 iAuthorMgr=(IAuthorService) context.getBean("JDBC");
                 iAuthorMgr.addAuthorJDBC(anAuthor);

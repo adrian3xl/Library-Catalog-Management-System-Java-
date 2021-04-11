@@ -11,6 +11,7 @@ import Service.IAuthorService;
 import java.util.ArrayList;
 import java.util.List;
 import Service.IAuthorServiceJDBC;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import org.springframework.stereotype.Component;
@@ -80,13 +81,17 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
     @Override
     public ResultSet getAllAuthorsJDBC() throws Exception {
         ResultSet rs=null;
+        PreparedStatement ps;
         
-        String SelectAll="Select * From author";
-        statement=this.getConnection().createStatement();
-        rs=statement.executeQuery(SelectAll);
+        String SelectAll="Select * From authors";
+        //statement=this.getConnection().createStatement();
+        ps=this.getConnection().prepareStatement(SelectAll, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        rs=ps.executeQuery(SelectAll);
+        
         
         return rs;
     }
+
 
     @Override
     public void deleteAuthorJDBC(int authorId) throws Exception {

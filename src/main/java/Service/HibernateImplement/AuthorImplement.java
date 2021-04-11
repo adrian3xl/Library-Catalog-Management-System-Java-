@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author KRichards
+ * @author Ab
  */
 @Component("HIBER")
 public class AuthorImplement extends HibernateMainConfig implements IAuthorService {
