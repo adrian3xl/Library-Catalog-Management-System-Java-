@@ -65,28 +65,28 @@ public class MainMenuForm extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenu12 = new javax.swing.JMenu();
         jMenuItem29 = new javax.swing.JMenuItem();
-        jMenuItem30 = new javax.swing.JMenuItem();
+        addcustomer_tb = new javax.swing.JMenuItem();
         jMenuItem31 = new javax.swing.JMenuItem();
         jMenuItem32 = new javax.swing.JMenuItem();
-        jMenu11 = new javax.swing.JMenu();
+        viewemp_tb = new javax.swing.JMenu();
         jMenuItem25 = new javax.swing.JMenuItem();
-        jMenuItem26 = new javax.swing.JMenuItem();
         jMenuItem27 = new javax.swing.JMenuItem();
         jMenuItem28 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jInternalFrame1.setClosable(true);
         jInternalFrame1.setVisible(true);
 
         javax.swing.GroupLayout jdp1Layout = new javax.swing.GroupLayout(jdp1);
         jdp1.setLayout(jdp1Layout);
         jdp1Layout.setHorizontalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 686, Short.MAX_VALUE)
+            .addGap(0, 1021, Short.MAX_VALUE)
         );
         jdp1Layout.setVerticalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGap(0, 576, Short.MAX_VALUE)
         );
 
         jMenu3.setText("Manage Records");
@@ -282,8 +282,13 @@ public class MainMenuForm extends javax.swing.JFrame {
         jMenuItem29.setText("View");
         jMenu12.add(jMenuItem29);
 
-        jMenuItem30.setText("Add");
-        jMenu12.add(jMenuItem30);
+        addcustomer_tb.setText("Add");
+        addcustomer_tb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addcustomer_tbActionPerformed(evt);
+            }
+        });
+        jMenu12.add(addcustomer_tb);
 
         jMenuItem31.setText("Update");
         jMenu12.add(jMenuItem31);
@@ -298,16 +303,13 @@ public class MainMenuForm extends javax.swing.JFrame {
 
         jMenu8.add(jMenu12);
 
-        jMenu11.setText("Manage Employees");
+        viewemp_tb.setText("Manage Employees");
 
         jMenuItem25.setText("View");
-        jMenu11.add(jMenuItem25);
-
-        jMenuItem26.setText("Add");
-        jMenu11.add(jMenuItem26);
+        viewemp_tb.add(jMenuItem25);
 
         jMenuItem27.setText("Update");
-        jMenu11.add(jMenuItem27);
+        viewemp_tb.add(jMenuItem27);
 
         jMenuItem28.setText("Delete");
         jMenuItem28.addActionListener(new java.awt.event.ActionListener() {
@@ -315,9 +317,9 @@ public class MainMenuForm extends javax.swing.JFrame {
                 jMenuItem28ActionPerformed(evt);
             }
         });
-        jMenu11.add(jMenuItem28);
+        viewemp_tb.add(jMenuItem28);
 
-        jMenu8.add(jMenu11);
+        jMenu8.add(viewemp_tb);
 
         jMenuBar1.add(jMenu8);
 
@@ -338,9 +340,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jInternalFrame1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,6 +485,18 @@ public class MainMenuForm extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_addloan_tbActionPerformed
 
+    private void addcustomer_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addcustomer_tbActionPerformed
+       JIFAddCustomer addCustomerInterface = new JIFAddCustomer();
+
+        addCustomerInterface.setVisible(true);
+
+        jdp1.add(addCustomerInterface);
+        addCustomerInterface.moveToFront();
+
+        this.validate();
+        this.repaint();
+    }//GEN-LAST:event_addcustomer_tbActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -523,6 +535,7 @@ public class MainMenuForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AddItem;
     private javax.swing.JMenuItem addcatrec_tb;
+    private javax.swing.JMenuItem addcustomer_tb;
     private javax.swing.JMenuItem adddoctype_tb;
     private javax.swing.JMenuItem addgenre_tb;
     private javax.swing.JMenuItem addloan_tb;
@@ -531,7 +544,6 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem deleteItem;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -554,12 +566,10 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem23;
     private javax.swing.JMenuItem jMenuItem24;
     private javax.swing.JMenuItem jMenuItem25;
-    private javax.swing.JMenuItem jMenuItem26;
     private javax.swing.JMenuItem jMenuItem27;
     private javax.swing.JMenuItem jMenuItem28;
     private javax.swing.JMenuItem jMenuItem29;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem30;
     private javax.swing.JMenuItem jMenuItem31;
     private javax.swing.JMenuItem jMenuItem32;
     private javax.swing.JMenuItem jMenuItem4;
@@ -567,5 +577,6 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jdp1;
     private javax.swing.JMenuItem updateItem;
     private javax.swing.JMenuItem viewItem;
+    private javax.swing.JMenu viewemp_tb;
     // End of variables declaration//GEN-END:variables
 }

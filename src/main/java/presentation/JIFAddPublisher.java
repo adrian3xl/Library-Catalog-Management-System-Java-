@@ -146,7 +146,7 @@ public class JIFAddPublisher extends javax.swing.JInternalFrame {
        PublisherManager PublisherMgr = new PublisherManager();
         PublisherMgr.addPublisher(pub,"HIBER1");
         
-         JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_Create_btActionPerformed
 
 

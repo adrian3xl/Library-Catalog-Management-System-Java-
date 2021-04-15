@@ -7,6 +7,7 @@ package presentation;
 
 import CrudManager.AuthorManager;
 import Domain.Author;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -154,6 +155,7 @@ public class JIFAddAuthor extends javax.swing.JInternalFrame {
       
         AuthorManager authorMgr = new AuthorManager();
         authorMgr.addAuthor(anAuthor,"HIBER");
+         JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_createjButton1ActionPerformed
 
 
