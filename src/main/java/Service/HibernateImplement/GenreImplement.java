@@ -39,8 +39,8 @@ public class GenreImplement extends HibernateMainConfig implements IGenreService
              
          }
          finally {
-                      session.flush();
-                      session.close();
+                    //  session.flush();
+                   //   session.close();
                      }      
          
          

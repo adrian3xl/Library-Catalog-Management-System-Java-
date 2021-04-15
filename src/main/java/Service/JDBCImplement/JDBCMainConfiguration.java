@@ -20,7 +20,7 @@ public class JDBCMainConfiguration {
     
     private Connection con;
     
-    protected Connection getConnection() throws SQLException
+    public Connection getConnection() throws SQLException
     {
         con=DriverManager.getConnection(conString,dbUser,dbUserPWD);
         

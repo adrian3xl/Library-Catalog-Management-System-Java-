@@ -39,8 +39,8 @@ public class PublisherImplement extends HibernateMainConfig implements IPublishe
              
          }
          finally {
-                      session.flush();
-                      session.close();
+                      //session.flush();
+                      //session.close();
                      }      
          
          

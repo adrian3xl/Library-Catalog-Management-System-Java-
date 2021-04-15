@@ -7,9 +7,11 @@ package presentation;
 
 import CrudManager.EmployeeManager;
 import Domain.Employee;
+import Service.JDBCImplement.JDBCMainConfiguration;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -35,6 +37,10 @@ public class LoginForm extends javax.swing.JFrame {
         initComponents();
     }
 
+    
+    
+    JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,34 +152,60 @@ public class LoginForm extends javax.swing.JFrame {
     
        
         Employee employee=new Employee();
+        PreparedStatement ps;
         
-          try {
-            String employeecode=id_tb.getText();
-            String password=password_tb.getText();
-            int i=0;
-            ResultSet rs=stmt.executeQuery("Select * from employee");
-            while(rs.next()){
-                if(employeecode.equals(rs.getString("employeecode"))&&(password.equals(rs.getString("password")))){
-                    i=1;
-                if("employeecode".equals(employeecode)){
-                             
-                                MainMenuForm main = new MainMenuForm();
+              ResultSet rs;
+              String employeecode=id_tb.getText().trim();
+            String password=password_tb.getText().trim();
+              String SelectAll= "Select * FROM employee where employeecode = '"+ employeecode +"' and password= '" + password +"'";
+            
+            try {
+                //  int i=0;
+                //ps=jdbc.getConnection().prepareStatement(SelectAll, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+                
+                if(rs==null)
+           {
+                JOptionPane.showMessageDialog(rootPane, "No Such UserName or Password Found", "User Not Found", JOptionPane.ERROR_MESSAGE);
+           }
+           else
+           {
+              MainMenuForm main = new MainMenuForm();
                                 main.setVisible(true);
                                 this.validate();
                                 this.repaint();
-                }else{
+           }
+                
+                
+                
+            } catch (SQLException ex) {
+               JOptionPane.showMessageDialog(rootPane, ex, null, JOptionPane.ERROR_MESSAGE);
+            }
+           
+          //  while(rs.next()){
+              //  if(employeecode.equals(rs.getString("employeecode"))&&(password.equals(rs.getString("password")))){
+                //    i=1;
+             //   if("employeecode".equals(employeecode)){
+                             
+                              //  MainMenuForm main = new MainMenuForm();
+                          //      main.setVisible(true);
+                          //      this.validate();
+                             //   this.repaint();
+          //      }
+             //   else{
                 //
-                }
-                }
-            }
-            if(i==0){
-            JOptionPane.showMessageDialog(rootPane, "No Such UserName or Password Found", "User Not Found", JOptionPane.ERROR_MESSAGE);
-            }
+               
+              //  }
+                //}
+           // }
+          //  if(i==0){
+         //   JOptionPane.showMessageDialog(rootPane, "No Such UserName or Password Found", "User Not Found", JOptionPane.ERROR_MESSAGE);
+        //    }
             // TODO add your handling code here:
-        } catch (SQLException ex) {
-          JOptionPane.showMessageDialog(rootPane, ex, null, JOptionPane.ERROR_MESSAGE);
-        }
-        
+    //    } catch (SQLException ex) {
+     //     JOptionPane.showMessageDialog(rootPane, ex, null, JOptionPane.ERROR_MESSAGE);
+       
+    
         
         
     }//GEN-LAST:event_loginbt2ActionPerformed
