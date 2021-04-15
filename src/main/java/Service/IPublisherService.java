@@ -27,5 +27,14 @@ public interface IPublisherService extends IService {
 
     public void deletePublisher(Class<?> Publisher, int publisherId);
 
+    public void addPublisherJDBC(Publisher publisher) throws Exception ; //method for adding Publisher
+    
+    public void updatePublisherJDBC(Publisher publisher) throws Exception ; //method for updating a Publisher
+    
+    public Publisher getPublisherJDBC(int id) throws Exception ; //method to select Publisher
+    
+    public ResultSet getAllPublishersJDBC() throws Exception;
+    
+    public void deletePublisherJDBC(int id) throws Exception;
      
 }

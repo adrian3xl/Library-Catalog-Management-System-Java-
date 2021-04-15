@@ -10,21 +10,35 @@ import java.util.List;
 import Service.Factory;
 import Service.IPublisherService;
 import Service.Exceptions.ServiceLoadException;
+import Service.IPublisherServiceJDBC;
+import Service.SpringConfig;
+import java.sql.ResultSet;
 import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 /**
  *
  * @author Adrian
  */
 public class PublisherManager {
   final static Logger logger = Logger.getLogger(PublisherManager.class);  
-public void addPublisher(Publisher anPublisher)
-    {
-        try {
-            logger.info("In Business Layer addPublisher(Publisher publisher) method");
-            System.out.println("In Business Layer addPublisher(Publisher publisher) method");
-            Factory factory = new Factory();            
-            IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
-            iPublisherMgr.addPublisher(anPublisher);
+ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+
+  public void addPublisher(Publisher anPublisher, String using){
+   System.out.println("In Business Layer addPublisher(Publisher Publisher, String using) method");
+    logger.info("In Business Layer addPublisher(Publisher Publisher, String using) method");    
+  
+    try {            
+            ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+            IPublisherService iPublisherMgr=null;            
+           
+            if(using.equals("JDBC")){
+                iPublisherMgr=(IPublisherService) context.getBean("JDBC");
+                iPublisherMgr.addPublisherJDBC(anPublisher);
+            }
+            else if(using.equals("HIBER"))
+                iPublisherMgr=(IPublisherService) context.getBean("HIBER");
+                iPublisherMgr.addPublisher(anPublisher);
             
         } catch (ServiceLoadException ex) {
          
@@ -32,18 +46,29 @@ public void addPublisher(Publisher anPublisher)
         } catch (Exception ex) {
             
             System.out.print(ex.getMessage());
-            logger.error(ex.getMessage());
+             logger.error(ex.getMessage());
         }
     }
-    public Publisher getPublisher(int PublisherId)
-    {
+
+ public Publisher getPublisher(int PublisherId,String using)
+    {       
         Publisher anPublisher=new Publisher();
-        try {
-            logger.info("In Business Layer getPublisher(int publisherId) method");
-            System.out.println("In Business Layer getPublisher(int publisherId) method");
-            Factory factory = new Factory();           
-            IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
-            anPublisher=iPublisherMgr.getPublisher(PublisherId);
+        System.out.println("In Business Layer getPublisher(int PublisherId,String using) method");
+            ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        try {            
+           // Factory factory = new Factory();           
+          //  IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
+          if(using.equals("HIBER")){
+              System.out.println("getting Publisher using Hibernate");
+           IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
+           anPublisher=iPublisherMgr.getPublisher(PublisherId);
+          }
+          else if(using.equals("JDBC"))
+          {
+             System.out.println("getting Publisher using JDBC"); 
+              IPublisherService iPublisherMgr = (IPublisherService) context.getBean("JDBC");
+              anPublisher=iPublisherMgr.getPublisherJDBC(PublisherId);
+          }
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());
@@ -56,14 +81,22 @@ public void addPublisher(Publisher anPublisher)
         return anPublisher;
     }
     
-    public void updatePublisher(Publisher anPublisher)
+    public void updatePublisher(Publisher anPublisher,String using)
     {
-        try {
-            logger.info("In Business Layer updatePublisher(Publisher anPublisher) method");
-            System.out.println("In Business Layer updatePublisher(Publisher anPublisher) method");
-            Factory factory = new Factory();            
-            IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
-            iPublisherMgr.updatePublisher(anPublisher);
+        System.out.println("In Business Layer updatePublisher(Publisher anPublisher, String using) method");
+       try {            
+            ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+            // Factory factory = new Factory();            
+           // IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
+           if(using.equals("HIBER")){
+           IPublisherService iPublisherMgr = (IPublisherService)context.getBean("HIBER");           
+           iPublisherMgr.updatePublisher(anPublisher);
+           }
+           else if(using.equals("JDBC"))
+           {
+               IPublisherService iPublisherMgr = (IPublisherService)context.getBean("JDBC");           
+               iPublisherMgr.updatePublisherJDBC(anPublisher);
+           }          
             
         } catch (ServiceLoadException ex) {
           
@@ -73,17 +106,53 @@ public void addPublisher(Publisher anPublisher)
            System.out.println(ex.getMessage()); 
             logger.error(ex.getMessage());
         }
+}     
+  
+        
+    public List<Publisher> getAllPublishers(String using)
+    {
+        List<Publisher> PublishersList = new ArrayList<>();
+        ResultSet rs=null;        
+        System.out.println("In Business Layer getAllAthors(String using) method");
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+           try {
+               if(using.equals("JDBC")){
+                IPublisherService iPublisherMgr = (IPublisherService) context.getBean("JDBC");
+               // Factory factory = new Factory();
+                //IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
+                 rs=iPublisherMgr.getAllPublishersJDBC();
+                 //convert resultset to list
+                 int i=0;
+                 while(rs.next()) {
+                     PublishersList.add(rs.getObject(i,Publisher.class));
+                     i++;
+                     }         
+               }               
+               else if(using.equals("HIBER"))
+               {
+                   IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
+                  PublishersList=iPublisherMgr.getAllPublishers();                 
+               }
+            } catch (ServiceLoadException ex) {
+              System.out.println(ex.getMessage());
+
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+                 logger.error(ex.getMessage());
+            }              
+        return PublishersList;
     }
     
-    public List<Publisher> getAllPublishers()
+    public ResultSet getAllPublishersJDBC()
     {
-        List<Publisher> PublisherList = new ArrayList<>();
+        ResultSet rs=null;
+        List<Publisher> PublishersList = new ArrayList<>();
         try {
-            logger.info("In Business Layer getAllAthors method");
-            System.out.println("In Business Layer getAllAthors method");
+            logger.info("In Business Layer getAllAthors JDBC method");
+            System.out.println("In Business Layer getAllAthors JDBC method");
             Factory factory = new Factory();
-            IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
-            PublisherList=(List<Publisher>) iPublisherMgr.getAllPublishers();
+            IPublisherServiceJDBC iPublisherMgrJDBC = (IPublisherServiceJDBC) factory.getTheService(IPublisherServiceJDBC.NAME);
+            rs=iPublisherMgrJDBC.getAllPublishersJDBC();
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());
@@ -91,21 +160,30 @@ public void addPublisher(Publisher anPublisher)
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
              logger.error(ex.getMessage());
-            
+             
         }
-        return PublisherList;
+        return rs;
     }
     
     
-    public void deletePublisher(Class<?> Publisher, int publisherId)
+    public void deletePublisher(Class<?> Publisher, int PublisherId,String using)
     {
         try {
-            logger.info("In Business Layer deletePublisher method");
-            System.out.println("In Business Layer deletePublisher method");
-            Factory factory = new Factory();
-            IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
-            iPublisherMgr.deletePublisher(Publisher, publisherId);
+            System.out.println("In Business Layer deleteAuhor method");
+            //Factory factory = new Factory();
+            //IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
+            ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
             
+            if(using.equals("HIBER"))
+            {
+            IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
+            iPublisherMgr.deletePublisher(Publisher, PublisherId);            
+            }
+            else if(using.equals("JDBC"))
+            {
+               IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
+               iPublisherMgr.deletePublisherJDBC(PublisherId);             
+            }
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());
             

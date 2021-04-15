@@ -9,11 +9,13 @@ import Domain.Publisher;
 import Service.IPublisherServiceJDBC;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Adrian
  */
+@Component("JDBC")
 public class PublisherImplementJDBC extends JDBCMainConfiguration implements IPublisherServiceJDBC {
 
     Statement statement;

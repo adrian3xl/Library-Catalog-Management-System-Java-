@@ -15,10 +15,12 @@ import Service.IPublisherService;
 import Service.IAuthorService;
 import com.mysql.cj.protocol.Resultset;
 import java.sql.ResultSet;
+import org.springframework.stereotype.Component;
 /**
  *
  * @author Adrian
  */
+@Component("HIBER")
 public class PublisherImplement extends HibernateMainConfig implements IPublisherService {
 
     @Override
@@ -147,6 +149,31 @@ public class PublisherImplement extends HibernateMainConfig implements IPublishe
                       session.flush();
                       session.close();
                      }
+    }
+
+    @Override
+    public void addPublisherJDBC(Publisher publisher) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updatePublisherJDBC(Publisher publisher) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Publisher getPublisherJDBC(int id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ResultSet getAllPublishersJDBC() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deletePublisherJDBC(int id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

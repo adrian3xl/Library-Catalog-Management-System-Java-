@@ -49,7 +49,7 @@ public class PublisherManagerTest {
         System.out.println("addPublisher");
         Publisher anPublisher = null;
         PublisherManager instance = new PublisherManager();
-        instance.addPublisher(anPublisher);
+       // instance.addPublisher(anPublisher);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -63,8 +63,8 @@ public class PublisherManagerTest {
         int PublisherId = 0;
         PublisherManager instance = new PublisherManager();
         Publisher expResult = null;
-        Publisher result = instance.getPublisher(PublisherId);
-        assertEquals(expResult, result);
+       // Publisher result = instance.getPublisher(PublisherId);
+      //  assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -77,7 +77,7 @@ public class PublisherManagerTest {
         System.out.println("updatePublisher");
         Publisher anPublisher = null;
         PublisherManager instance = new PublisherManager();
-        instance.updatePublisher(anPublisher);
+        //instance.updatePublisher(anPublisher);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -90,8 +90,8 @@ public class PublisherManagerTest {
         System.out.println("getAllPublishers");
         PublisherManager instance = new PublisherManager();
         List<Publisher> expResult = null;
-        List<Publisher> result = instance.getAllPublishers();
-        assertEquals(expResult, result);
+       // List<Publisher> result = instance.getAllPublishers();
+      //  assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -105,7 +105,7 @@ public class PublisherManagerTest {
         Class Publisher = null;
         int publisherId = 0;
         PublisherManager instance = new PublisherManager();
-        instance.deletePublisher(Publisher, publisherId);
+       // instance.deletePublisher(Publisher, publisherId);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
