@@ -40,8 +40,8 @@ public class CatalogloanrecordImplement extends HibernateMainConfig implements I
              
          }
          finally {
-                      session.flush();
-                      session.close();
+                    //  session.flush();
+                   //   session.close();
                      }      
          
          

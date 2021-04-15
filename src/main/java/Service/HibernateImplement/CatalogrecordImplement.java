@@ -38,8 +38,8 @@ public class CatalogrecordImplement extends HibernateMainConfig implements ICata
              
          }
          finally {
-                      session.flush();
-                      session.close();
+                  //    session.flush();
+                    //  session.close();
                      }      
          
          

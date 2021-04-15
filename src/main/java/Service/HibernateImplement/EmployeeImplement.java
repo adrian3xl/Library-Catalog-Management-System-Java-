@@ -39,8 +39,8 @@ public class EmployeeImplement extends HibernateMainConfig implements IEmployeeS
              
          }
          finally {
-                      session.flush();
-                      session.close();
+                 //     session.flush();
+                   //   session.close();
                      }      
          
          

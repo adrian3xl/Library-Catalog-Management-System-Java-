@@ -39,8 +39,8 @@ public class CustomerImplement extends HibernateMainConfig implements ICustomerS
              
          }
          finally {
-                      session.flush();
-                      session.close();
+                //      session.flush();
+                 //     session.close();
                      }      
          
          

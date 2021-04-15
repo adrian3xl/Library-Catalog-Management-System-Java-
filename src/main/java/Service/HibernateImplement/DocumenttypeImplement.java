@@ -40,8 +40,8 @@ public class DocumenttypeImplement extends HibernateMainConfig implements IDocum
              
          }
          finally {
-                      session.flush();
-                      session.close();
+                    //  session.flush();
+                   //   session.close();
                      }      
          
          
