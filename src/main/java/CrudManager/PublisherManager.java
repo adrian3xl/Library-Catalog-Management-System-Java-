@@ -32,11 +32,11 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
             ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
             IPublisherService iPublisherMgr=null;            
            
-            if(using.equals("JDBC")){
+            if(using.equals("JDBC1")){
                 iPublisherMgr=(IPublisherService) context.getBean("JDBC");
                 iPublisherMgr.addPublisherJDBC(anPublisher);
             }
-            else if(using.equals("HIBER"))
+            else if(using.equals("HIBER1"))
                 iPublisherMgr=(IPublisherService) context.getBean("HIBER");
                 iPublisherMgr.addPublisher(anPublisher);
             
@@ -58,12 +58,12 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
         try {            
            // Factory factory = new Factory();           
           //  IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
-          if(using.equals("HIBER")){
+          if(using.equals("HIBER1")){
               System.out.println("getting Publisher using Hibernate");
            IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
            anPublisher=iPublisherMgr.getPublisher(PublisherId);
           }
-          else if(using.equals("JDBC"))
+          else if(using.equals("JDBC1"))
           {
              System.out.println("getting Publisher using JDBC"); 
               IPublisherService iPublisherMgr = (IPublisherService) context.getBean("JDBC");
@@ -88,11 +88,11 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
             ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
             // Factory factory = new Factory();            
            // IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
-           if(using.equals("HIBER")){
+           if(using.equals("HIBER1")){
            IPublisherService iPublisherMgr = (IPublisherService)context.getBean("HIBER");           
            iPublisherMgr.updatePublisher(anPublisher);
            }
-           else if(using.equals("JDBC"))
+           else if(using.equals("JDBC1"))
            {
                IPublisherService iPublisherMgr = (IPublisherService)context.getBean("JDBC");           
                iPublisherMgr.updatePublisherJDBC(anPublisher);
@@ -116,7 +116,7 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
         System.out.println("In Business Layer getAllAthors(String using) method");
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
            try {
-               if(using.equals("JDBC")){
+               if(using.equals("JDBC1")){
                 IPublisherService iPublisherMgr = (IPublisherService) context.getBean("JDBC");
                // Factory factory = new Factory();
                 //IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
@@ -128,7 +128,7 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
                      i++;
                      }         
                }               
-               else if(using.equals("HIBER"))
+               else if(using.equals("HIBER1"))
                {
                    IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
                   PublishersList=iPublisherMgr.getAllPublishers();                 
@@ -174,12 +174,12 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
             //IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
             ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
             
-            if(using.equals("HIBER"))
+            if(using.equals("HIBER1"))
             {
             IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
             iPublisherMgr.deletePublisher(Publisher, PublisherId);            
             }
-            else if(using.equals("JDBC"))
+            else if(using.equals("JDBC1"))
             {
                IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
                iPublisherMgr.deletePublisherJDBC(PublisherId);             

@@ -25,11 +25,11 @@ public class Publisher extends Person {
     private String publishercode;
     
     
-     public Publisher(int id, String fname, String lname, String publishercode) {
+     public Publisher(String fname, String lname, String publishercode) {
         this.publishercode = publishercode;
         this.setFname(fname);
         this.setLname(lname);
-        this.setId(id);
+      //  this.setId(id);
        
     }
 

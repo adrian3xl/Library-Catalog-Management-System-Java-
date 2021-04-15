@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author KRichards
+ * @author adrian
  */
 @Component
 public interface IAuthorService extends IService {

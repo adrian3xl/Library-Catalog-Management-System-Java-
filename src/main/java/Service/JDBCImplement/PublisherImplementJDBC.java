@@ -6,17 +6,19 @@
 package Service.JDBCImplement;
 
 import Domain.Publisher;
+import Service.IPublisherService;
 import Service.IPublisherServiceJDBC;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Adrian
  */
-@Component("JDBC")
-public class PublisherImplementJDBC extends JDBCMainConfiguration implements IPublisherServiceJDBC {
+@Component("JDBC1")
+public class PublisherImplementJDBC extends JDBCMainConfiguration implements IPublisherService {
 
     Statement statement;
     
@@ -86,6 +88,31 @@ public class PublisherImplementJDBC extends JDBCMainConfiguration implements IPu
     public void deletePublisherJDBC(int publisherId) throws Exception {
      statement=this.getConnection().createStatement();
         statement.execute("Delete From publisher Where id = " + publisherId);
+    }
+
+    @Override
+    public void addPublisher(Publisher publisher) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updatePublisher(Publisher publisher) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Publisher getPublisher(int id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List getAllPublishers() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deletePublisher(Class<?> Publisher, int publisherId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

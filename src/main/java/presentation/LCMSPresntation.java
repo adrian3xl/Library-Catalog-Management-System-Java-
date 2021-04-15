@@ -1459,7 +1459,7 @@ public class LCMSPresntation {
             System.out.println("Enter Publisher Code: ");
             anPublisher.setPublishercode(aScanner.nextLine());
             
-          PublisherORM.addPublisher(anPublisher,"HIBER");
+          PublisherORM.addPublisher(anPublisher,"HIBER1");
             System.out.println("Publisher Added Using ORM");
             
         }
@@ -1481,7 +1481,7 @@ public class LCMSPresntation {
             System.out.println("Enter Publisher Code: ");
             anPublisher.setPublishercode(aScanner.nextLine());
             
-            PublisherORM.updatePublisher(anPublisher,"HIBER");
+            PublisherORM.updatePublisher(anPublisher,"HIBER1");
             System.out.println("Publisher updated Using ORM");
         }
         else if(ORMChoice==3)
@@ -1490,7 +1490,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-             Publisher.deletePublisher(Publisher.class,aScanner.nextInt(),"HIBER");
+             Publisher.deletePublisher(Publisher.class,aScanner.nextInt(),"HIBER1");
             System.out.println(" Publisher deleted using ORM");
         }
         else if(ORMChoice==4)
@@ -1501,7 +1501,7 @@ public class LCMSPresntation {
             
             System.out.println("Enter ID: ");
             int id = aScanner.nextInt();
-            anPublisher = PublisherORM.getPublisher(id,"HIBER");
+            anPublisher = PublisherORM.getPublisher(id,"HIBER1");
             
             //Runtime.getRuntime().exec("cls");
             
@@ -1518,7 +1518,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System.in);
             
             
-           publishers = (List<Publisher>)PublisherORM.getAllPublishers("HIBER");
+           publishers = (List<Publisher>)PublisherORM.getAllPublishers("HIBER1");
             
            // Runtime.getRuntime().exec("cls");
             

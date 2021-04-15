@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
  *
  * @author Adrian
  */
-@Component("HIBER")
+@Component("HIBER1")
 public class PublisherImplement extends HibernateMainConfig implements IPublisherService {
 
     @Override
