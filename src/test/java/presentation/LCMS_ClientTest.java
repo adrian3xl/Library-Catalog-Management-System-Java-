@@ -18,6 +18,7 @@ import org.junit.Ignore;
  *
  * @author Adrian
  */
+@Ignore
 public class LCMS_ClientTest {
     
     public LCMS_ClientTest() {

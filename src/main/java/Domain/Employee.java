@@ -31,7 +31,7 @@ public class Employee extends Person {
      @Column(name="employeecode")
     private String employeecode;
      @Column(name="password")
-    private String password;
+     private String password;
 
      
       @OneToMany(fetch = FetchType.LAZY,mappedBy = "employee", cascade = CascadeType.ALL)

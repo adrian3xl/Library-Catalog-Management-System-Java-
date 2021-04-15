@@ -47,8 +47,8 @@ public class AuthorImplement extends HibernateMainConfig implements IAuthorServi
              
          }
          finally {
-                      session.flush();
-                      session.close();
+                     // session.flush();
+                     // session.close();
                      }      
          
          

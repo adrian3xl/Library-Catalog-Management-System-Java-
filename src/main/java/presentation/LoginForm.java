@@ -9,8 +9,13 @@ import CrudManager.EmployeeManager;
 import Domain.Employee;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +23,10 @@ import java.util.logging.Logger;
  */
 public class LoginForm extends javax.swing.JFrame {
 
+    
+          Connection con;
+          Statement stmt;
+   
     private EmployeeManager EmployeeMgr;  
     /**
      * Creates new form LoginForm
@@ -135,44 +144,38 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void loginbt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbt2ActionPerformed
     
-         Employee employee=new Employee();
+       
+        Employee employee=new Employee();
         
-        try
-                    {    
-                            String employeecode=id_tb.getText().trim();
-                            String password=password_tb.getText().trim();
-                         
-                          
-                        if(!employee.getEmployeecode().equals("")&&!employee.getPassword().equals(""))
-                        {
-
-                           EmployeeMgr=new EmployeeManager();
-                           Boolean exist = EmployeeMgr.validateEmpCodeAndPwd(employee);
-                                                      
-                           if(exist==true)
-                           {
+          try {
+            String employeecode=id_tb.getText();
+            String password=password_tb.getText();
+            int i=0;
+            ResultSet rs=stmt.executeQuery("Select * from employee");
+            while(rs.next()){
+                if(employeecode.equals(rs.getString("employeecode"))&&(password.equals(rs.getString("password")))){
+                    i=1;
+                if("employeecode".equals(employeecode)){
+                             
                                 MainMenuForm main = new MainMenuForm();
                                 main.setVisible(true);
                                 this.validate();
                                 this.repaint();
-
-                               
-                           }
-                           else if(exist==false)
-                           {
-                            
-                           }
-                                   
-                        }
-                       
-                    
-                    }
-                    catch(ClassCastException ex)
-                    {
-                        ex.printStackTrace();
-                    } catch (Exception ex) {
-                    Logger.getLogger(LCMS_Server.class.getName()).log(Level.SEVERE, null, ex);
+                }else{
+                //
                 }
+                }
+            }
+            if(i==0){
+            JOptionPane.showMessageDialog(rootPane, "No Such UserName or Password Found", "User Not Found", JOptionPane.ERROR_MESSAGE);
+            }
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+          JOptionPane.showMessageDialog(rootPane, ex, null, JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
     }//GEN-LAST:event_loginbt2ActionPerformed
 
     /**
