@@ -182,29 +182,7 @@ public class LoginForm extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(rootPane, ex, null, JOptionPane.ERROR_MESSAGE);
             }
            
-          //  while(rs.next()){
-              //  if(employeecode.equals(rs.getString("employeecode"))&&(password.equals(rs.getString("password")))){
-                //    i=1;
-             //   if("employeecode".equals(employeecode)){
-                             
-                              //  MainMenuForm main = new MainMenuForm();
-                          //      main.setVisible(true);
-                          //      this.validate();
-                             //   this.repaint();
-          //      }
-             //   else{
-                //
-               
-              //  }
-                //}
-           // }
-          //  if(i==0){
-         //   JOptionPane.showMessageDialog(rootPane, "No Such UserName or Password Found", "User Not Found", JOptionPane.ERROR_MESSAGE);
-        //    }
-            // TODO add your handling code here:
-    //    } catch (SQLException ex) {
-     //     JOptionPane.showMessageDialog(rootPane, ex, null, JOptionPane.ERROR_MESSAGE);
-       
+        
     
         
         
