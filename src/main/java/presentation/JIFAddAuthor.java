@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import static presentation.LCMSPresntation.logger;
 
 /**
  *
@@ -117,6 +118,11 @@ table Author=new table();
         });
 
         del_bt.setText("Delete");
+        del_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                del_btActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Search");
@@ -307,6 +313,31 @@ table Author=new table();
                   ex.printStackTrace();
                 }
     }//GEN-LAST:event_update_btActionPerformed
+
+    private void del_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_del_btActionPerformed
+          if(idj.getText()=="")
+      {
+          JOptionPane.showMessageDialog(rootPane, "No Author Id selected", "", JOptionPane.INFORMATION_MESSAGE);
+      }
+      else if(idj.getText()!="")
+      {
+          try{
+              int authorId=Integer.parseInt(idj.getText());
+              AuthorManager authoMgr=new AuthorManager();
+              authoMgr.deleteAuthor(Author.class, authorId,"HIBER");
+               JOptionPane.showMessageDialog(rootPane, "Author Deleted", "", JOptionPane.INFORMATION_MESSAGE);
+              
+               author_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Author Code"}));
+               Author.fillAuthorJtable(author_table,"");
+             
+          }
+          catch(Exception ex)
+          {
+              ex.printStackTrace();
+               logger.error(ex.getMessage());
+          }
+      }
+    }//GEN-LAST:event_del_btActionPerformed
 
    
     
