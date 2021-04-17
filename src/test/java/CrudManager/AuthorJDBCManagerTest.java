@@ -47,7 +47,7 @@ public class AuthorJDBCManagerTest {
     @Test
     public void testAddAuthorJDBC() {
         System.out.println("addAuthorJDBC");
-        Author anAuthor = new Author("Adrian","Peterson","AP1");
+        Author anAuthor = new Author(0,"Adrian","Peterson","AP1");
         AuthorJDBCManager instance = new AuthorJDBCManager();
         instance.addAuthorJDBC(anAuthor);
         // TODO review the generated test code and remove the default call to fail.
@@ -62,7 +62,7 @@ public class AuthorJDBCManagerTest {
         System.out.println("getAuthorJDBC");
         int authorId = 1;
         AuthorJDBCManager instance = new AuthorJDBCManager();
-        Author expResult = new Author("Adrian","Bailey","AB1");
+        Author expResult = new Author(0,"Adrian","Bailey","AB1");
         Author result = instance.getAuthorJDBC(authorId);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -76,7 +76,7 @@ public class AuthorJDBCManagerTest {
     public void testUpdateAuthorJDBC() {
         System.out.println("updateAuthorJDBC");
         
-        Author anAuthor =new Author("Adrian","Bailey","AB1");
+        Author anAuthor =new Author(0,"Adrian","Bailey","AB1");
         AuthorJDBCManager instance = new AuthorJDBCManager();
         instance.updateAuthorJDBC(anAuthor);
         // TODO review the generated test code and remove the default call to fail.

@@ -53,7 +53,7 @@ table Author=new table();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jdp1 = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -62,13 +62,13 @@ table Author=new table();
         lastnameJtf2 = new javax.swing.JTextField();
         authcodJtf1 = new javax.swing.JTextField();
         createjButton1 = new javax.swing.JButton();
-        idj = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         author_table = new javax.swing.JTable();
         update_bt = new javax.swing.JButton();
         del_bt = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         findVal_box = new javax.swing.JTextField();
+        idj = new javax.swing.JTextField();
 
         setClosable(true);
 
@@ -93,8 +93,6 @@ table Author=new table();
                 createjButton1ActionPerformed(evt);
             }
         });
-
-        idj.setText(".");
 
         author_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,95 +133,95 @@ table Author=new table();
             }
         });
 
-        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(firstnameJtf1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(lastnameJtf2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(authcodJtf1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(createjButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(idj, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(update_bt, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(del_bt, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(findVal_box, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        idj.setText(" ");
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        jdp1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(firstnameJtf1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(lastnameJtf2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(authcodJtf1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(createjButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(update_bt, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(del_bt, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(findVal_box, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdp1.setLayer(idj, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jdp1Layout = new javax.swing.GroupLayout(jdp1);
+        jdp1.setLayout(jdp1Layout);
+        jdp1Layout.setHorizontalGroup(
+            jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdp1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
+                .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdp1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdp1Layout.createSequentialGroup()
+                        .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jdp1Layout.createSequentialGroup()
+                                .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel3))
                                     .addComponent(jLabel4))
                                 .addGap(37, 37, 37)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(firstnameJtf1)
                                     .addComponent(lastnameJtf2)
                                     .addComponent(authcodJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                            .addGroup(jdp1Layout.createSequentialGroup()
                                 .addComponent(createjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(update_bt)
                                 .addGap(18, 18, 18)
-                                .addComponent(del_bt)))
+                                .addComponent(del_bt))
+                            .addGroup(jdp1Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdp1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
                                 .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18))))))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(idj)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1)
-                                .addGap(26, 26, 26)))
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jdp1Layout.setVerticalGroup(
+            jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdp1Layout.createSequentialGroup()
+                .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdp1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(firstnameJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(lastnameJtf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(43, 43, 43)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(authcodJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(41, 41, 41)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(createjButton1)
                             .addComponent(update_bt)
                             .addComponent(del_bt))
-                        .addGap(0, 187, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(0, 181, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdp1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
@@ -235,11 +233,11 @@ table Author=new table();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jdp1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jdp1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -247,13 +245,13 @@ table Author=new table();
 
     private void createjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createjButton1ActionPerformed
          
-       
+              int id=Integer.parseInt(idj.getText().trim());
         String fname=firstnameJtf1.getText().trim();
         String lname=lastnameJtf2.getText().trim();
        
         String authorcode=authcodJtf1.getText().trim();
         
-        Author anAuthor=new Author(fname,lname,authorcode);
+        Author anAuthor=new Author(id,fname,lname,authorcode);
       
         AuthorManager authorMgr = new AuthorManager();
         authorMgr.addAuthor(anAuthor,"HIBER");
@@ -266,7 +264,7 @@ table Author=new table();
     private void author_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_author_tableMouseClicked
         int rowIndex= author_table.getSelectedRow();
         DefaultTableModel model=(DefaultTableModel)author_table.getModel();
- 
+ idj.setText(model.getValueAt(rowIndex, 0).toString());
  firstnameJtf1.setText(model.getValueAt(rowIndex, 1).toString());
   lastnameJtf2.setText(model.getValueAt(rowIndex, 2).toString()); 
   authcodJtf1.setText(model.getValueAt(rowIndex, 3).toString());
@@ -289,7 +287,25 @@ table Author=new table();
     }//GEN-LAST:event_findVal_boxKeyPressed
 
     private void update_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_btActionPerformed
-        // TODO add your handling code here:
+       
+        try{
+        Author theAuthor=new Author();
+       theAuthor.setId(Integer.parseInt(idj.getText()));
+        theAuthor.setFname(firstnameJtf1.getText());
+        theAuthor.setLname(lastnameJtf2.getText());
+        theAuthor.setAuthorcode(authcodJtf1.getText());
+        
+               
+        AuthorManager authMgr=new AuthorManager();
+        authMgr.updateAuthor(theAuthor,"HIBER");
+        
+        author_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Author Code"}));
+         Author.fillAuthorJtable(author_table,"");
+        }
+        catch(Exception ex)
+                {
+                  ex.printStackTrace();
+                }
     }//GEN-LAST:event_update_btActionPerformed
 
    
@@ -303,14 +319,14 @@ table Author=new table();
     private javax.swing.JButton del_bt;
     private javax.swing.JTextField findVal_box;
     private javax.swing.JTextField firstnameJtf1;
-    private javax.swing.JLabel idj;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JTextField idj;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JDesktopPane jdp1;
     private javax.swing.JTextField lastnameJtf2;
     private javax.swing.JButton update_bt;
     // End of variables declaration//GEN-END:variables
