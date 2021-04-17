@@ -30,7 +30,7 @@ public class table extends JDBCMainConfiguration {
               try {
                   Connection con=getConnection();
                  PreparedStatement ps=con.prepareStatement(SelectAll);
-                    ps.setString(1,"%"+valueToSearch);
+                    ps.setString(1,"%"+valueToSearch+"%");
                     
                     
                     

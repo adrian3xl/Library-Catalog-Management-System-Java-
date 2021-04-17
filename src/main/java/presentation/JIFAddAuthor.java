@@ -67,6 +67,8 @@ table Author=new table();
         author_table = new javax.swing.JTable();
         update_bt = new javax.swing.JButton();
         del_bt = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        findVal_box = new javax.swing.JTextField();
 
         setClosable(true);
 
@@ -110,8 +112,28 @@ table Author=new table();
         jScrollPane1.setViewportView(author_table);
 
         update_bt.setText("Update");
+        update_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_btActionPerformed(evt);
+            }
+        });
 
         del_bt.setText("Delete");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Search");
+
+        findVal_box.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                findVal_boxKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                findVal_boxKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                findVal_boxKeyTyped(evt);
+            }
+        });
 
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -125,6 +147,8 @@ table Author=new table();
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(update_bt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(del_bt, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(findVal_box, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -134,29 +158,37 @@ table Author=new table();
                 .addContainerGap()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel4))
-                        .addGap(37, 37, 37)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(firstnameJtf1)
-                            .addComponent(lastnameJtf2)
-                            .addComponent(authcodJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel1))
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(createjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(update_bt)
-                        .addGap(18, 18, 18)
-                        .addComponent(del_bt)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel3))
+                                    .addComponent(jLabel4))
+                                .addGap(37, 37, 37)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(firstnameJtf1)
+                                    .addComponent(lastnameJtf2)
+                                    .addComponent(authcodJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(createjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(update_bt)
+                                .addGap(18, 18, 18)
+                                .addComponent(del_bt)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))))))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,11 +219,16 @@ table Author=new table();
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(createjButton1)
                             .addComponent(update_bt)
-                            .addComponent(del_bt)))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap()
+                            .addComponent(del_bt))
+                        .addGap(0, 187, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,6 +258,9 @@ table Author=new table();
         AuthorManager authorMgr = new AuthorManager();
         authorMgr.addAuthor(anAuthor,"HIBER");
          JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
+         
+         author_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Author Code"}));
+         Author.fillAuthorJtable(author_table,"");
     }//GEN-LAST:event_createjButton1ActionPerformed
 
     private void author_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_author_tableMouseClicked
@@ -232,15 +272,36 @@ table Author=new table();
   authcodJtf1.setText(model.getValueAt(rowIndex, 3).toString());
     }//GEN-LAST:event_author_tableMouseClicked
 
+    private void findVal_boxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyTyped
+        
+        author_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Author Code"}));
+       Author.fillAuthorJtable(author_table, findVal_box.getText());
+    }//GEN-LAST:event_findVal_boxKeyTyped
+
+    private void findVal_boxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyReleased
+       author_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Author Code"}));
+       Author.fillAuthorJtable(author_table, findVal_box.getText().trim());
+    }//GEN-LAST:event_findVal_boxKeyReleased
+
+    private void findVal_boxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyPressed
+        author_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Author Code"}));
+        Author.fillAuthorJtable(author_table, findVal_box.getText());
+    }//GEN-LAST:event_findVal_boxKeyPressed
+
+    private void update_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_btActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_update_btActionPerformed
+
    
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField authcodJtf1;
-    private javax.swing.JTable author_table;
+    public static javax.swing.JTable author_table;
     private javax.swing.JButton createjButton1;
     private javax.swing.JButton del_bt;
+    private javax.swing.JTextField findVal_box;
     private javax.swing.JTextField firstnameJtf1;
     private javax.swing.JLabel idj;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -248,6 +309,7 @@ table Author=new table();
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lastnameJtf2;
     private javax.swing.JButton update_bt;

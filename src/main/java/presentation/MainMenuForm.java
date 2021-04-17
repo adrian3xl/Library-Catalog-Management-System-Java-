@@ -31,11 +31,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         jdp1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        viewItem = new javax.swing.JMenuItem();
         AddItem = new javax.swing.JMenuItem();
-        updateItem = new javax.swing.JMenuItem();
-        deleteItem = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         addpub_tb = new javax.swing.JMenuItem();
@@ -86,41 +82,18 @@ public class MainMenuForm extends javax.swing.JFrame {
         );
         jdp1Layout.setVerticalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 576, Short.MAX_VALUE)
+            .addGap(0, 592, Short.MAX_VALUE)
         );
 
         jMenu3.setText("Manage Records");
 
-        jMenu1.setText("Manage Authors");
-
-        viewItem.setText("View");
-        viewItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewItemActionPerformed(evt);
-            }
-        });
-        jMenu1.add(viewItem);
-
-        AddItem.setText("Add");
+        AddItem.setText("Manage Authors");
         AddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddItemActionPerformed(evt);
             }
         });
-        jMenu1.add(AddItem);
-
-        updateItem.setText("Update");
-        jMenu1.add(updateItem);
-
-        deleteItem.setText("Delete");
-        deleteItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteItemActionPerformed(evt);
-            }
-        });
-        jMenu1.add(deleteItem);
-
-        jMenu3.add(jMenu1);
+        jMenu3.add(AddItem);
 
         jMenu9.setText("Manage Publishers");
 
@@ -352,15 +325,6 @@ public class MainMenuForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewItemActionPerformed
-     TblForm tblForm=new TblForm();    
-       tblForm.setVisible(true);
-       tblForm.viewTable("author");
-       jdp1.add(tblForm);
-       this.validate();
-       this.repaint();
-    }//GEN-LAST:event_viewItemActionPerformed
-
     private void AddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddItemActionPerformed
         JIFAddAuthor addAuthInterface = new JIFAddAuthor();
 
@@ -373,10 +337,6 @@ public class MainMenuForm extends javax.swing.JFrame {
         this.repaint();
 
     }//GEN-LAST:event_AddItemActionPerformed
-
-    private void deleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteItemActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -541,9 +501,7 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem addloan_tb;
     private javax.swing.JMenuItem addpub_tb;
     private javax.swing.JMenu ddoctype;
-    private javax.swing.JMenuItem deleteItem;
     private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -575,8 +533,6 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JDesktopPane jdp1;
-    private javax.swing.JMenuItem updateItem;
-    private javax.swing.JMenuItem viewItem;
     private javax.swing.JMenu viewemp_tb;
     // End of variables declaration//GEN-END:variables
 }
