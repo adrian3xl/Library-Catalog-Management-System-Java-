@@ -65,13 +65,13 @@ table Author=new table();
         idj = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         author_table = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        update_bt = new javax.swing.JButton();
+        del_bt = new javax.swing.JButton();
 
         setClosable(true);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Add Author");
+        jLabel1.setText("Manage Author");
 
         jLabel2.setText("First Name");
 
@@ -99,14 +99,19 @@ table Author=new table();
 
             },
             new String [] {
-                "id", "First Nanme", "Last Name", "Author Code"
+                "id", "First Name", "Last Name", "Author Code"
             }
         ));
+        author_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                author_tableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(author_table);
 
-        jButton1.setText("jButton1");
+        update_bt.setText("Update");
 
-        jButton2.setText("Delete");
+        del_bt.setText("Delete");
 
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -118,8 +123,8 @@ table Author=new table();
         jDesktopPane1.setLayer(createjButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(idj, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(update_bt, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(del_bt, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -146,10 +151,10 @@ table Author=new table();
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(createjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(update_bt)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                        .addComponent(del_bt)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -181,12 +186,12 @@ table Author=new table();
                         .addGap(41, 41, 41)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(createjButton1)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)))
+                            .addComponent(update_bt)
+                            .addComponent(del_bt)))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,6 +223,15 @@ table Author=new table();
          JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_createjButton1ActionPerformed
 
+    private void author_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_author_tableMouseClicked
+        int rowIndex= author_table.getSelectedRow();
+        DefaultTableModel model=(DefaultTableModel)author_table.getModel();
+ 
+ firstnameJtf1.setText(model.getValueAt(rowIndex, 1).toString());
+  lastnameJtf2.setText(model.getValueAt(rowIndex, 2).toString()); 
+  authcodJtf1.setText(model.getValueAt(rowIndex, 3).toString());
+    }//GEN-LAST:event_author_tableMouseClicked
+
    
     
     
@@ -226,10 +240,9 @@ table Author=new table();
     private javax.swing.JTextField authcodJtf1;
     private javax.swing.JTable author_table;
     private javax.swing.JButton createjButton1;
+    private javax.swing.JButton del_bt;
     private javax.swing.JTextField firstnameJtf1;
     private javax.swing.JLabel idj;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -237,5 +250,6 @@ table Author=new table();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lastnameJtf2;
+    private javax.swing.JButton update_bt;
     // End of variables declaration//GEN-END:variables
 }
