@@ -60,4 +60,256 @@ public class table extends JDBCMainConfiguration {
     
     }
     
+    public void fillPublisherJTable (JTable table,String valueToSearch){
+     String SelectAll=("SELECT * FROM publisher WHERE CONCAT(`firstname`,`lastname`,`publishercode`)LIKE ?");
+    
+           
+              
+              try {
+                  Connection con=getConnection();
+                 PreparedStatement ps=con.prepareStatement(SelectAll);
+                    ps.setString(1,"%"+valueToSearch+"%");
+                    
+                    
+                    
+                       ResultSet rs=ps.executeQuery();
+                       DefaultTableModel model=(DefaultTableModel)table.getModel();
+                       
+                       Object[] row;
+                       
+                       while(rs.next()){
+                       
+                       row= new Object[4];
+                       
+                       row[0]=rs.getInt(1);
+                        row[1]=rs.getString(2);
+                       row[2]=rs.getString(3);
+                       row[3]=rs.getString(4);
+                       
+                       model.addRow(row);
+                       }
+                       
+              } catch (SQLException ex) {
+                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+    }
+    
+    
+    public void fillGenreJTable (JTable table,String valueToSearch){
+     String SelectAll=("SELECT * FROM genre WHERE CONCAT(`name`)LIKE ?");
+    
+           
+              
+              try {
+                  Connection con=getConnection();
+                 PreparedStatement ps=con.prepareStatement(SelectAll);
+                    ps.setString(1,"%"+valueToSearch+"%");
+                    
+                    
+                    
+                       ResultSet rs=ps.executeQuery();
+                       DefaultTableModel model=(DefaultTableModel)table.getModel();
+                       
+                       Object[] row;
+                       
+                       while(rs.next()){
+                       
+                       row= new Object[2];
+                       
+                       row[0]=rs.getInt(1);
+                        row[1]=rs.getString(2);        
+                       model.addRow(row);
+                       }
+                       
+              } catch (SQLException ex) {
+                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+    }
+    
+            
+            
+            
+            public void fillDocTypeJTable (JTable table,String valueToSearch){
+     String SelectAll=("SELECT * FROM documenttype WHERE CONCAT(`name`)LIKE ?");
+    
+           
+              
+              try {
+                  Connection con=getConnection();
+                 PreparedStatement ps=con.prepareStatement(SelectAll);
+                    ps.setString(1,"%"+valueToSearch+"%");
+                    
+                    
+                    
+                       ResultSet rs=ps.executeQuery();
+                       DefaultTableModel model=(DefaultTableModel)table.getModel();
+                       
+                       Object[] row;
+                       
+                       while(rs.next()){
+                       
+                       row= new Object[2];
+                       
+                       row[0]=rs.getInt(1);
+                        row[1]=rs.getString(2);        
+                       model.addRow(row);
+                       }
+                       
+              } catch (SQLException ex) {
+                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+    }
+                    
+            public void fillCustomerJTable (JTable table,String valueToSearch){
+     String SelectAll=("SELECT * FROM customer WHERE CONCAT(`firstname`,`lastname`,`phonenumber`,`address`,`customercode`)LIKE ?");
+    
+           
+              
+              try {
+                  Connection con=getConnection();
+                 PreparedStatement ps=con.prepareStatement(SelectAll);
+                    ps.setString(1,"%"+valueToSearch+"%");
+                    
+                    
+                    
+                       ResultSet rs=ps.executeQuery();
+                       DefaultTableModel model=(DefaultTableModel)table.getModel();
+                       
+                       Object[] row;
+                       
+                       while(rs.next()){
+                       
+                       row= new Object[6];
+                       
+                       row[0]=rs.getInt(1);
+                        row[1]=rs.getString(2);
+                       row[2]=rs.getString(3);
+                       row[3]=rs.getString(4);
+                        row[4]=rs.getString(5);
+                         row[5]=rs.getString(6);
+                       model.addRow(row);
+                       }
+                       
+              } catch (SQLException ex) {
+                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+    }
+      
+                    
+            public void fillEmployeeJTable  (JTable table,String valueToSearch){
+     String SelectAll=("SELECT * FROM employee WHERE CONCAT(`firstname`,`lastname`,`jobtitle`,`employeecode`,`password`)LIKE ?");
+    
+           
+              
+              try {
+                  Connection con=getConnection();
+                 PreparedStatement ps=con.prepareStatement(SelectAll);
+                    ps.setString(1,"%"+valueToSearch+"%");
+                    
+                    
+                    
+                       ResultSet rs=ps.executeQuery();
+                       DefaultTableModel model=(DefaultTableModel)table.getModel();
+                       
+                       Object[] row;
+                       
+                       while(rs.next()){
+                       
+                       row= new Object[6];
+                       
+                       row[0]=rs.getInt(1);
+                        row[1]=rs.getString(2);
+                       row[2]=rs.getString(3);
+                       row[3]=rs.getString(4);
+                        row[4]=rs.getString(5);
+                         row[5]=rs.getString(6);
+                       model.addRow(row);
+                       }
+                       
+              } catch (SQLException ex) {
+                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+    }
+                   
+        public void fillCatalogRecordJTable (JTable table,String valueToSearch){
+     String SelectAll=("SELECT * FROM catalogRecord WHERE CONCAT(`title`,`genre_id`,`documenttype_id`,`author_id`,`publisher_id`,`datereleased`,`condition`)LIKE ?");
+    
+           
+              
+              try {
+                  Connection con=getConnection();
+                 PreparedStatement ps=con.prepareStatement(SelectAll);
+                    ps.setString(1,"%"+valueToSearch+"%");
+                    
+                    
+                    
+                       ResultSet rs=ps.executeQuery();
+                       DefaultTableModel model=(DefaultTableModel)table.getModel();
+                       
+                       Object[] row;
+                       
+                       while(rs.next()){
+                       
+                       row= new Object[7];
+                       
+                       row[0]=rs.getInt(1);
+                        row[1]=rs.getString(2);
+                       row[2]=rs.getString(3);
+                       row[3]=rs.getString(4);
+                        row[4]=rs.getString(5);
+                         row[5]=rs.getString(6);
+                          row[6]=rs.getString(7); 
+                            row[7]=rs.getString(8);
+                       model.addRow(row);
+                       }
+                       
+              } catch (SQLException ex) {
+                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+    }
+                            
+       public void fillCatalogloanJTable (JTable table,String valueToSearch){
+     String SelectAll=("SELECT * FROM catalogloan WHERE CONCAT(`catalogRecord_id`,`Customer_id`,`loandate`,`recieveddate`,`loancode`,`employee_id`)LIKE ?");
+    
+           
+              
+              try {
+                  Connection con=getConnection();
+                 PreparedStatement ps=con.prepareStatement(SelectAll);
+                    ps.setString(1,"%"+valueToSearch+"%");
+                    
+                    
+                    
+                       ResultSet rs=ps.executeQuery();
+                       DefaultTableModel model=(DefaultTableModel)table.getModel();
+                       
+                       Object[] row;
+                       
+                       while(rs.next()){
+                       
+                       row= new Object[7];
+                       
+                       row[0]=rs.getInt(1);
+                        row[1]=rs.getString(2);
+                       row[2]=rs.getString(3);
+                       row[3]=rs.getString(4);
+                        row[4]=rs.getString(5);
+                         row[5]=rs.getString(6);
+                         row[6]=rs.getString(7);
+                       model.addRow(row);
+                       }
+                       
+              } catch (SQLException ex) {
+                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+    }
+                    
 }
+
