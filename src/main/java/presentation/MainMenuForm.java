@@ -51,15 +51,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         jMenuItem24 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
-        jMenuItem29 = new javax.swing.JMenuItem();
-        addcustomer_tb = new javax.swing.JMenuItem();
-        jMenuItem31 = new javax.swing.JMenuItem();
-        jMenuItem32 = new javax.swing.JMenuItem();
-        viewemp_tb = new javax.swing.JMenu();
-        jMenuItem25 = new javax.swing.JMenuItem();
-        jMenuItem27 = new javax.swing.JMenuItem();
-        jMenuItem28 = new javax.swing.JMenuItem();
+        customer_tb = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,7 +66,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         );
         jdp1Layout.setVerticalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 636, Short.MAX_VALUE)
+            .addGap(0, 652, Short.MAX_VALUE)
         );
 
         jMenu3.setText("Manage Records");
@@ -196,49 +188,13 @@ public class MainMenuForm extends javax.swing.JFrame {
 
         jMenu8.setText("Manage Stakeholders");
 
-        jMenu12.setText("Manage Customers");
-
-        jMenuItem29.setText("View");
-        jMenu12.add(jMenuItem29);
-
-        addcustomer_tb.setText("Add");
-        addcustomer_tb.addActionListener(new java.awt.event.ActionListener() {
+        customer_tb.setText("Manage Customers");
+        customer_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addcustomer_tbActionPerformed(evt);
+                customer_tbActionPerformed(evt);
             }
         });
-        jMenu12.add(addcustomer_tb);
-
-        jMenuItem31.setText("Update");
-        jMenu12.add(jMenuItem31);
-
-        jMenuItem32.setText("Delete");
-        jMenuItem32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem32ActionPerformed(evt);
-            }
-        });
-        jMenu12.add(jMenuItem32);
-
-        jMenu8.add(jMenu12);
-
-        viewemp_tb.setText("Manage Employees");
-
-        jMenuItem25.setText("View");
-        viewemp_tb.add(jMenuItem25);
-
-        jMenuItem27.setText("Update");
-        viewemp_tb.add(jMenuItem27);
-
-        jMenuItem28.setText("Delete");
-        jMenuItem28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem28ActionPerformed(evt);
-            }
-        });
-        viewemp_tb.add(jMenuItem28);
-
-        jMenu8.add(viewemp_tb);
+        jMenu8.add(customer_tb);
 
         jMenuBar1.add(jMenu8);
 
@@ -354,14 +310,6 @@ public class MainMenuForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem21ActionPerformed
 
-    private void jMenuItem32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem32ActionPerformed
-
-    private void jMenuItem28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem28ActionPerformed
-
     private void addloan_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addloan_tbActionPerformed
         
           JIFManageCatalogloan addCatalogloanInterface = new JIFManageCatalogloan();
@@ -375,7 +323,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_addloan_tbActionPerformed
 
-    private void addcustomer_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addcustomer_tbActionPerformed
+    private void customer_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_tbActionPerformed
        JIFManageCustomer addCustomerInterface = new JIFManageCustomer();
 
         addCustomerInterface.setVisible(true);
@@ -385,7 +333,7 @@ public class MainMenuForm extends javax.swing.JFrame {
 
         this.validate();
         this.repaint();
-    }//GEN-LAST:event_addcustomer_tbActionPerformed
+    }//GEN-LAST:event_customer_tbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -424,14 +372,13 @@ public class MainMenuForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addcatrec_tb;
-    private javax.swing.JMenuItem addcustomer_tb;
     private javax.swing.JMenuItem addloan_tb;
     private javax.swing.JMenuItem author_tb;
+    private javax.swing.JMenuItem customer_tb;
     private javax.swing.JMenu ddoctype;
     private javax.swing.JMenuItem doctype_tb;
     private javax.swing.JMenuItem genre_tb;
     private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu6;
@@ -447,14 +394,7 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem21;
     private javax.swing.JMenuItem jMenuItem23;
     private javax.swing.JMenuItem jMenuItem24;
-    private javax.swing.JMenuItem jMenuItem25;
-    private javax.swing.JMenuItem jMenuItem27;
-    private javax.swing.JMenuItem jMenuItem28;
-    private javax.swing.JMenuItem jMenuItem29;
-    private javax.swing.JMenuItem jMenuItem31;
-    private javax.swing.JMenuItem jMenuItem32;
     private javax.swing.JDesktopPane jdp1;
     private javax.swing.JMenuItem pub_tb;
-    private javax.swing.JMenu viewemp_tb;
     // End of variables declaration//GEN-END:variables
 }
