@@ -33,11 +33,11 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
             IPublisherService iPublisherMgr=null;            
            
             if(using.equals("JDBC1")){
-                iPublisherMgr=(IPublisherService) context.getBean("JDBC");
+                iPublisherMgr=(IPublisherService) context.getBean("JDBC1");
                 iPublisherMgr.addPublisherJDBC(anPublisher);
             }
             else if(using.equals("HIBER1"))
-                iPublisherMgr=(IPublisherService) context.getBean("HIBER");
+                iPublisherMgr=(IPublisherService) context.getBean("HIBER1");
                 iPublisherMgr.addPublisher(anPublisher);
             
         } catch (ServiceLoadException ex) {
@@ -66,7 +66,7 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
           else if(using.equals("JDBC1"))
           {
              System.out.println("getting Publisher using JDBC"); 
-              IPublisherService iPublisherMgr = (IPublisherService) context.getBean("JDBC");
+              IPublisherService iPublisherMgr = (IPublisherService) context.getBean("JDBC1");
               anPublisher=iPublisherMgr.getPublisherJDBC(PublisherId);
           }
             
@@ -89,12 +89,12 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
             // Factory factory = new Factory();            
            // IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
            if(using.equals("HIBER1")){
-           IPublisherService iPublisherMgr = (IPublisherService)context.getBean("HIBER");           
+           IPublisherService iPublisherMgr = (IPublisherService)context.getBean("HIBER1");           
            iPublisherMgr.updatePublisher(anPublisher);
            }
            else if(using.equals("JDBC1"))
            {
-               IPublisherService iPublisherMgr = (IPublisherService)context.getBean("JDBC");           
+               IPublisherService iPublisherMgr = (IPublisherService)context.getBean("JDBC1");           
                iPublisherMgr.updatePublisherJDBC(anPublisher);
            }          
             
@@ -117,7 +117,7 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
            try {
                if(using.equals("JDBC1")){
-                IPublisherService iPublisherMgr = (IPublisherService) context.getBean("JDBC");
+                IPublisherService iPublisherMgr = (IPublisherService) context.getBean("JDBC1");
                // Factory factory = new Factory();
                 //IPublisherService iPublisherMgr = (IPublisherService) factory.getTheService(IPublisherService.NAME);
                  rs=iPublisherMgr.getAllPublishersJDBC();
@@ -130,7 +130,7 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
                }               
                else if(using.equals("HIBER1"))
                {
-                   IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
+                   IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER1");
                   PublishersList=iPublisherMgr.getAllPublishers();                 
                }
             } catch (ServiceLoadException ex) {
@@ -176,12 +176,12 @@ ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig
             
             if(using.equals("HIBER1"))
             {
-            IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
+            IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER1");
             iPublisherMgr.deletePublisher(Publisher, PublisherId);            
             }
             else if(using.equals("JDBC1"))
             {
-               IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER");
+               IPublisherService iPublisherMgr = (IPublisherService) context.getBean("HIBER1");
                iPublisherMgr.deletePublisherJDBC(PublisherId);             
             }
         } catch (ServiceLoadException ex) {

@@ -23,7 +23,7 @@ public class table extends JDBCMainConfiguration {
     
     
     public void fillAuthorJtable(JTable table,String valueToSearch){
-     String SelectAll=("SELECT * FROM author WHERE CONCAT(`firstname`,`lastname`,`authorcode`)LIKE ?");
+     String SelectAll=("SELECT * FROM author WHERE CONCAT(`id`,`firstname`,`lastname`,`authorcode`)LIKE ?");
     
            
               
@@ -61,7 +61,7 @@ public class table extends JDBCMainConfiguration {
     }
     
     public void fillPublisherJTable (JTable table,String valueToSearch){
-     String SelectAll=("SELECT * FROM publisher WHERE CONCAT(`firstname`,`lastname`,`publishercode`)LIKE ?");
+     String SelectAll=("SELECT * FROM publisher WHERE CONCAT(`id`,`firstname`,`lastname`,`publishercode`)LIKE ?");
     
            
               
@@ -90,7 +90,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFAddPublisher.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
@@ -123,7 +123,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFAddGenre.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }

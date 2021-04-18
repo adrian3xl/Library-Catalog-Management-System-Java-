@@ -189,14 +189,16 @@ table Author=new table();
                             .addGroup(jdp1Layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                         .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdp1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
                                 .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))))))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdp1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27))))))
         );
         jdp1Layout.setVerticalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,9 +226,9 @@ table Author=new table();
                             .addComponent(createjButton1)
                             .addComponent(update_bt)
                             .addComponent(del_bt))
-                        .addGap(0, 181, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdp1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 79, Short.MAX_VALUE)
                         .addGroup(jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -243,7 +245,7 @@ table Author=new table();
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdp1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jdp1)
         );
 
         pack();
@@ -315,28 +317,28 @@ table Author=new table();
     }//GEN-LAST:event_update_btActionPerformed
 
     private void del_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_del_btActionPerformed
-          if(idj.getText()=="")
-      {
-          JOptionPane.showMessageDialog(rootPane, "No Author Id selected", "", JOptionPane.INFORMATION_MESSAGE);
-      }
-      else if(idj.getText()!="")
-      {
-          try{
-              int authorId=Integer.parseInt(idj.getText());
-              AuthorManager authoMgr=new AuthorManager();
-              authoMgr.deleteAuthor(Author.class, authorId,"HIBER");
-               JOptionPane.showMessageDialog(rootPane, "Author Deleted", "", JOptionPane.INFORMATION_MESSAGE);
-              
-               author_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Author Code"}));
-               Author.fillAuthorJtable(author_table,"");
-             
-          }
-          catch(Exception ex)
-          {
-              ex.printStackTrace();
-               logger.error(ex.getMessage());
-          }
-      }
+        if(idj.getText()=="")
+        {
+            JOptionPane.showMessageDialog(rootPane, "No Author Id selected", "", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(idj.getText()!="")
+        {
+            try{
+                int authorId=Integer.parseInt(idj.getText());
+                AuthorManager authoMgr=new AuthorManager();
+                authoMgr.deleteAuthor(Author.class, authorId,"HIBER");
+                JOptionPane.showMessageDialog(rootPane, "Author Deleted", "", JOptionPane.INFORMATION_MESSAGE);
+
+                author_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Author Code"}));
+                Author.fillAuthorJtable(author_table,"");
+
+            }
+            catch(Exception ex)
+            {
+                ex.printStackTrace();
+                logger.error(ex.getMessage());
+            }
+        }
     }//GEN-LAST:event_del_btActionPerformed
 
    

@@ -7,7 +7,11 @@ package presentation;
 
 import CrudManager.PublisherManager;
 import Domain.Publisher;
+import Service.JDBCImplement.JDBCMainConfiguration;
+import java.sql.Connection;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,11 +19,20 @@ import javax.swing.JOptionPane;
  */
 public class JIFAddPublisher extends javax.swing.JInternalFrame {
 
+    
+          Connection con;
+          Statement stmt;
+     
+          JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
     /**
      * Creates new form JIFAddPublisher
      */
+    
+    table Publisher=new table();
     public JIFAddPublisher() {
+        
         initComponents();
+        Publisher.fillPublisherJTable(Publisher_table, "");
     }
 
     /**
@@ -31,134 +44,281 @@ public class JIFAddPublisher extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Publisher_table = new javax.swing.JTable();
+        update_bt = new javax.swing.JButton();
+        del_bt = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        findVal_box = new javax.swing.JTextField();
+        idj = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         firstnameJtf1 = new javax.swing.JTextField();
         lastnameJtf2 = new javax.swing.JTextField();
-        pubcodJtf1 = new javax.swing.JTextField();
-        Create_bt = new javax.swing.JButton();
+        authcodJtf1 = new javax.swing.JTextField();
+        createjButton1 = new javax.swing.JButton();
 
         setClosable(true);
 
+        Publisher_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "First Name", "Last Name", "Publisher Code"
+            }
+        ));
+        Publisher_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Publisher_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Publisher_table);
+
+        update_bt.setText("Update");
+        update_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_btActionPerformed(evt);
+            }
+        });
+
+        del_bt.setText("Delete");
+        del_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                del_btActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Search");
+
+        findVal_box.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                findVal_boxKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                findVal_boxKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                findVal_boxKeyTyped(evt);
+            }
+        });
+
+        idj.setText(" ");
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Add Publisher");
+        jLabel1.setText("Manage Publisher");
 
         jLabel2.setText("First Name");
 
         jLabel3.setText("Last Name");
 
-        jLabel4.setText("Author Code");
+        jLabel4.setText("Publisher Code");
 
         firstnameJtf1.setText(" ");
 
         lastnameJtf2.setText(" ");
 
-        pubcodJtf1.setText(" ");
+        authcodJtf1.setText(" ");
 
-        Create_bt.setText("Create");
-        Create_bt.addActionListener(new java.awt.event.ActionListener() {
+        createjButton1.setText("ADD");
+        createjButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Create_btActionPerformed(evt);
+                createjButton1ActionPerformed(evt);
             }
         });
-
-        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(firstnameJtf1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(lastnameJtf2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(pubcodJtf1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(Create_bt, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel4))
-                        .addGap(37, 37, 37)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(firstnameJtf1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                            .addComponent(lastnameJtf2)
-                            .addComponent(pubcodJtf1)))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(jLabel1))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(Create_bt)))
-                .addContainerGap(228, Short.MAX_VALUE))
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(firstnameJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(lastnameJtf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pubcodJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(Create_bt)
-                .addGap(25, 25, 25))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel3))
+                                    .addComponent(jLabel4))
+                                .addGap(37, 37, 37)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(firstnameJtf1)
+                                    .addComponent(lastnameJtf2)
+                                    .addComponent(authcodJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(createjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(update_bt)
+                                .addGap(18, 18, 18)
+                                .addComponent(del_bt))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(firstnameJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(lastnameJtf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(authcodJtf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(createjButton1)
+                            .addComponent(update_bt)
+                            .addComponent(del_bt))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 111, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Create_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_btActionPerformed
-       String fname=firstnameJtf1.getText().trim();
+    private void Publisher_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Publisher_tableMouseClicked
+        int rowIndex= Publisher_table.getSelectedRow();
+        DefaultTableModel model=(DefaultTableModel)Publisher_table.getModel();
+        idj.setText(model.getValueAt(rowIndex, 0).toString());
+        firstnameJtf1.setText(model.getValueAt(rowIndex, 1).toString());
+        lastnameJtf2.setText(model.getValueAt(rowIndex, 2).toString());
+        authcodJtf1.setText(model.getValueAt(rowIndex, 3).toString());
+    }//GEN-LAST:event_Publisher_tableMouseClicked
+
+    private void update_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_btActionPerformed
+
+        try{
+            Publisher thePub=new Publisher();
+            thePub.setId(Integer.parseInt(idj.getText()));
+            thePub.setFname(firstnameJtf1.getText());
+            thePub.setLname(lastnameJtf2.getText());
+            thePub.setPublishercode(authcodJtf1.getText());
+
+            PublisherManager PublisherMgr=new PublisherManager();
+            PublisherMgr.updatePublisher(thePub,"HIBER1");
+
+            Publisher_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Publisher Code"}));
+            Publisher.fillPublisherJTable(Publisher_table,"");
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_update_btActionPerformed
+
+    private void del_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_del_btActionPerformed
+        if(idj.getText()=="")
+        {
+            JOptionPane.showMessageDialog(rootPane, "No Publisher Id selected", "", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(idj.getText()!="")
+        {
+            try{
+                int PublisherId=Integer.parseInt(idj.getText());
+                PublisherManager PublisherMgr=new PublisherManager();
+                PublisherMgr.deletePublisher(Publisher.class, PublisherId,"HIBER1");
+                JOptionPane.showMessageDialog(rootPane, "Publisher Deleted", "", JOptionPane.INFORMATION_MESSAGE);
+
+                Publisher_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Publisher Code"}));
+                Publisher.fillPublisherJTable(Publisher_table,"");
+
+            }
+            catch(Exception ex)
+            {
+                ex.printStackTrace();
+              //  logger.error(ex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_del_btActionPerformed
+
+    private void findVal_boxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyPressed
+        Publisher_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Publisher Code"}));
+        Publisher.fillPublisherJTable(Publisher_table, findVal_box.getText());
+    }//GEN-LAST:event_findVal_boxKeyPressed
+
+    private void findVal_boxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyReleased
+        Publisher_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Publisher Code"}));
+       Publisher.fillPublisherJTable(Publisher_table, findVal_box.getText().trim());
+    }//GEN-LAST:event_findVal_boxKeyReleased
+
+    private void findVal_boxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyTyped
+
+        Publisher_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Publisher Code"}));
+        Publisher.fillPublisherJTable(Publisher_table, findVal_box.getText());
+    }//GEN-LAST:event_findVal_boxKeyTyped
+
+    private void createjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createjButton1ActionPerformed
+
+        int id=Integer.parseInt(idj.getText().trim());
+        String fname=firstnameJtf1.getText().trim();
         String lname=lastnameJtf2.getText().trim();
-       
-        String publishercode=pubcodJtf1.getText().trim();
- 
-        Publisher pub = new Publisher(fname,lname,publishercode);
-       PublisherManager PublisherMgr = new PublisherManager();
-        PublisherMgr.addPublisher(pub,"HIBER1");
-        
-         JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_Create_btActionPerformed
+
+        String publishercode=authcodJtf1.getText().trim();
+
+        Publisher anPublisher=new Publisher(id,fname,lname,publishercode);
+
+        PublisherManager pubMgr = new PublisherManager();
+        pubMgr.addPublisher(anPublisher,"HIBER1");
+        JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
+
+        Publisher_table.setModel(new DefaultTableModel(null, new Object[]{"id","First Name","Last Name","Publisher Code"}));
+        Publisher.fillPublisherJTable(Publisher_table,"");
+    }//GEN-LAST:event_createjButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Create_bt;
+    public static javax.swing.JTable Publisher_table;
+    private javax.swing.JTextField authcodJtf1;
+    private javax.swing.JButton createjButton1;
+    private javax.swing.JButton del_bt;
+    private javax.swing.JTextField findVal_box;
     private javax.swing.JTextField firstnameJtf1;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JTextField idj;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lastnameJtf2;
-    private javax.swing.JTextField pubcodJtf1;
+    private javax.swing.JButton update_bt;
     // End of variables declaration//GEN-END:variables
 }
