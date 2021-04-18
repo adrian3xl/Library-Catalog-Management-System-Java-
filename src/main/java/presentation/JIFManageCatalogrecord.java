@@ -15,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author Adrian
  */
-public class JIFAddCatalogrecord extends javax.swing.JInternalFrame {
+public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIFAddCatalogrecord
      */
-    public JIFAddCatalogrecord() {
+    public JIFManageCatalogrecord() {
         initComponents();
         authcombo1();
     }

@@ -24,7 +24,7 @@ import static presentation.LCMSPresntation.logger;
  *
  * @author Adrian
  */
-public class JIFAddAuthor extends javax.swing.JInternalFrame {
+public class JIFManageAuthor extends javax.swing.JInternalFrame {
 
     
     
@@ -34,12 +34,12 @@ public class JIFAddAuthor extends javax.swing.JInternalFrame {
           JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
     
     /**
-     * Creates new form JIFAddAuthor
+     * Creates new form JIFManageAuthor
      */
           
 table Author=new table();
 
-    public JIFAddAuthor() {
+    public JIFManageAuthor() {
         initComponents();
         
         Author.fillAuthorJtable(author_table, "");

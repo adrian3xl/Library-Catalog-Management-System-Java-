@@ -36,8 +36,9 @@ public class Genre implements Serializable {
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "genre", cascade = CascadeType.ALL)
     private List<Catalogrecord> Catalogrecords;
    
-    public Genre( String name) {	
+    public Genre( int id,String name) {	
         this.name=name;	
+         this.setId(id);
 
 
     }	

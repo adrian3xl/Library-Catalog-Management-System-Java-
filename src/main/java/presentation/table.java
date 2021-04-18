@@ -52,7 +52,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
               }
     
     
@@ -90,7 +90,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddPublisher.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManagePublisher.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
@@ -123,7 +123,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddGenre.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageDocType.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
@@ -158,7 +158,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
@@ -194,7 +194,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
@@ -231,7 +231,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
@@ -269,7 +269,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
@@ -306,7 +306,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFAddAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }

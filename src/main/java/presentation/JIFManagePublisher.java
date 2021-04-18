@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Adrian
  */
-public class JIFAddPublisher extends javax.swing.JInternalFrame {
+public class JIFManagePublisher extends javax.swing.JInternalFrame {
 
     
           Connection con;
@@ -25,11 +25,11 @@ public class JIFAddPublisher extends javax.swing.JInternalFrame {
      
           JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
     /**
-     * Creates new form JIFAddPublisher
+     * Creates new form JIFManagePublisher
      */
     
     table Publisher=new table();
-    public JIFAddPublisher() {
+    public JIFManagePublisher() {
         
         initComponents();
         Publisher.fillPublisherJTable(Publisher_table, "");

@@ -9,12 +9,12 @@ package presentation;
  *
  * @author Adrian
  */
-public class JIFAddCatalogloan extends javax.swing.JInternalFrame {
+public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIFAddCatalogloan
      */
-    public JIFAddCatalogloan() {
+    public JIFManageCatalogloan() {
         initComponents();
     }
 
