@@ -36,7 +36,7 @@ public class Documenttype implements Serializable {
       private List<Catalogrecord> Catalogrecords;
       
     public Documenttype( int id,String name) {	
-        this.id=id;
+       this.setId(id);
         this.name=name;
   
     }	

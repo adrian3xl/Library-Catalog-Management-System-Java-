@@ -19,11 +19,11 @@ public interface IAuthorService extends IService {
     
     public final String NAME="IAuthorService";
     
-    public void addAuthor(Author author) throws Exception ; //method for adding book
+    public void addAuthor(Author author) throws Exception ; //method for adding Author
     
-    public void updateAuthor(Author author) throws Exception ; //method for updating a book
+    public void updateAuthor(Author author) throws Exception ; //method for updating a Author
     
-    public Author getAuthor(int authorID) throws Exception ; //method to select book
+    public Author getAuthor(int authorID) throws Exception ; //method to select Author
     
     public List<Author> getAllAuthors() throws Exception;
     

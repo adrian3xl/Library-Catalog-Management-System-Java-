@@ -25,8 +25,8 @@ public void addDocumenttype (Documenttype anDocumenttype)
             logger.info("In Business Layer addDocumenttype(Documenttype documenttype) method");
             System.out.println("In Business Layer addDocumenttype(Documenttype documenttype) method");
             Factory factory = new Factory();            
-            IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
-            iDocumenttypeMgr .addDocumenttype (anDocumenttype);
+            IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService.NAME);
+            iDocumenttypeMgr.addDocumenttype (anDocumenttype);
             
         } catch (ServiceLoadException ex) {
          System.out.println(ex.getMessage());
@@ -44,8 +44,8 @@ public void addDocumenttype (Documenttype anDocumenttype)
             logger.info("In Business Layer getDocumenttype (int documenttypeId) method");
             System.out.println("In Business Layer getDocumenttype (int documenttypeId) method");
             Factory factory = new Factory();           
-            IDocumenttypeService iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
-            anDocumenttype=iDocumenttypeMgr .getDocumenttype (documenttypeId);
+            IDocumenttypeService iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService.NAME);
+            anDocumenttype=iDocumenttypeMgr.getDocumenttype (documenttypeId);
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());
@@ -63,8 +63,8 @@ public void addDocumenttype (Documenttype anDocumenttype)
             logger.info("In Business Layer  updateDocumenttype (Documenttype anDocumenttype) method");
             System.out.println("In Business Layer  updateDocumenttype (Documenttype anDocumenttype) method");
             Factory factory = new Factory();            
-            IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
-            iDocumenttypeMgr .updateDocumenttype (anDocumenttype);
+            IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService.NAME);
+            iDocumenttypeMgr.updateDocumenttype (anDocumenttype);
             
         } catch (ServiceLoadException ex) {
           
@@ -84,8 +84,8 @@ public void addDocumenttype (Documenttype anDocumenttype)
             logger.info("In Business Layer getAllDocumenttypeService method");
             System.out.println("In Business Layer getAllDocumenttypeService method");
             Factory factory = new Factory();
-            IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
-            documenttypesList=iDocumenttypeMgr .getAllDocumenttype ();
+            IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService.NAME);
+            documenttypesList=iDocumenttypeMgr.getAllDocumenttype ();
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());
@@ -104,8 +104,8 @@ public void addDocumenttype (Documenttype anDocumenttype)
             logger.info("In Business Layer deleteAuhor   method");
             System.out.println("In Business Layer deleteAuhor   method");
             Factory factory = new Factory();
-            IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
-            iDocumenttypeMgr .deleteDocumenttype (Documenttype,documenttypeId);
+            IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService.NAME);
+            iDocumenttypeMgr.deleteDocumenttype (Documenttype,documenttypeId);
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());
