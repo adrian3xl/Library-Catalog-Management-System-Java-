@@ -23,8 +23,7 @@ import javax.persistence.Table;
 @Table(name="customer")
 public class Customer extends Person {
 
-     @Column(name="id")
-    private int id;
+    
     @Column(name="phonenumber")
     private String phonenumber;
       @Column(name="address")

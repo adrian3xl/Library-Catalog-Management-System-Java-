@@ -234,6 +234,10 @@ public class JIFManageCustomer extends javax.swing.JInternalFrame {
         CustomerManager CustomerMgr = new CustomerManager();
         CustomerMgr.addCustomer(anCustomer);
         
+        
+         customer_table.setModel(new DefaultTableModel(null, new Object[]{"id", "First Name", "Last Name", "Phone Number", "Address", "Customer Code"}));
+            customer.fillCustomerJTable(customer_table,"");
+        
          JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
                                 
         
@@ -271,16 +275,16 @@ public class JIFManageCustomer extends javax.swing.JInternalFrame {
     private void update_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_btActionPerformed
 
         try{
-            Customer theCustomer=new Customer();
-            theCustomer.setId(Integer.parseInt(idj.getText()));
-            theCustomer.setFname(fname_tb.getText());
-            theCustomer.setLname(lname_tb.getText());
-            theCustomer.setPhonenumber(cellnumber_tb.getText());
-            theCustomer.setAddress(address_tb.getText());
-            theCustomer.setCustomercode(code_tb.getText());
+            Customer anCustomer=new Customer();
+            anCustomer.setId(Integer.parseInt(idj.getText()));
+            anCustomer.setFname(fname_tb.getText());
+            anCustomer.setLname(lname_tb.getText());
+           anCustomer.setPhonenumber(cellnumber_tb.getText());
+            anCustomer.setAddress(address_tb.getText());
+           anCustomer.setCustomercode(code_tb.getText());
 
             CustomerManager CustomerMgr=new CustomerManager();
-            CustomerMgr.updateCustomer(theCustomer);
+            CustomerMgr.updateCustomer(anCustomer);
 
             customer_table.setModel(new DefaultTableModel(null, new Object[]{"id", "First Name", "Last Name", "Phone Number", "Address", "Customer Code"}));
             customer.fillCustomerJTable(customer_table,"");

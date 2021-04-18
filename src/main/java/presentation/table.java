@@ -97,7 +97,7 @@ public class table extends JDBCMainConfiguration {
     
     
     public void fillGenreJTable (JTable table,String valueToSearch){
-     String SelectAll=("SELECT * FROM genre WHERE CONCAT(`name`)LIKE ?");
+     String SelectAll=("SELECT * FROM genre WHERE CONCAT(`id`,`name`)LIKE ?");
     
            
               
@@ -132,7 +132,7 @@ public class table extends JDBCMainConfiguration {
             
             
             public void fillDocTypeJTable (JTable table,String valueToSearch){
-     String SelectAll=("SELECT * FROM documenttype WHERE CONCAT(`name`)LIKE ?");
+     String SelectAll=("SELECT * FROM documenttype WHERE CONCAT(`id`,`name`)LIKE ?");
     
            
               
@@ -164,7 +164,7 @@ public class table extends JDBCMainConfiguration {
     }
                     
             public void fillCustomerJTable (JTable table,String valueToSearch){
-     String SelectAll=("SELECT * FROM customer WHERE CONCAT(`firstname`,`lastname`,`phonenumber`,`address`,`customercode`)LIKE ?");
+     String SelectAll=("SELECT * FROM customer WHERE CONCAT(`id`,`firstname`,`lastname`,`phonenumber`,`address`,`customercode`)LIKE ?");
     
            
               
