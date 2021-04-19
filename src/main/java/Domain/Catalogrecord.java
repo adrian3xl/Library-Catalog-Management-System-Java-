@@ -53,19 +53,19 @@ public class Catalogrecord implements Serializable {
     
      @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "genre_id" )
-     private Genre genre;
+     private Integer genre;
      
      
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "documenttype_id" ) 
-    private Documenttype documenttype;
+    private Integer documenttype;
     
      @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id" )
-     private Author author;
+     private Integer author;
      
     @ManyToOne(fetch = FetchType.LAZY)
-     private Publisher publisher;
+     private Integer publisher;
     
      
    
@@ -77,7 +77,8 @@ public class Catalogrecord implements Serializable {
     public Catalogrecord(){	
     }	
 
-public Catalogrecord(String title, Date datereleased,String conditionstatement,String catalogcode,Genre genre,Documenttype documenttype,Author author,Publisher publisher){
+public Catalogrecord(int id,String title, Date datereleased,String conditionstatement,String catalogcode,Integer genre,Integer documenttype,Integer author,Integer publisher){
+   this.id=id;
     this.title=title;
     this.author=author;
     this.publisher=publisher;
@@ -94,22 +95,22 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
     }
     
    
-    public Author getAuthor() {
+    public Integer getAuthor() {
         return this.author;
     }
  
   
-    public Genre getGenre() {
+    public Integer getGenre() {
         return this.genre;
     }
 
     
-    public Publisher getPublisher() {
+    public Integer getPublisher() {
         return this.publisher;
     }
     
     
-    public Documenttype getDocumenttype() {
+    public Integer getDocumenttype() {
         return this.documenttype;
     }
     
@@ -150,19 +151,19 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
         this.catalogcode = catalogcode;
     }
 
-    public void setGenre(Genre genre) {
+    public void setGenre(Integer genre) {
         this.genre = genre;
     }
 
-    public void setDocumenttype(Documenttype documenttype) {
+    public void setDocumenttype(Integer documenttype) {
         this.documenttype = documenttype;
     }
 
-    public void setAuthor(Author author) {
+    public void setAuthor(Integer author) {
         this.author = author;
     }
 
-    public void setPublisher(Publisher publisher) {
+    public void setPublisher(Integer publisher) {
         this.publisher = publisher;
     }
     

@@ -18,7 +18,7 @@ public class JDBCMainConfiguration {
     private static final String dbUser = "root";
     private static final String dbUserPWD = "adrian3xl";
     
-    private Connection con;
+    public Connection con;
     
     public Connection getConnection() throws SQLException
     {

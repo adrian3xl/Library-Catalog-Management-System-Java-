@@ -237,7 +237,7 @@ public class table extends JDBCMainConfiguration {
     }
                    
         public void fillCatalogRecordJTable (JTable table,String valueToSearch){
-     String SelectAll=("SELECT * FROM catalogRecord WHERE CONCAT(`title`,`genre_id`,`documenttype_id`,`author_id`,`publisher_id`,`datereleased`,`condition`)LIKE ?");
+     String SelectAll=("SELECT * FROM catalogrecord WHERE CONCAT(`title`,`genre_id`,`documenttype_id`,`author_id`,`publisher_id`,`datereleased`,`conditionstatement`)LIKE ?");
     
            
               
@@ -255,7 +255,7 @@ public class table extends JDBCMainConfiguration {
                        
                        while(rs.next()){
                        
-                       row= new Object[7];
+                       row= new Object[8];
                        
                        row[0]=rs.getInt(1);
                         row[1]=rs.getString(2);

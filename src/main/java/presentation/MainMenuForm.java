@@ -35,10 +35,6 @@ public class MainMenuForm extends javax.swing.JFrame {
         pub_tb = new javax.swing.JMenuItem();
         doctype_tb = new javax.swing.JMenuItem();
         genre_tb = new javax.swing.JMenuItem();
-        ddoctype = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
         addcatrec_tb = new javax.swing.JMenuItem();
@@ -66,11 +62,12 @@ public class MainMenuForm extends javax.swing.JFrame {
         );
         jdp1Layout.setVerticalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 652, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
         );
 
         jMenu3.setText("Manage Records");
 
+        author_tb.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         author_tb.setText("Manage Authors");
         author_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +76,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         });
         jMenu3.add(author_tb);
 
+        pub_tb.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         pub_tb.setText("Manage Publishers");
         pub_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +85,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         });
         jMenu3.add(pub_tb);
 
+        doctype_tb.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         doctype_tb.setText("Manage Document Type");
         doctype_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +94,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         });
         jMenu3.add(doctype_tb);
 
+        genre_tb.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         genre_tb.setText("Manage Genre");
         genre_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,34 +102,6 @@ public class MainMenuForm extends javax.swing.JFrame {
             }
         });
         jMenu3.add(genre_tb);
-
-        ddoctype.setText("Manage Document Types");
-
-        jMenuItem13.setText("View");
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
-            }
-        });
-        ddoctype.add(jMenuItem13);
-
-        jMenuItem15.setText("Update");
-        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem15ActionPerformed(evt);
-            }
-        });
-        ddoctype.add(jMenuItem15);
-
-        jMenuItem16.setText("Delete");
-        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem16ActionPerformed(evt);
-            }
-        });
-        ddoctype.add(jMenuItem16);
-
-        jMenu3.add(ddoctype);
 
         jMenu6.setText("Manage Catalog Records");
 
@@ -188,6 +160,7 @@ public class MainMenuForm extends javax.swing.JFrame {
 
         jMenu8.setText("Manage Stakeholders");
 
+        customer_tb.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         customer_tb.setText("Manage Customers");
         customer_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,10 +238,6 @@ public class MainMenuForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_doctype_tbActionPerformed
 
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
-
     private void genre_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genre_tbActionPerformed
        JIFManageGenre addDocumenttypeInterface = new JIFManageGenre();
 
@@ -280,14 +249,6 @@ public class MainMenuForm extends javax.swing.JFrame {
         this.validate();
         this.repaint();
     }//GEN-LAST:event_genre_tbActionPerformed
-
-    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem15ActionPerformed
-
-    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     private void addcatrec_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addcatrec_tbActionPerformed
     
@@ -375,7 +336,6 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem addloan_tb;
     private javax.swing.JMenuItem author_tb;
     private javax.swing.JMenuItem customer_tb;
-    private javax.swing.JMenu ddoctype;
     private javax.swing.JMenuItem doctype_tb;
     private javax.swing.JMenuItem genre_tb;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -385,9 +345,6 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem20;

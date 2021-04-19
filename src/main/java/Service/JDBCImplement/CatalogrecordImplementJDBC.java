@@ -74,7 +74,7 @@ public class CatalogrecordImplementJDBC extends JDBCMainConfiguration implements
         catalogrecord.setCatalogcode(rs.getString("catalogrecord_id"));
         catalogrecord.setAuthor((Author) rs.getObject("author_id"));
           catalogrecord.setPublisher((Publisher) rs.getObject("publisher_id "));
-     catalogrecord.setDatereleased(rs.getDate("datereleased"));   
+     catalogrecord.setDatereleased(rs.getString("datereleased"));   
        catalogrecord.setConditionstatement(rs.getString("conditionstatement ")); 
        catalogrecord.setCatalogcode(rs.getString("catalogcode "));
        

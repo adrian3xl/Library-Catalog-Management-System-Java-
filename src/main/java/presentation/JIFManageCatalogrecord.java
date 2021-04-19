@@ -6,11 +6,20 @@
 package presentation;
 
 import CrudManager.CatalogrecordManager;
+import Domain.Author;
 import Domain.Catalogrecord;
+import Domain.Documenttype;
+import Domain.Genre;
+import Domain.Publisher;
 import Service.JDBCImplement.JDBCMainConfiguration;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,12 +32,13 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIFAddCatalogrecord
      */
-    
+    combobox combo=new combobox();
     table catalogrec = new table();
     public JIFManageCatalogrecord() {
         initComponents();
-        authcombo1();
+        //authcombo1();
         
+        combo.authorcombo();
         catalogrec.fillCatalogRecordJTable(record_table,"");
     }
 
@@ -51,7 +61,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         title_tb = new javax.swing.JTextField();
         code_tb = new javax.swing.JTextField();
-        authcombo = new javax.swing.JComboBox<>();
+        authcombo1 = new javax.swing.JComboBox<>();
         pubcombo = new javax.swing.JComboBox<>();
         genrecombo = new javax.swing.JComboBox<>();
         doccombo = new javax.swing.JComboBox<>();
@@ -64,6 +74,9 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         findVal_box = new javax.swing.JTextField();
         dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        condi_tb = new javax.swing.JTextArea();
 
         setClosable(true);
 
@@ -197,6 +210,13 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
                 true)));
     dateChooserCombo1.setFormat(1);
 
+    jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel10.setText("Condition ");
+
+    condi_tb.setColumns(20);
+    condi_tb.setRows(5);
+    jScrollPane2.setViewportView(condi_tb);
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
@@ -209,124 +229,141 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel8))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(55, 55, 55)
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(code_tb, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(64, 64, 64)
-                                    .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(create_tb)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(update_bt)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(del_bt)))
+                            .addGap(676, 676, 676))
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(1, 1, 1)
-                                    .addComponent(jLabel6))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)))
-                            .addGap(37, 37, 37)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(authcombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pubcombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(genrecombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(doccombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(title_tb, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3))
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel7))
+                                    .addGap(38, 38, 38)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(authcombo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(pubcombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(genrecombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(doccombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(title_tb, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel9)
                                     .addGap(18, 18, 18)
                                     .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)))))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(24, 24, 24)
-                    .addComponent(create_tb)
-                    .addGap(29, 29, 29)
-                    .addComponent(update_bt)
-                    .addGap(18, 18, 18)
-                    .addComponent(del_bt)))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE))))))
             .addContainerGap())
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
-            .addGap(25, 25, 25)
+            .addGap(28, 28, 28)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jLabel1)
-                    .addGap(5, 5, 5)
-                    .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
+                            .addGap(5, 5, 5)
+                            .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jLabel3)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel4))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(title_tb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(authcombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(pubcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(genrecombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5))
                             .addGap(18, 18, 18)
-                            .addComponent(jLabel4))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(title_tb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(doccombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6))
                             .addGap(18, 18, 18)
-                            .addComponent(authcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(pubcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(genrecombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(42, 42, 42)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(doccombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel7)
+                            .addGap(9, 9, 9))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(24, 24, 24)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGap(29, 29, 29)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel7)
-                .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(34, 34, 34)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(26, 26, 26)
+                    .addComponent(jLabel10))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(18, 18, 18)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel8)
                 .addComponent(code_tb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(28, 28, 28)
+            .addGap(39, 39, 39)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(update_bt)
                     .addComponent(del_bt))
                 .addComponent(create_tb))
-            .addContainerGap(89, Short.MAX_VALUE))
+            .addGap(34, 34, 34))
     );
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void create_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_tbActionPerformed
-
-        String title=title_tb.getText().trim();
-        String genre_id=lname_tb.getText().trim();
-        String doc_id=cellnumber_tb.getText().trim();
-        String author_id=address_tb.getText().trim();
-             String pub_id=address_tb.getText().trim();
-        String code=code_tb.getText().trim();
+  
         int id=Integer.parseInt(idj.getText().trim());
+        String title=title_tb.getText().trim();
+      // Integer genre_id=genrecombo.getText().trim();
+      //  Integer doc_id=doccombo.getText().trim();
+      // Integer author_id=authcombo1.getText().trim();
+     //        Integer pub_id=pubcombo.getText().trim();
+             String conditionstatement=condi_tb.getText();
+        String code=code_tb.getText().trim();
+      
+       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String releasedate = dateFormat.format(dateChooserCombo1.getDateFormat());
         
-        Catalogrecord anCatalogrecord=new Catalogrecord(id,title,genre_id,doc_id,author_id,pub_id,code);
+       // Catalogrecord anCatalogrecord=new Catalogrecord(id,title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
 
         CatalogrecordManager CatalogrecordMgr = new CatalogrecordManager();
-        CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
+       // CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
 
-        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "First Name", "Last Name", "Phone Number", "Address", "Customer Code"}));
+        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
         catalogrec.fillCatalogRecordJTable(record_table,"");
 
         JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
@@ -338,16 +375,17 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
         try{
             Catalogrecord anCatalogrecord=new Catalogrecord();
             anCatalogrecord.setId(Integer.parseInt(idj.getText()));
-           anCatalogrecord.setFname(fname_tb.getText());
-           anCatalogrecord.setLname(lname_tb.getText());
-           anCatalogrecord.setPhonenumber(cellnumber_tb.getText());
-           anCatalogrecord.setAddress(address_tb.getText());
-           anCatalogrecord.setCustomercode(code_tb.getText());
+       //    anCatalogrecord.setTitle(title.getText());
+       //    anCatalogrecord.setGenre_id(genrecombo.getText());
+       //    anCatalogrecord.setDocumenttype(doccombo.getText());
+       //    anCatalogrecord.setAuthor(authcombo1.getText());
+       //   anCatalogrecord.setPublisher(pubcombo.getText());
+           anCatalogrecord.setCatalogcode(code_tb.getText());
 
             CatalogrecordManager CatalogrecordMgr=new CatalogrecordManager();
             CatalogrecordMgr.updateCatalogrecord(anCatalogrecord);
 
-            record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "First Name", "Last Name", "Phone Number", "Address", "Customer Code"}));
+            record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
           catalogrec.fillCatalogRecordJTable(record_table,"");
         }
         catch(Exception ex)
@@ -369,7 +407,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
                 CatalogrecordMgr.deleteCatalogrecord(Catalogrecord.class, CatalogrecordId);
                 JOptionPane.showMessageDialog(rootPane, "Catalogrecord Deleted", "", JOptionPane.INFORMATION_MESSAGE);
 
-                record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "First Name", "Last Name", "Phone Number", "Address", "Customer Code"}));
+                record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
              catalogrec.fillCatalogRecordJTable(record_table,"");
 
             }
@@ -385,63 +423,43 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
         int rowIndex= record_table.getSelectedRow();
         DefaultTableModel model=(DefaultTableModel)record_table.getModel();
         idj.setText(model.getValueAt(rowIndex, 0).toString());
-        fname_tb.setText(model.getValueAt(rowIndex, 1).toString());
-        lname_tb.setText(model.getValueAt(rowIndex, 2).toString());
-        cellnumber_tb.setText(model.getValueAt(rowIndex, 3).toString());
-        address_tb.setText(model.getValueAt(rowIndex, 4).toString());
+        title_tb.setText(model.getValueAt(rowIndex, 1).toString());
+     //   genrecombo.setText(model.getValueAt(rowIndex, 2).toString());
+     //   doccombo.setText(model.getValueAt(rowIndex, 3).toString());
+     //   authcombo1.setText(model.getValueAt(rowIndex, 4).toString());
+     //   pubcombo.setText(model.getValueAt(rowIndex, 5).toString());
         
-        code_tb.setText(model.getValueAt(rowIndex, 5).toString());
+        Date releaseddate;
+        try {
+            releaseddate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 6).toString());
+        } catch (ParseException ex) {
+            Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       dateChooserCombo1.setDateFormat(null);
+        
+        code_tb.setText(model.getValueAt(rowIndex, 7).toString());
     }//GEN-LAST:event_record_tableMouseClicked
 
     private void findVal_boxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyPressed
-        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "First Name", "Last Name", "Phone Number", "Address", "Customer Code"}));
-        customer.fillCustomerJTable(record_table, findVal_box.getText());
+       record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
+        catalogrec.fillCatalogRecordJTable(record_table,"");
     }//GEN-LAST:event_findVal_boxKeyPressed
 
     private void findVal_boxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyReleased
-        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "First Name", "Last Name", "Phone Number", "Address", "Customer Code"}));
-        customer.fillCustomerJTable(record_table, findVal_box.getText().trim());
+       record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
+        catalogrec.fillCatalogRecordJTable(record_table,"");
     }//GEN-LAST:event_findVal_boxKeyReleased
 
     private void findVal_boxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyTyped
-
-        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "First Name", "Last Name", "Phone Number", "Address", "Customer Code"}));
-        customer.fillCustomerJTable(record_table, findVal_box.getText());
+     record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
+        catalogrec.fillCatalogRecordJTable(record_table,"");
     }//GEN-LAST:event_findVal_boxKeyTyped
 
-     Connection con;
-      PreparedStatement pst;
-       ResultSet rs;
-    JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
-    
-    private void authcombo1(){
-    
-        try{
-       //  String name= rs.getString("firstname");
-        // String name2= rs.getString("lastname");
-          String SelectAll= "Select * FROM author";
-        //String sql="select * from author";
-        //pst=con.prepareStatement(sql);
-        //rs=pst.executeQuery();
-        rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
-        while (rs.next()){
-       
-        authcombo.addItem(Integer.toString(rs.getInt("author_id")));
-      
-        
-        }
-        }catch(Exception e){
-        
-        
-        JOptionPane.showMessageDialog(null, e);
-        
-        }
-    
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> authcombo;
+    private javax.swing.JComboBox<String> authcombo1;
     private javax.swing.JTextField code_tb;
+    private javax.swing.JTextArea condi_tb;
     private javax.swing.JButton create_tb;
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private javax.swing.JButton del_bt;
@@ -450,6 +468,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> genrecombo;
     private javax.swing.JTextField idj;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -459,6 +478,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> pubcombo;
     public static javax.swing.JTable record_table;
     private javax.swing.JTextField title_tb;
