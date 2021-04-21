@@ -35,16 +35,8 @@ public class MainMenuForm extends javax.swing.JFrame {
         pub_tb = new javax.swing.JMenuItem();
         doctype_tb = new javax.swing.JMenuItem();
         genre_tb = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem17 = new javax.swing.JMenuItem();
         addcatrec_tb = new javax.swing.JMenuItem();
-        jMenuItem19 = new javax.swing.JMenuItem();
-        jMenuItem20 = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem21 = new javax.swing.JMenuItem();
         addloan_tb = new javax.swing.JMenuItem();
-        jMenuItem23 = new javax.swing.JMenuItem();
-        jMenuItem24 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         customer_tb = new javax.swing.JMenuItem();
@@ -62,7 +54,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         );
         jdp1Layout.setVerticalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGap(0, 712, Short.MAX_VALUE)
         );
 
         jMenu3.setText("Manage Records");
@@ -103,57 +95,21 @@ public class MainMenuForm extends javax.swing.JFrame {
         });
         jMenu3.add(genre_tb);
 
-        jMenu6.setText("Manage Catalog Records");
-
-        jMenuItem17.setText("View");
-        jMenu6.add(jMenuItem17);
-
-        addcatrec_tb.setText("Add");
+        addcatrec_tb.setText("Manage Catalog Records");
         addcatrec_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addcatrec_tbActionPerformed(evt);
             }
         });
-        jMenu6.add(addcatrec_tb);
+        jMenu3.add(addcatrec_tb);
 
-        jMenuItem19.setText("Update");
-        jMenu6.add(jMenuItem19);
-
-        jMenuItem20.setText("Delete");
-        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem20ActionPerformed(evt);
-            }
-        });
-        jMenu6.add(jMenuItem20);
-
-        jMenu3.add(jMenu6);
-
-        jMenu7.setText("Manage Catalog loans");
-
-        jMenuItem21.setText("View");
-        jMenuItem21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem21ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem21);
-
-        addloan_tb.setText("Add");
+        addloan_tb.setText("Manage Catalog Loan Record");
         addloan_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addloan_tbActionPerformed(evt);
             }
         });
-        jMenu7.add(addloan_tb);
-
-        jMenuItem23.setText("Update");
-        jMenu7.add(jMenuItem23);
-
-        jMenuItem24.setText("Delete");
-        jMenu7.add(jMenuItem24);
-
-        jMenu3.add(jMenu7);
+        jMenu3.add(addloan_tb);
 
         jMenuBar1.add(jMenu3);
         jMenuBar1.add(jMenu2);
@@ -263,14 +219,6 @@ public class MainMenuForm extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_addcatrec_tbActionPerformed
 
-    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem20ActionPerformed
-
-    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem21ActionPerformed
-
     private void addloan_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addloan_tbActionPerformed
         
           JIFManageCatalogloan addCatalogloanInterface = new JIFManageCatalogloan();
@@ -341,16 +289,8 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem19;
-    private javax.swing.JMenuItem jMenuItem20;
-    private javax.swing.JMenuItem jMenuItem21;
-    private javax.swing.JMenuItem jMenuItem23;
-    private javax.swing.JMenuItem jMenuItem24;
     private javax.swing.JDesktopPane jdp1;
     private javax.swing.JMenuItem pub_tb;
     // End of variables declaration//GEN-END:variables

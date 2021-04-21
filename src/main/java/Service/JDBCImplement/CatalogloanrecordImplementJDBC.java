@@ -71,11 +71,11 @@ public class CatalogloanrecordImplementJDBC extends JDBCMainConfiguration implem
         Catalogloanrecord catalogloanrecord=new Catalogloanrecord();
         catalogloanrecord.setId(catalogloanrecordID);
         catalogloanrecord.setLoancode(rs.getString("loancode"));
-        catalogloanrecord.setCustomer((Customer) rs.getObject(" customer_id "));
+  //      catalogloanrecord.setCustomer((Customer) rs.getObject(" customer_id "));
       catalogloanrecord.setLoandate(rs.getDate("loandate "));
-       catalogloanrecord.setEmployee((Employee) rs.getObject("employee_id "));   
+  //     catalogloanrecord.setEmployee((Employee) rs.getObject("employee_id "));   
        catalogloanrecord.setRecieveddate(rs.getDate("recieveddate ")); 
-       catalogloanrecord.setCatalogrecord(rs.getObject("Catalogrecord_id ",Catalogrecord.class));
+  //     catalogloanrecord.setCatalogrecord(rs.getObject("Catalogrecord_id ",Catalogrecord.class));
        
         return catalogloanrecord;
         

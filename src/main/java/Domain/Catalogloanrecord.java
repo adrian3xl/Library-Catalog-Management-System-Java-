@@ -44,22 +44,22 @@ public class Catalogloanrecord implements Serializable{
     
      @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "catalogrecord_id",nullable = false)
-    private Catalogrecord catalogrecord;	
+    private int catalogrecord;	
     
      @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id",nullable = false)
-    private Customer customer;	
+    private int customer;	
    
      @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id",nullable = false)
-    private Employee employee;	
+    private int employee;	
 
     
     public Catalogloanrecord(){	
     }
     
     
-    public Catalogloanrecord( int id,Employee employee, Customer customer,Catalogrecord catalogrecord,Date recieveddate,Date loandate, String loancode      ){	
+    public Catalogloanrecord( int id,int employee, int customer,int catalogrecord,Date recieveddate,Date loandate, String loancode      ){	
         this.id=id;
         this.catalogrecord=catalogrecord;
         this.customer=customer;
@@ -74,17 +74,17 @@ public class Catalogloanrecord implements Serializable{
     }
     
    
-    public Customer getCustomer() {
+    public int getCustomer() {
         return this.customer;
     }
  
 
-    public Employee getEmployee() {
+    public int getEmployee() {
         return this.employee;
     }
 
     
-    public Catalogrecord getCatalogrecord() {
+    public int getCatalogrecord() {
         return catalogrecord;
     }
 
@@ -116,15 +116,15 @@ public class Catalogloanrecord implements Serializable{
         this.id = id;
     }
 
-    public void setCatalogrecord(Catalogrecord catalogrecord) {
+    public void setCatalogrecord(int catalogrecord) {
         this.catalogrecord = catalogrecord;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(int customer) {
         this.customer = customer;
     }
 
-    public void setEmployee(Employee employee) {
+    public void setEmployee(int employee) {
         this.employee = employee;
     }
     

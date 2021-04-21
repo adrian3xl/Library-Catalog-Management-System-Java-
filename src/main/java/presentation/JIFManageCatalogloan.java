@@ -5,6 +5,18 @@
  */
 package presentation;
 
+import CrudManager.CatalogloanrecordManager;
+import CrudManager.CatalogrecordManager;
+import Domain.Catalogloanrecord;
+import Domain.Catalogrecord;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author Adrian
@@ -14,8 +26,11 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIFManageCatalogloan
      */
+    
+    table loan = new table();
     public JIFManageCatalogloan() {
         initComponents();
+        loan.fillCatalogloanJTable(record_table, "");
     }
 
     /**
@@ -27,21 +42,349 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        custcombo1 = new javax.swing.JComboBox<>();
+        findVal_box = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        empcombo = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        catcombo = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        idj = new javax.swing.JTextField();
+        create_tb = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        update_bt = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        del_bt = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        record_table = new javax.swing.JTable();
+        code_tb = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        recievdateChooserCombo1 = new com.toedter.calendar.JDateChooser();
+        loandateChooserCombo2 = new com.toedter.calendar.JDateChooser();
+
+        findVal_box.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                findVal_boxKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                findVal_boxKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                findVal_boxKeyTyped(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Catalog loan Record");
+
+        empcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("catalog");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setText("Customer");
+
+        catcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Employee");
+
+        idj.setText(" ");
+
+        create_tb.setText("Create");
+        create_tb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                create_tbActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setText("Loan Date");
+
+        update_bt.setText("Update");
+        update_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_btActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setText("Recieved Date");
+
+        del_bt.setText("Delete");
+        del_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                del_btActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setText("Loan Code");
+
+        record_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "Catalog", "Customer", "Loan Date ", "Recieved Date", "Loan Code", "Employee"
+            }
+        ));
+        record_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                record_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(record_table);
+
+        code_tb.setText(" ");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("Search");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(217, 217, 217)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(create_tb)
+                                .addGap(29, 29, 29)
+                                .addComponent(update_bt)
+                                .addGap(18, 18, 18)
+                                .addComponent(del_bt)
+                                .addGap(676, 676, 676))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel3))
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7))
+                                        .addGap(30, 30, 30)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(loandateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(recievdateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(empcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(custcombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(catcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(26, 26, 26))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(51, 51, 51)
+                                        .addComponent(code_tb)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE))))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(5, 5, 5)
+                        .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4)
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(catcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(custcombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(empcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(loandateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(recievdateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(code_tb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(update_bt)
+                        .addComponent(del_bt))
+                    .addComponent(create_tb))
+                .addGap(34, 34, 34))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void findVal_boxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyPressed
+        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Catalog", "Customer", "Loan Date ", "Recieved Date", "Loan Code", "Employee"}));
+        loan.fillCatalogloanJTable(record_table, "");
+    }//GEN-LAST:event_findVal_boxKeyPressed
+
+    private void findVal_boxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyReleased
+           record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Catalog", "Customer", "Loan Date ", "Recieved Date", "Loan Code", "Employee"}));
+        loan.fillCatalogloanJTable(record_table, "");
+    }//GEN-LAST:event_findVal_boxKeyReleased
+
+    private void findVal_boxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyTyped
+        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Catalog", "Customer", "Loan Date ", "Recieved Date", "Loan Code", "Employee"}));
+        loan.fillCatalogloanJTable(record_table, "");
+    }//GEN-LAST:event_findVal_boxKeyTyped
+
+    private void create_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_tbActionPerformed
+
+        int id=Integer.parseInt(idj.getText().trim());
+     //    Integer catalogrecord_id=catcombo.getText().trim();
+     //    Integer cus_id=custcombo1.getText().trim();
+    //   Integer emp_id=empcombo.getText().trim();
+    //    Integer pub_id=pubcombo.getText().trim();
+    //    String conditionstatement=condi_tb.getText();
+        String code=code_tb.getText().trim();
+        
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String releasedate = dateFormat.format(recievdateChooserCombo1.getDate());
+        String loandate = dateFormat.format(loandateChooserCombo2.getDate());
+        // Catalogrecord anCatalogrecord=new Catalogrecord(id,title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
+
+        CatalogloanrecordManager CatalogloanMgr = new CatalogloanrecordManager();
+        // CatalogloanMgr.addCatalogloanrecord(anCatalogloanrecord);
+
+        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Catalog", "Customer", "Loan Date ", "Recieved Date", "Loan Code", "Employee"}));
+        loan.fillCatalogloanJTable(record_table, "");
+
+        JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_create_tbActionPerformed
+
+    private void update_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_btActionPerformed
+
+        try{
+            Catalogloanrecord anCatalogloan=new Catalogloanrecord();
+            anCatalogloan.setId(Integer.parseInt(idj.getText()));
+            //    anCatalogrecord.setTitle(title.getText());
+            //    anCatalogrecord.setGenre_id(genrecombo.getText());
+            //    anCatalogrecord.setDocumenttype(doccombo.getText());
+            //    anCatalogrecord.setAuthor(authcombo1.getText());
+            //   anCatalogrecord.setPublisher(pubcombo.getText());
+            anCatalogloan.setLoancode(code_tb.getText());
+
+            CatalogloanrecordManager CatalogloanMgr=new CatalogloanrecordManager ();
+            CatalogloanMgr.updateCatalogloanrecord(anCatalogloan);
+
+             record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Catalog", "Customer", "Loan Date ", "Recieved Date", "Loan Code", "Employee"}));
+        loan.fillCatalogloanJTable(record_table, "");
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_update_btActionPerformed
+
+    private void del_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_del_btActionPerformed
+        if(idj.getText()=="")
+        {
+            JOptionPane.showMessageDialog(rootPane, "No Catalogrecord Id selected", "", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(idj.getText()!="")
+        {
+            try{
+                int CatalogloanId=Integer.parseInt(idj.getText());
+                   CatalogloanrecordManager CatalogloanMgr = new CatalogloanrecordManager();
+                CatalogloanMgr.deleteCatalogloanrecord(CatalogloanId);
+                JOptionPane.showMessageDialog(rootPane, "Catalogrecord Deleted", "", JOptionPane.INFORMATION_MESSAGE);
+
+                record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Catalog", "Customer", "Loan Date ", "Recieved Date", "Loan Code", "Employee"}));
+        loan.fillCatalogloanJTable(record_table, "");
+
+            }
+            catch(Exception ex)
+            {
+                ex.printStackTrace();
+                // logger.error(ex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_del_btActionPerformed
+
+    private void record_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_record_tableMouseClicked
+        int rowIndex= record_table.getSelectedRow();
+        DefaultTableModel model=(DefaultTableModel)record_table.getModel();
+        idj.setText(model.getValueAt(rowIndex, 0).toString());
+      //cat_tbtb.setText(model.getValueAt(rowIndex, 1).toString());
+        //   genrecombo.setText(model.getValueAt(rowIndex, 2).toString());
+        //   doccombo.setText(model.getValueAt(rowIndex, 3).toString());
+        //   authcombo1.setText(model.getValueAt(rowIndex, 4).toString());
+        //   pubcombo.setText(model.getValueAt(rowIndex, 5).toString());
+
+        Date releaseddate;
+       Date loandate;
+        try {
+            releaseddate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 5).toString());
+            loandate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 4).toString());
+        } catch (ParseException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        recievdateChooserCombo1.setDate(null);
+            loandateChooserCombo2.setDate(null);
+
+        code_tb.setText(model.getValueAt(rowIndex, 6).toString());
+    }//GEN-LAST:event_record_tableMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> catcombo;
+    private javax.swing.JTextField code_tb;
+    private javax.swing.JButton create_tb;
+    private javax.swing.JComboBox<String> custcombo1;
+    private javax.swing.JButton del_bt;
+    private javax.swing.JComboBox<String> empcombo;
+    private javax.swing.JTextField findVal_box;
+    private javax.swing.JTextField idj;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private com.toedter.calendar.JDateChooser loandateChooserCombo2;
+    private com.toedter.calendar.JDateChooser recievdateChooserCombo1;
+    public static javax.swing.JTable record_table;
+    private javax.swing.JButton update_bt;
     // End of variables declaration//GEN-END:variables
 }

@@ -123,7 +123,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFManageDocType.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageGenre.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
@@ -158,7 +158,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageDocType.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
@@ -194,14 +194,14 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageCustomer.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
       
                     
             public void fillEmployeeJTable  (JTable table,String valueToSearch){
-     String SelectAll=("SELECT * FROM employee WHERE CONCAT(`firstname`,`lastname`,`jobtitle`,`employeecode`,`password`)LIKE ?");
+     String SelectAll=("SELECT * FROM employee WHERE CONCAT(`id`,`firstname`,`lastname`,`jobtitle`,`employeecode`,`password`)LIKE ?");
     
            
               
@@ -231,13 +231,13 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(table.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
                    
         public void fillCatalogRecordJTable (JTable table,String valueToSearch){
-     String SelectAll=("SELECT * FROM catalogrecord WHERE CONCAT(`title`,`genre_id`,`documenttype_id`,`author_id`,`publisher_id`,`datereleased`,`conditionstatement`)LIKE ?");
+     String SelectAll=("SELECT * FROM catalogrecord WHERE CONCAT(`id`,`title`,`genre_id`,`documenttype_id`,`author_id`,`publisher_id`,`datereleased`,`conditionstatement`)LIKE ?");
     
            
               
@@ -269,13 +269,13 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
                             
        public void fillCatalogloanJTable (JTable table,String valueToSearch){
-     String SelectAll=("SELECT * FROM catalogloan WHERE CONCAT(`catalogRecord_id`,`Customer_id`,`loandate`,`recieveddate`,`loancode`,`employee_id`)LIKE ?");
+     String SelectAll=("SELECT * FROM catalogloan WHERE CONCAT(`id`,catalogRecord_id`,`Customer_id`,`loandate`,`recieveddate`,`loancode`,`employee_id`)LIKE ?");
     
            
               
@@ -306,7 +306,7 @@ public class table extends JDBCMainConfiguration {
                        }
                        
               } catch (SQLException ex) {
-                  Logger.getLogger(JIFManageAuthor.class.getName()).log(Level.SEVERE, null, ex);
+                  Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
               }
 
     }
