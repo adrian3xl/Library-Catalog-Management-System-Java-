@@ -9,6 +9,10 @@ import CrudManager.CatalogloanrecordManager;
 import CrudManager.CatalogrecordManager;
 import Domain.Catalogloanrecord;
 import Domain.Catalogrecord;
+import Service.JDBCImplement.JDBCMainConfiguration;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,11 +30,20 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIFManageCatalogloan
      */
-    
+    JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
     table loan = new table();
     public JIFManageCatalogloan() {
         initComponents();
         loan.fillCatalogloanJTable(record_table, "");
+        
+        titlecombobox();
+        
+        
+        try {
+            jdbc.getConnection();
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -81,15 +94,11 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Catalog loan Record");
 
-        empcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("catalog");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Customer");
-
-        catcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Employee");
@@ -279,6 +288,19 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String releasedate = dateFormat.format(recievdateChooserCombo1.getDate());
         String loandate = dateFormat.format(loandateChooserCombo2.getDate());
+       
+       
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
      
         // Catalogrecord anCatalogrecord=new Catalogrecord(id,title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
 
@@ -369,6 +391,26 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_record_tableMouseClicked
 
 
+    public void titlecombobox(){
+
+String SelectAll= "Select * title, catalogrecord_id FROM catalogloanrecord";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+            catcombo.addItem(rs.getString(title));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+}
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> catcombo;
     private javax.swing.JTextField code_tb;
