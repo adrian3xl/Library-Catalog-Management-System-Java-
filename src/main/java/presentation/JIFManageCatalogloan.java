@@ -36,7 +36,9 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         initComponents();
         loan.fillCatalogloanJTable(record_table, "");
         
+        customercombobox();
         titlecombobox();
+        employeecombobox();
         
         
         try {
@@ -324,7 +326,14 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
             //    anCatalogrecord.setAuthor(authcombo1.getText());
             //   anCatalogrecord.setPublisher(pubcombo.getText());
             anCatalogloan.setLoancode(code_tb.getText());
+    
+         
+    anCatalogloan.setLoandate(loandateChooserCombo2.getDate());
+    
+     anCatalogloan.setRecieveddate(recievdateChooserCombo1.getDate());
 
+
+            
             CatalogloanrecordManager CatalogloanMgr=new CatalogloanrecordManager ();
             CatalogloanMgr.updateCatalogloanrecord(anCatalogloan);
 
@@ -367,17 +376,15 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         
         DefaultTableModel model=(DefaultTableModel)record_table.getModel();
         idj.setText(model.getValueAt(rowIndex, 0).toString());
-      //cat_tbtb.setText(model.getValueAt(rowIndex, 1).toString());
-        //   genrecombo.setText(model.getValueAt(rowIndex, 2).toString());
-        //   doccombo.setText(model.getValueAt(rowIndex, 3).toString());
-        //   authcombo1.setText(model.getValueAt(rowIndex, 4).toString());
-        //   pubcombo.setText(model.getValueAt(rowIndex, 5).toString());
-
+     //catcombo.1
+     //custcombo1.2
+     //empcombo.6
+     
         Date releaseddate;
        Date loandate;
         try {
-            loandate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 4).toString());
-            releaseddate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 5).toString());
+            loandate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 3).toString());
+            releaseddate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 4).toString());
             
         } catch (ParseException ex) {
             java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
@@ -386,14 +393,14 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         recievdateChooserCombo1.setDate(null);
             loandateChooserCombo2.setDate(null);
 
-        code_tb.setText(model.getValueAt(rowIndex, 6).toString());
+        code_tb.setText(model.getValueAt(rowIndex, 5).toString());
         
     }//GEN-LAST:event_record_tableMouseClicked
 
 
     public void titlecombobox(){
 
-String SelectAll= "Select * title, catalogrecord_id FROM catalogloanrecord";
+String SelectAll= "Select title FROM catalogrecord";
          
        
        PreparedStatement ps; 
@@ -401,7 +408,24 @@ String SelectAll= "Select * title, catalogrecord_id FROM catalogloanrecord";
         try {
             rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
              while (rs.next()){
-            catcombo.addItem(rs.getString(title));
+            catcombo.addItem(rs.getString("title"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    } 
+  public void employeecombobox(){
+
+String SelectAll= "Select employeecode FROM employee";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+            empcombo.addItem(rs.getString("employeecode"));
              } 
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
@@ -409,7 +433,27 @@ String SelectAll= "Select * title, catalogrecord_id FROM catalogloanrecord";
 
 
 }
-    
+   
+            
+public void customercombobox(){
+
+String SelectAll= "Select customercode FROM customer";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+             custcombo1.addItem(rs.getString("customercode"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+}
+            
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> catcombo;

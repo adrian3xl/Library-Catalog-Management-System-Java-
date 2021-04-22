@@ -142,7 +142,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"
+                "id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition", "Catalog Code"
             }
         ));
         record_table.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,7 +229,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel9)
                                         .addGap(18, 18, 18)
                                         .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE))))))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -316,7 +316,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
         CatalogrecordManager CatalogrecordMgr = new CatalogrecordManager();
        // CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
 
-        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
+        record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition","Catalog Code"}));
         catalogrec.fillCatalogRecordJTable(record_table,"");
 
         JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
@@ -338,7 +338,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
             CatalogrecordManager CatalogrecordMgr=new CatalogrecordManager();
             CatalogrecordMgr.updateCatalogrecord(anCatalogrecord);
 
-            record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
+            record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released","Condition","Catalog Code"}));
           catalogrec.fillCatalogRecordJTable(record_table,"");
         }
         catch(Exception ex)
@@ -360,7 +360,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
                 CatalogrecordMgr.deleteCatalogrecord(Catalogrecord.class, CatalogrecordId);
                 JOptionPane.showMessageDialog(rootPane, "Catalogrecord Deleted", "", JOptionPane.INFORMATION_MESSAGE);
 
-                record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
+                record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition","Catalog Code"}));
              catalogrec.fillCatalogRecordJTable(record_table,"");
 
             }
@@ -389,22 +389,22 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
             Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
         }
     //   dateChooserCombo1.setDate(releaseddate);
-        
-        code_tb.setText(model.getValueAt(rowIndex, 7).toString());
+        condi_tb.setText(model.getValueAt(rowIndex, 7).toString());
+        code_tb.setText(model.getValueAt(rowIndex, 8).toString());
     }//GEN-LAST:event_record_tableMouseClicked
 
     private void findVal_boxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyPressed
-       record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
+       record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition","Catalog Code"}));
         catalogrec.fillCatalogRecordJTable(record_table,"");
     }//GEN-LAST:event_findVal_boxKeyPressed
 
     private void findVal_boxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyReleased
-       record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
+       record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition","Catalog Code"}));
         catalogrec.fillCatalogRecordJTable(record_table,"");
     }//GEN-LAST:event_findVal_boxKeyReleased
 
     private void findVal_boxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findVal_boxKeyTyped
-     record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition"}));
+     record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition","Catalog Code"}));
         catalogrec.fillCatalogRecordJTable(record_table,"");
     }//GEN-LAST:event_findVal_boxKeyTyped
 
