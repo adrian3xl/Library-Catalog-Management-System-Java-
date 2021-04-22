@@ -15,6 +15,7 @@ import Service.JDBCImplement.JDBCMainConfiguration;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,19 +28,26 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Adrian
  */
-public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
 
+public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
+ JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
     /**
      * Creates new form JIFAddCatalogrecord
      */
-    combobox combo=new combobox();
+   // combobox combo=new combobox();
     table catalogrec = new table();
     public JIFManageCatalogrecord() {
         initComponents();
         //authcombo1();
-        
-        combo.authorcombo();
+        authcombobox();  pubcombobox(); genrecombobox(); doctypecombobox(); 
+     
         catalogrec.fillCatalogRecordJTable(record_table,"");
+        
+         try {
+            jdbc.getConnection();
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -107,12 +115,6 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
         title_tb.setText(" ");
 
         code_tb.setText(" ");
-
-        pubcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        genrecombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        doccombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         idj.setText(" ");
 
@@ -281,7 +283,7 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(code_tb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -334,7 +336,13 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
        //    anCatalogrecord.setAuthor(authcombo1.getText());
        //   anCatalogrecord.setPublisher(pubcombo.getText());
            anCatalogrecord.setCatalogcode(code_tb.getText());
-
+           
+           anCatalogrecord.setDatereleased(dateChooserCombo1.getDate());
+           
+           
+           
+           
+           
             CatalogrecordManager CatalogrecordMgr=new CatalogrecordManager();
             CatalogrecordMgr.updateCatalogrecord(anCatalogrecord);
 
@@ -382,13 +390,13 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
      //   authcombo1.setText(model.getValueAt(rowIndex, 4).toString());
      //   pubcombo.setText(model.getValueAt(rowIndex, 5).toString());
         
-        Date releaseddate;
+        Date releaseddate=null;
         try {
             releaseddate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 6).toString());
         } catch (ParseException ex) {
             Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
         }
-    //   dateChooserCombo1.setDate(releaseddate);
+         dateChooserCombo1.setDate(releaseddate);
         condi_tb.setText(model.getValueAt(rowIndex, 7).toString());
         code_tb.setText(model.getValueAt(rowIndex, 8).toString());
     }//GEN-LAST:event_record_tableMouseClicked
@@ -408,6 +416,83 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
         catalogrec.fillCatalogRecordJTable(record_table,"");
     }//GEN-LAST:event_findVal_boxKeyTyped
 
+    
+public void authcombobox(){
+
+String SelectAll= "Select authorcode FROM author";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+             authcombo1.addItem(rs.getString("authorcode"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+}
+    
+public void pubcombobox(){
+
+String SelectAll= "Select publishercode FROM publisher";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+             pubcombo.addItem(rs.getString("publishercode"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+}
+             
+    public void genrecombobox(){
+
+String SelectAll= "Select name FROM genre";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+             genrecombo.addItem(rs.getString("name"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+}
+            
+    public void doctypecombobox(){
+
+String SelectAll= "Select name FROM documenttype";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+             doccombo.addItem(rs.getString("name"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+}
+            
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> authcombo1;

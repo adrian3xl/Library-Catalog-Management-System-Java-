@@ -371,8 +371,27 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_del_btActionPerformed
 
+    
+    private void ShowItem(int rowIndex){
+     DefaultTableModel model=(DefaultTableModel)record_table.getModel();
+     idj.setText(model.getValueAt(rowIndex, 0).toString());
+     
+     Date loandate=null;
+     Date releaseddate=null;
+        try {
+             releaseddate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 4).toString());
+            loandate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 3).toString());
+        } catch (ParseException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    loandateChooserCombo2.setDate(loandate);
+     recievdateChooserCombo1.setDate(releaseddate);
+    }
+    
+    
     private void record_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_record_tableMouseClicked
         int rowIndex= record_table.getSelectedRow();
+        ShowItem(rowIndex);
         
         DefaultTableModel model=(DefaultTableModel)record_table.getModel();
         idj.setText(model.getValueAt(rowIndex, 0).toString());
@@ -380,19 +399,18 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
      //custcombo1.2
      //empcombo.6
      
-        Date releaseddate;
-       Date loandate;
+        
+     Date loandate=null;
+     Date releaseddate=null;
         try {
+             releaseddate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 4).toString());
             loandate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 3).toString());
-            releaseddate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(rowIndex, 4).toString());
-            
         } catch (ParseException ex) {
             java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        recievdateChooserCombo1.setDate(null);
-            loandateChooserCombo2.setDate(null);
-
+    loandateChooserCombo2.setDate(loandate);
+     recievdateChooserCombo1.setDate(releaseddate);
+    
         code_tb.setText(model.getValueAt(rowIndex, 5).toString());
         
     }//GEN-LAST:event_record_tableMouseClicked
