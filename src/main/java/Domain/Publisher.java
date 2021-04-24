@@ -35,7 +35,15 @@ public class Publisher extends Person {
 
       @OneToMany(fetch = FetchType.LAZY,mappedBy = "publisher", cascade = CascadeType.ALL)
      private List<Catalogrecord> Catalogrecords;
-     
+   
+      
+      
+public Publisher(int id, String publishercode)
+    {
+       this.publishercode = publishercode;
+        this.setId(id);
+    }
+
       public Publisher()
     {
         

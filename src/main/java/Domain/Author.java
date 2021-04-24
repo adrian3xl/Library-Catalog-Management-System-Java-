@@ -28,6 +28,8 @@ import javax.persistence.Table;
 public class Author extends Person{
   
 
+    
+    
     @Column(name="authorcode")
     private String authorcode;
 
@@ -47,9 +49,17 @@ public class Author extends Person{
 
 
 
-    public Author()
-    {    }
+    public Author(int id,String authorcode)
+    {  
+     this.authorcode = authorcode;
+     this.setId(id);
+    }
 
+    
+      public Author( )
+    {  
+
+    }
 
     public String getAuthorCode() {
         return authorcode;

@@ -32,20 +32,29 @@ import javax.swing.table.DefaultTableModel;
 
 public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
  JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
-    /**
+  
+ /**
      * Creates new form JIFAddCatalogrecord
      */
-    combobox genre1=new combobox();
+ 
+ 
+combobox genre1=new combobox();
+combobox doctypee=new combobox();
+combobox publi=new combobox();
+combobox aut=new combobox();
 
  HashMap<String,Integer> genresMap=genre1.getGenreMap();
- 
+  HashMap<String,Integer> pubMap=publi.getpubMap();
+ HashMap<String,Integer>authMap=aut.getAuthMap();
+  HashMap<String,Integer>docMap=doctypee.getDocMap();
+  
     table catalogrec = new table();
     public JIFManageCatalogrecord() {
         initComponents();
         
      
-        authcombobox();  pubcombobox(); //genrecombobox();
-        doctypecombobox(); 
+         fillauthcombobox();   fillpubcombobox(); //genrecombobox();
+         filldoctypecombobox(); 
      
         fillgenrecombobox();
         
@@ -128,9 +137,27 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
 
         code_tb.setText(" ");
 
+        authcombo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                authcombo1ActionPerformed(evt);
+            }
+        });
+
+        pubcombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pubcomboActionPerformed(evt);
+            }
+        });
+
         genrecombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 genrecomboActionPerformed(evt);
+            }
+        });
+
+        doccombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doccomboActionPerformed(evt);
             }
         });
 
@@ -478,47 +505,73 @@ public class JIFManageCatalogrecord extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_genrecomboActionPerformed
 
+    private void authcombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authcombo1ActionPerformed
+        try{
+        
+         int aut_id = authMap.get(authcombo1.getSelectedItem().toString());
+        auth_lb.setText(String.valueOf(aut_id));
+        
+        }catch(Exception ex){
+        
+        Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
+    }           
+    }//GEN-LAST:event_authcombo1ActionPerformed
+
+    private void pubcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pubcomboActionPerformed
+        try{
+        
+         int pub_id = pubMap.get(pubcombo.getSelectedItem().toString());
+        pub_lb.setText(String.valueOf(pub_id));
+        
+        }catch(Exception ex){
+        
+        Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
+    }           
+    }//GEN-LAST:event_pubcomboActionPerformed
+
+    private void doccomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doccomboActionPerformed
+       try{
+        
+         int doc_id = docMap.get(doccombo.getSelectedItem().toString());
+        doc_lb.setText(String.valueOf(doc_id));
+        
+        }catch(Exception ex){
+        
+        Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
+    }//GEN-LAST:event_doccomboActionPerformed
+
+    }
     
-public void authcombobox(){
-
-String SelectAll= "Select authorcode FROM author";
-         
-       
-       PreparedStatement ps; 
-       ResultSet rs;
-        try {
-            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
-             while (rs.next()){
-             authcombo1.addItem(rs.getString("authorcode"));
-             } 
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-}
+    public void  fillauthcombobox(){
     
-public void pubcombobox(){
-
-String SelectAll= "Select publishercode FROM publisher";
-         
-       
-       PreparedStatement ps; 
-       ResultSet rs;
-        try {
-            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
-             while (rs.next()){
-             pubcombo.addItem(rs.getString("publishercode"));
-             } 
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-}
-             
+         for(String acode : authMap.keySet())
+       {
+   
+   authcombo1.addItem(acode);
+       }
     
     
+    
+    }           
+     public void  fillpubcombobox(){
+     
+        for(String pcode : pubMap.keySet())
+       {
+   
+   pubcombo.addItem(pcode);
+       }
+     
+     
+     }   
+      public void filldoctypecombobox(){
+      
+           for(String doctypeName : docMap.keySet())
+       {
+   
+   doccombo.addItem(doctypeName);
+       }
+      
+      }   
    public void fillgenrecombobox(){
    
        for(String genreName : genresMap.keySet())
@@ -528,25 +581,7 @@ String SelectAll= "Select publishercode FROM publisher";
        }
    }  
             
-    public void doctypecombobox(){
 
-String SelectAll= "Select name FROM documenttype";
-         
-       
-       PreparedStatement ps; 
-       ResultSet rs;
-        try {
-            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
-             while (rs.next()){
-             doccombo.addItem(rs.getString("name"));
-             } 
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-}
- 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
