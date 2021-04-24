@@ -5,11 +5,13 @@
  */
 package presentation;
 
+import Domain.Genre;
 import Service.JDBCImplement.JDBCMainConfiguration;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,41 +21,47 @@ import javax.swing.JOptionPane;
  * @author Adrian
  */
 public class combobox extends JDBCMainConfiguration {
+    JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
+    public HashMap<String, Integer>getGenreMap(){
     
-     public void authorcombo(){
-String SelectAll= "Select * FROM author";
+    HashMap<String, Integer> map = new HashMap<>();
+    String SelectAll= "Select * FROM `genre`";
          
-         try {
-             con = getConnection();
-         } catch (SQLException ex) {
-             Logger.getLogger(combobox.class.getName()).log(Level.SEVERE, null, ex);
-         }
-      
-      // ResultSet rs;
-        try{
-       PreparedStatement ps=con.prepareStatement(SelectAll);
-        //String sql="select * from author";
-       // ps=con.prepareStatement(sql);
-        ResultSet rs=ps.executeQuery();
-        //rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
-        while (rs.next()){
-      
-    //    combobox.addItem(Integer.toString(rs.getInt("author_id")));
-      
-        
+       Genre genre;
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+           
+               genre = new  Genre(rs.getInt("id"),rs.getString("name"));
+               map.put(genre.getName(),genre.getId());
+                 //genrecombo.addItem(rs.getString("name"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(combobox.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }catch(Exception e){
         
-        
-        JOptionPane.showMessageDialog(null, e);
-        
+        return map;
+    }
+    
+    
+    public void genrecombobox(){
+
+String SelectAll= "Select name FROM genre";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+            // genrecombo.addItem(rs.getString("name"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
 }
-    
-    
-    
-    
-    
 }
