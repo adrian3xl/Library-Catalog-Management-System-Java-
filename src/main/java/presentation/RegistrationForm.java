@@ -7,6 +7,7 @@ package presentation;
 
 import CrudManager.EmployeeManager;
 import Domain.Employee;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -169,7 +170,7 @@ public class RegistrationForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                 .addGap(67, 67, 67))
         );
 
@@ -188,7 +189,7 @@ public class RegistrationForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+    
         String fname=fn_tb.getText().trim();
         String lname=ln_tb.getText().trim();
          String jobtitle=jt_tb.getText().trim();
@@ -199,6 +200,13 @@ public class RegistrationForm extends javax.swing.JFrame {
          
          EmployeeManager employeeMgr= new EmployeeManager();
          employeeMgr.addEmployee(anEmployee);
+       
+         JOptionPane.showMessageDialog(rootPane, "You have successfully logged in", "", JOptionPane.ERROR_MESSAGE);
+         
+         MainMenuForm main = new MainMenuForm();
+                                main.setVisible(true);
+                                this.validate();
+                                this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

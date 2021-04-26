@@ -42,15 +42,37 @@ public class Employee extends Person {
         return Catalogloanrecords;
     }
      
-       public Employee( String fname, String lname,String jobtitle,String password, String employeecode) {
+       public Employee( int id, String fname, String lname,String jobtitle,String password, String employeecode) {
         this.employeecode = employeecode;
         this.setFname(fname);
         this.setLname(lname);
         this.jobtitle=jobtitle;
         this.password=password;
-       // this.setId(id);
+        this.setId(id);
 
     }
+       
+public Employee(int id, String employeecode){
+     this.setId(id);
+      this.employeecode = employeecode;
+    
+}
+
+
+public Employee(String password, String employeecode){
+      this.password=password;
+      this.employeecode = employeecode;
+    
+}
+
+public Employee( String fname, String lname,String jobtitle,String password, String employeecode){
+      this.employeecode = employeecode;
+        this.setFname(fname);
+        this.setLname(lname);
+        this.jobtitle=jobtitle;
+        this.password=password;
+    
+}
 
     public void setJobtitle(String jobtitle) {
         this.jobtitle = jobtitle;

@@ -6,7 +6,10 @@
 package presentation;
 
 import Domain.Author;
+import Domain.Catalogrecord;
+import Domain.Customer;
 import Domain.Documenttype;
+import Domain.Employee;
 import Domain.Genre;
 import Domain.Publisher;
 import Service.JDBCImplement.JDBCMainConfiguration;
@@ -119,6 +122,77 @@ public class combobox extends JDBCMainConfiguration {
         return map;
     }
         
+     public HashMap<String, Integer>getCutMap(){
+    
+    HashMap<String, Integer> map = new HashMap<>();
+    String SelectAll= "Select * FROM `customer`";
+         
+       Customer customer;
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+           
+               customer = new Customer(rs.getInt("id"),rs.getString("customercode"));
+               map.put(customer.getCustomercode(),customer.getId());
+                 //genrecombo.addItem(rs.getString("name"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(combobox.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return map;
+    }
+    
+    
+    public HashMap<String, Integer>getEmpMap(){
+    
+    HashMap<String, Integer> map = new HashMap<>();
+    String SelectAll= "Select * FROM `employee`";
+         
+       Employee employee;
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+           
+               employee = new Employee(rs.getInt("id"),rs.getString("empoyeecode"));
+               map.put(employee.getEmployeecode(),employee.getId());
+                 //genrecombo.addItem(rs.getString("name"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(combobox.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return map;
+    }
+    
+    
+    public HashMap<String, Integer>getcatrecMap(){
+    
+    HashMap<String, Integer> map = new HashMap<>();
+    String SelectAll= "Select * FROM `catalogrecord`";
+         
+       Catalogrecord catalogrecord;
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+           
+               catalogrecord = new Catalogrecord(rs.getInt("id"),rs.getString("title"));
+               map.put(catalogrecord.getTitle(),catalogrecord.getId());
+                 //genrecombo.addItem(rs.getString("name"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(combobox.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return map;
+    }
+    
     
     
     

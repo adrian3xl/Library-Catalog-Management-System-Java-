@@ -78,8 +78,17 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         recievdateChooserCombo1 = new com.toedter.calendar.JDateChooser();
         loandateChooserCombo2 = new com.toedter.calendar.JDateChooser();
+        cat_id = new javax.swing.JLabel();
+        cus_id = new javax.swing.JLabel();
+        emp_id = new javax.swing.JLabel();
 
         setClosable(true);
+
+        custcombo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custcombo1ActionPerformed(evt);
+            }
+        });
 
         findVal_box.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -96,11 +105,23 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Catalog loan Record");
 
+        empcombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empcomboActionPerformed(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("catalog");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Customer");
+
+        catcombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                catcomboActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Employee");
@@ -157,6 +178,12 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Search");
 
+        cat_id.setText("ID");
+
+        cus_id.setText("ID");
+
+        emp_id.setText("ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -171,11 +198,16 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(emp_id))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(idj, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cus_id))
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7))
                                 .addGap(30, 30, 30)
@@ -185,18 +217,25 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
                                     .addComponent(empcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(custcombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(catcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(51, 51, 51)
-                                .addComponent(code_tb)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(51, 51, 51)
+                                        .addComponent(code_tb))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cat_id)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
                                 .addComponent(findVal_box, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
@@ -219,11 +258,17 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(cat_id))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(cus_id))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(emp_id))
                                 .addGap(27, 27, 27))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(catcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,7 +301,7 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
                         .addComponent(update_bt)
                         .addComponent(del_bt))
                     .addComponent(create_tb))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         pack();
@@ -415,6 +460,18 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_record_tableMouseClicked
 
+    private void catcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catcomboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_catcomboActionPerformed
+
+    private void empcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empcomboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empcomboActionPerformed
+
+    private void custcombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custcombo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_custcombo1ActionPerformed
+
 
     public void titlecombobox(){
 
@@ -474,11 +531,14 @@ String SelectAll= "Select customercode FROM customer";
             
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cat_id;
     private javax.swing.JComboBox<String> catcombo;
     private javax.swing.JTextField code_tb;
     private javax.swing.JButton create_tb;
+    private javax.swing.JLabel cus_id;
     private javax.swing.JComboBox<String> custcombo1;
     private javax.swing.JButton del_bt;
+    private javax.swing.JLabel emp_id;
     private javax.swing.JComboBox<String> empcombo;
     private javax.swing.JTextField findVal_box;
     private javax.swing.JTextField idj;

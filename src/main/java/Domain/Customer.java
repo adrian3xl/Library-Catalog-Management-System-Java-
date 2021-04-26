@@ -49,6 +49,11 @@ public class Customer extends Person {
         this.setId(id);
 
     }
+    
+       public Customer(int id,String customercode){
+this.customercode = customercode;
+this.setId(id);
+}
 
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;

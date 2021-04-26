@@ -390,7 +390,7 @@ combobox aut=new combobox();
        Catalogrecord anCatalogrecord=new Catalogrecord(id,title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
 
         CatalogrecordManager CatalogrecordMgr = new CatalogrecordManager();
-       // CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
+        CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
 
         record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition","Catalog Code"}));
         catalogrec.fillCatalogRecordJTable(record_table,"");
@@ -403,16 +403,17 @@ combobox aut=new combobox();
 
         try{
             Catalogrecord anCatalogrecord=new Catalogrecord();
-            anCatalogrecord.setId(Integer.parseInt(idj.getText()));
-       //    anCatalogrecord.setTitle(title.getText());
-       //    anCatalogrecord.setGenre_id(genrecombo.getText());
-       //    anCatalogrecord.setDocumenttype(doccombo.getText());
-       //    anCatalogrecord.setAuthor(authcombo1.getText());
-       //   anCatalogrecord.setPublisher(pubcombo.getText());
-           anCatalogrecord.setCatalogcode(code_tb.getText());
-           
-           anCatalogrecord.setDatereleased(dateChooserCombo1.getDate());
-           
+            String title=title_tb.getText().trim();
+        Integer genre_id=Integer.parseInt(gen_lb.getText());
+        Integer doc_id=Integer.parseInt(doc_lb.getText());
+        Integer author_id=Integer.parseInt(auth_lb.getText());
+        Integer pub_id=Integer.parseInt(pub_lb.getText());
+        
+        String conditionstatement=condi_tb.getText();
+        String code=code_tb.getText().trim();
+      
+       
+        Date releasedate=dateChooserCombo1.getDate();
            
            
            
@@ -459,10 +460,10 @@ combobox aut=new combobox();
         DefaultTableModel model=(DefaultTableModel)record_table.getModel();
         idj.setText(model.getValueAt(rowIndex, 0).toString());
         title_tb.setText(model.getValueAt(rowIndex, 1).toString());
-     //   genrecombo.setText(model.getValueAt(rowIndex, 2).toString());
-     //   doccombo.setText(model.getValueAt(rowIndex, 3).toString());
-     //   authcombo1.setText(model.getValueAt(rowIndex, 4).toString());
-     //   pubcombo.setText(model.getValueAt(rowIndex, 5).toString());
+         gen_lb.setText(model.getValueAt(rowIndex, 2).toString());
+        doc_lb.setText(model.getValueAt(rowIndex, 3).toString());
+        auth_lb.setText(model.getValueAt(rowIndex, 4).toString());
+        pub_lb.setText(model.getValueAt(rowIndex, 5).toString());
         
         Date releaseddate=null;
         try {

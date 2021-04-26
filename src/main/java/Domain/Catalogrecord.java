@@ -74,10 +74,14 @@ public class Catalogrecord implements Serializable {
         return Catalogloanrecords;
     }
     
+   
     public Catalogrecord(){	
     }	
+    
+    
+   
 
-public Catalogrecord(int id,String title, Date datereleased,String conditionstatement,String catalogcode,Integer genre,Integer documenttype,Integer author,Integer publisher){
+public Catalogrecord(Integer id,String title, Date datereleased,String conditionstatement,String catalogcode,Integer genre,Integer documenttype,Integer author,Integer publisher){
    this.id=id;
     this.title=title;
     this.author=author;
@@ -89,8 +93,13 @@ public Catalogrecord(int id,String title, Date datereleased,String conditionstat
 
     }
 
+ public Catalogrecord(int id,String title){	
+         this.id=id;
+    this.title=title;
+        
+    }	
  
-    public long getId() {
+    public Integer getId() {
         return this.id;
     }
     
