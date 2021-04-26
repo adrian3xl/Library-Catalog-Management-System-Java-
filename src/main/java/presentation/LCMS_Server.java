@@ -125,11 +125,7 @@ public class LCMS_Server  implements Runnable {
                     {                     
                         employee = (Employee) is.readObject();                  
                         if(!employee.getEmployeecode().equals("")&&!employee.getPassword().equals(""))
-                        {
-                               System.out.println("Employee's firstname is "+employee.getFname());         
-                             System.out.println("Employee's lastname is "+employee.getLname());         
-                             System.out.println("Employee's position is "+employee.getJobtitle());         
-                          
+                        { 
                            System.out.println("Employee's username is "+employee.getEmployeecode());
                            System.out.println("Employee's password is "+employee.getPassword());         
                           

@@ -18,7 +18,7 @@ import org.junit.Ignore;
  *
  * @author Adrian
  */
-@Ignore
+//@Ignore
 public class LCMS_ClientTest {
     
     public LCMS_ClientTest() {
@@ -97,9 +97,14 @@ public class LCMS_ClientTest {
     public void testReceiveResponse() {
         System.out.println("receiveResponse");
         LCMS_Client instance = new LCMS_Client();
-        String expResult = "";
+        String expResult = "Welcome";
         String result = instance.receiveResponse();
         assertEquals(expResult, result);
+        
+        
+        
+       
+        
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }

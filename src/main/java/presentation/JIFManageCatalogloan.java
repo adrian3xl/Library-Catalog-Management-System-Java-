@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -32,14 +33,25 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
      */
     JDBCMainConfiguration jdbc = new JDBCMainConfiguration();
     table loan = new table();
+    combobox cus = new combobox();
+    combobox emp = new combobox();
+    combobox catre = new combobox();
+    
+    
+     HashMap<String,Integer> custMap=cus.getCustMap();
+  HashMap<String,Integer> empMap=emp.getEmpMap();
+ HashMap<String,Integer>catrecMap=cus.getcatrecMap();
+    
+    
+    
     public JIFManageCatalogloan() {
         initComponents();
         loan.fillCatalogloanJTable(record_table, "");
-        
-        customercombobox();
-        titlecombobox();
-        employeecombobox();
-        
+       
+        fillcucombobox();
+       fillempcombobox();
+       fillcatreccombobox();
+    
         
         try {
             jdbc.getConnection();
@@ -336,18 +348,6 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         String releasedate = dateFormat.format(recievdateChooserCombo1.getDate());
         String loandate = dateFormat.format(loandateChooserCombo2.getDate());
        
-       
-
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
      
         // Catalogrecord anCatalogrecord=new Catalogrecord(id,title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
 
@@ -461,74 +461,78 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_record_tableMouseClicked
 
     private void catcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catcomboActionPerformed
-        // TODO add your handling code here:
+            try{
+        
+         int c_id = custMap.get(custcombo1.getSelectedItem().toString());
+        cus_id.setText(String.valueOf(c_id));
+        
+        }catch(Exception ex){
+        
+        java.util.logging.Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
+        
+        }         
     }//GEN-LAST:event_catcomboActionPerformed
 
     private void empcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empcomboActionPerformed
-        // TODO add your handling code here:
+         try{
+        
+         int e_id = empMap.get(empcombo.getSelectedItem().toString());
+        emp_id.setText(String.valueOf(e_id));
+        
+        }catch(Exception ex){
+        
+        java.util.logging.Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
+        
+        }
     }//GEN-LAST:event_empcomboActionPerformed
 
     private void custcombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custcombo1ActionPerformed
-        // TODO add your handling code here:
+         try{
+        
+         int cust_id = custMap.get(custcombo1.getSelectedItem().toString());
+        cus_id.setText(String.valueOf(cust_id));
+        
+        }catch(Exception ex){
+        
+        java.util.logging.Logger.getLogger(JIFManageCatalogrecord.class.getName()).log(Level.SEVERE, null, ex);
+        
+        }
     }//GEN-LAST:event_custcombo1ActionPerformed
 
-
-    public void titlecombobox(){
-
-String SelectAll= "Select title FROM catalogrecord";
-         
-       
-       PreparedStatement ps; 
-       ResultSet rs;
-        try {
-            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
-             while (rs.next()){
-            catcombo.addItem(rs.getString("title"));
-             } 
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    } 
-  public void employeecombobox(){
-
-String SelectAll= "Select employeecode FROM employee";
-         
-       
-       PreparedStatement ps; 
-       ResultSet rs;
-        try {
-            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
-             while (rs.next()){
-            empcombo.addItem(rs.getString("employeecode"));
-             } 
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-}
    
-            
-public void customercombobox(){
+    
+    
+   public void  fillcucombobox(){
+     
+        for(String pcode : custMap.keySet())
+       {
+   
+   custcombo1.addItem(pcode);
+       }
+     
+     
+     }   
+      public void fillempcombobox(){
+      
+           for(String doctypeName : empMap.keySet())
+       {
+   
+   empcombo.addItem(doctypeName);
+       }
+      
+      }   
+   public void fillcatreccombobox(){
+   
+       for(String genreName : catrecMap.keySet())
+       {
+   
+   catcombo.addItem(genreName);
+       }
+   }  
 
-String SelectAll= "Select customercode FROM customer";
-         
-       
-       PreparedStatement ps; 
-       ResultSet rs;
-        try {
-            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
-             while (rs.next()){
-             custcombo1.addItem(rs.getString("customercode"));
-             } 
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
 
-}
-            
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cat_id;

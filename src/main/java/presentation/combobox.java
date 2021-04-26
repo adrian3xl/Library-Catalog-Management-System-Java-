@@ -122,7 +122,7 @@ public class combobox extends JDBCMainConfiguration {
         return map;
     }
         
-     public HashMap<String, Integer>getCutMap(){
+     public HashMap<String, Integer>getCustMap(){
     
     HashMap<String, Integer> map = new HashMap<>();
     String SelectAll= "Select * FROM `customer`";
@@ -158,7 +158,7 @@ public class combobox extends JDBCMainConfiguration {
             rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
              while (rs.next()){
            
-               employee = new Employee(rs.getInt("id"),rs.getString("empoyeecode"));
+               employee = new Employee(rs.getInt("id"),rs.getString("employeecode"));
                map.put(employee.getEmployeecode(),employee.getId());
                  //genrecombo.addItem(rs.getString("name"));
              } 
@@ -195,9 +195,10 @@ public class combobox extends JDBCMainConfiguration {
     
     
     
-    
+//  Below was what i was using in the jframe for catalogloan to display data in combo box    
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////    
-    
+ 
+    /*
     
         public void doctypecombobox(){
 
@@ -256,47 +257,7 @@ String SelectAll= "Select authorcode FROM author";
 
 
 }
-     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     public void genrecombobox(){
 
 String SelectAll= "Select name FROM genre";
@@ -315,4 +276,65 @@ String SelectAll= "Select name FROM genre";
 
 
 }
+    
+     public void titlecombobox(){
+
+String SelectAll= "Select title FROM catalogrecord";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+         //   catcombo.addItem(rs.getString("title"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    } 
+  public void employeecombobox(){
+
+String SelectAll= "Select employeecode FROM employee";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+          //  empcombo.addItem(rs.getString("employeecode"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+}
+   
+            
+public void customercombobox(){
+
+String SelectAll= "Select customercode FROM customer";
+         
+       
+       PreparedStatement ps; 
+       ResultSet rs;
+        try {
+            rs=jdbc.getConnection().createStatement().executeQuery(SelectAll);
+             while (rs.next()){
+            // custcombo1.addItem(rs.getString("customercode"));
+             } 
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(JIFManageCatalogloan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+}
+    
+    
+    
+ */
+    
 }
