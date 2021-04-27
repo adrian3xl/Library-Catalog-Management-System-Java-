@@ -337,22 +337,20 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
     private void create_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_tbActionPerformed
 
         int id=Integer.parseInt(idj.getText().trim());
-     //    Integer catalogrecord_id=catcombo.getText().trim();
-     //    Integer cus_id=custcombo1.getText().trim();
-    //   Integer emp_id=empcombo.getText().trim();
-    //    Integer pub_id=pubcombo.getText().trim();
-    //    String conditionstatement=condi_tb.getText();
+      Integer catalogrecord_id= Integer.parseInt(cat_id.getText());
+        Integer cust_id=Integer.parseInt(cus_id.getText());
+      Integer empl_id=Integer.parseInt(emp_id.getText());
+   
         String code=code_tb.getText().trim();
-        
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String releasedate = dateFormat.format(recievdateChooserCombo1.getDate());
-        String loandate = dateFormat.format(loandateChooserCombo2.getDate());
+
+        Date releasedate = recievdateChooserCombo1.getDate();
+        Date loandate = loandateChooserCombo2.getDate();
        
      
-        // Catalogrecord anCatalogrecord=new Catalogrecord(id,title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
+        Catalogloanrecord anCatalogloanrecord= new  Catalogloanrecord(id,catalogrecord_id,cust_id,loandate,releasedate,code,empl_id);
 
         CatalogloanrecordManager CatalogloanMgr = new CatalogloanrecordManager();
-        // CatalogloanMgr.addCatalogloanrecord(anCatalogloanrecord);
+         CatalogloanMgr.addCatalogloanrecord(anCatalogloanrecord);
 
         record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Catalog", "Customer", "Loan Date ", "Recieved Date", "Loan Code", "Employee"}));
         loan.fillCatalogloanJTable(record_table, "");
@@ -365,20 +363,15 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         try{
             Catalogloanrecord anCatalogloan=new Catalogloanrecord();
             anCatalogloan.setId(Integer.parseInt(idj.getText()));
-            //    anCatalogrecord.setTitle(title.getText());
-            //    anCatalogrecord.setGenre_id(genrecombo.getText());
-            //    anCatalogrecord.setDocumenttype(doccombo.getText());
-            //    anCatalogrecord.setAuthor(authcombo1.getText());
-            //   anCatalogrecord.setPublisher(pubcombo.getText());
-            anCatalogloan.setLoancode(code_tb.getText());
-    
-         
-    anCatalogloan.setLoandate(loandateChooserCombo2.getDate());
-    
-     anCatalogloan.setRecieveddate(recievdateChooserCombo1.getDate());
+           Integer catalogrecord_id= Integer.parseInt(cat_id.getText());
+        Integer cust_id=Integer.parseInt(cus_id.getText());
+      Integer empl_id=Integer.parseInt(emp_id.getText());
+   
+        String code=code_tb.getText().trim();
 
+        Date releasedate = recievdateChooserCombo1.getDate();
+        Date loandate = loandateChooserCombo2.getDate();
 
-            
             CatalogloanrecordManager CatalogloanMgr=new CatalogloanrecordManager ();
             CatalogloanMgr.updateCatalogloanrecord(anCatalogloan);
 
@@ -440,11 +433,12 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         
         DefaultTableModel model=(DefaultTableModel)record_table.getModel();
         idj.setText(model.getValueAt(rowIndex, 0).toString());
-     //catcombo.1
-     //custcombo1.2
-     //empcombo.6
-     
+
         
+       cat_id.setText(model.getValueAt(rowIndex,1).toString());
+        cus_id.setText(model.getValueAt(rowIndex,2).toString());
+        code_tb.setText(model.getValueAt(rowIndex, 5).toString());
+        emp_id.setText(model.getValueAt(rowIndex,6).toString());
      Date loandate=null;
      Date releaseddate=null;
         try {
@@ -456,7 +450,7 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
     loandateChooserCombo2.setDate(loandate);
      recievdateChooserCombo1.setDate(releaseddate);
     
-        code_tb.setText(model.getValueAt(rowIndex, 5).toString());
+
         
     }//GEN-LAST:event_record_tableMouseClicked
 

@@ -59,7 +59,7 @@ public class Catalogloanrecord implements Serializable{
     }
     
     
-    public Catalogloanrecord( int id,int employee, int customer,int catalogrecord,Date recieveddate,Date loandate, String loancode      ){	
+    public Catalogloanrecord( int id,int customer,int catalogrecord,Date recieveddate,Date loandate, String loancode,int employee    ){	
         this.id=id;
         this.catalogrecord=catalogrecord;
         this.customer=customer;
