@@ -336,10 +336,10 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
 
     private void create_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_tbActionPerformed
 
-        int id=Integer.parseInt(idj.getText().trim());
-      Integer catalogrecord_id= Integer.parseInt(cat_id.getText());
-        Integer cust_id=Integer.parseInt(cus_id.getText());
-      Integer empl_id=Integer.parseInt(emp_id.getText());
+       int id=Integer.parseInt(idj.getText().trim());
+      var catalogrecord_id= Integer.parseInt(cat_id.getText());
+        var cust_id=Integer.parseInt(cus_id.getText());
+     var empl_id=Integer.parseInt(emp_id.getText());
    
         String code=code_tb.getText().trim();
 
@@ -457,8 +457,8 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
     private void catcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catcomboActionPerformed
             try{
         
-         int c_id = custMap.get(custcombo1.getSelectedItem().toString());
-        cus_id.setText(String.valueOf(c_id));
+         int c_id = catrecMap.get(catcombo.getSelectedItem().toString());
+        cat_id.setText(String.valueOf(c_id));
         
         }catch(Exception ex){
         

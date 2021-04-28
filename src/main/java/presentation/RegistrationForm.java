@@ -201,9 +201,10 @@ public class RegistrationForm extends javax.swing.JFrame {
          EmployeeManager employeeMgr= new EmployeeManager();
          employeeMgr.addEmployee(anEmployee);
        
-         JOptionPane.showMessageDialog(rootPane, "You have successfully logged in", "", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(rootPane, "You have successfully Registered", "", JOptionPane.ERROR_MESSAGE);
          
-         MainMenuForm main = new MainMenuForm();
+         dispose();
+         LoginForm main = new LoginForm();
                                 main.setVisible(true);
                                 this.validate();
                                 this.repaint();

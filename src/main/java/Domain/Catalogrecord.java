@@ -93,6 +93,18 @@ public Catalogrecord(Integer id,String title, Date datereleased,String condition
 
     }
 
+
+
+public Catalogrecord(String title, Date datereleased,String conditionstatement,String catalogcode,Integer genre,Integer documenttype,Integer author,Integer publisher){
+  this.title=title;
+    this.author=author;
+    this.publisher=publisher;
+    this.genre=genre;
+    this.documenttype=documenttype;
+    this.datereleased=datereleased;
+    this.conditionstatement=conditionstatement;
+
+    }
  public Catalogrecord(int id,String title){	
          this.id=id;
     this.title=title;

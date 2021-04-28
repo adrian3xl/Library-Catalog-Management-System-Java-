@@ -69,7 +69,19 @@ public class Catalogloanrecord implements Serializable{
     
     }	
   
-    public long getId() {
+    
+       public Catalogloanrecord(int customer,int catalogrecord,Date recieveddate,Date loandate, String loancode,int employee    ){	
+        
+        this.catalogrecord=catalogrecord;
+        this.customer=customer;
+        this.loandate= loandate;
+        this.recieveddate=recieveddate;
+        this.loancode=loancode;
+    
+    }
+    
+    
+    public int getId() {
         return this.id;
     }
     
