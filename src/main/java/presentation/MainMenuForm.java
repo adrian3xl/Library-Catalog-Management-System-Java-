@@ -5,6 +5,8 @@
  */
 package presentation;
 
+import static com.github.adrian3xl.sharedinterface.CheckTime.formattedDate;
+
 /**
  *
  * @author Adrian
@@ -16,6 +18,7 @@ public class MainMenuForm extends javax.swing.JFrame {
      */
     public MainMenuForm() {
         initComponents();
+         showdatetime();
     }
 
     /**
@@ -29,6 +32,7 @@ public class MainMenuForm extends javax.swing.JFrame {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jdp1 = new javax.swing.JDesktopPane();
+        time_tb = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         author_tb = new javax.swing.JMenuItem();
@@ -46,15 +50,26 @@ public class MainMenuForm extends javax.swing.JFrame {
         jInternalFrame1.setClosable(true);
         jInternalFrame1.setVisible(true);
 
+        time_tb.setBackground(new java.awt.Color(255, 0, 0));
+        time_tb.setText("time/date");
+
+        jdp1.setLayer(time_tb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jdp1Layout = new javax.swing.GroupLayout(jdp1);
         jdp1.setLayout(jdp1Layout);
         jdp1Layout.setHorizontalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1021, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdp1Layout.createSequentialGroup()
+                .addContainerGap(858, Short.MAX_VALUE)
+                .addComponent(time_tb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
         jdp1Layout.setVerticalGroup(
             jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(jdp1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(time_tb, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(692, Short.MAX_VALUE))
         );
 
         jMenu3.setText("Manage Records");
@@ -278,6 +293,13 @@ public class MainMenuForm extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    
+       public void showdatetime(){
+    
+     time_tb.setText(formattedDate);
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addcatrec_tb;
@@ -293,5 +315,6 @@ public class MainMenuForm extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JDesktopPane jdp1;
     private javax.swing.JMenuItem pub_tb;
+    private javax.swing.JLabel time_tb;
     // End of variables declaration//GEN-END:variables
 }

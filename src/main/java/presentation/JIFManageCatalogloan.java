@@ -336,7 +336,7 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
 
     private void create_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_tbActionPerformed
 
-       int id=Integer.parseInt(idj.getText().trim());
+      // int id=Integer.parseInt(idj.getText().trim());
       var catalogrecord_id= Integer.parseInt(cat_id.getText());
         var cust_id=Integer.parseInt(cus_id.getText());
      var empl_id=Integer.parseInt(emp_id.getText());
@@ -347,7 +347,7 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         Date loandate = loandateChooserCombo2.getDate();
        
      
-        Catalogloanrecord anCatalogloanrecord= new  Catalogloanrecord(id,catalogrecord_id,cust_id,loandate,releasedate,code,empl_id);
+        Catalogloanrecord anCatalogloanrecord= new  Catalogloanrecord(catalogrecord_id,cust_id,loandate,releasedate,code,empl_id);
 
         CatalogloanrecordManager CatalogloanMgr = new CatalogloanrecordManager();
          CatalogloanMgr.addCatalogloanrecord(anCatalogloanrecord);

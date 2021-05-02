@@ -372,7 +372,7 @@ combobox aut=new combobox();
 
     private void create_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_tbActionPerformed
   
-        int id=Integer.parseInt(idj.getText().trim());
+    //    int id=Integer.parseInt(idj.getText().trim());
         String title=title_tb.getText().trim();
         Integer genre_id=Integer.parseInt(gen_lb.getText());
         Integer doc_id=Integer.parseInt(doc_lb.getText());
@@ -387,7 +387,7 @@ combobox aut=new combobox();
      
  
         
-       Catalogrecord anCatalogrecord=new Catalogrecord(id,title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
+       Catalogrecord anCatalogrecord=new Catalogrecord(title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
 
         CatalogrecordManager CatalogrecordMgr = new CatalogrecordManager();
         CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
