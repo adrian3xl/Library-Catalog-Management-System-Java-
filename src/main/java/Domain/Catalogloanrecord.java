@@ -13,6 +13,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -29,12 +30,12 @@ import javax.persistence.Table;
 @Table(name="catalogloanrecord")
 public class Catalogloanrecord implements Serializable{	
 
-     @Id	
+     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private int id;
+     
     @Column(name="loancode")
      private String loancode;
-     
-      @Column(name="id")
-     private int id;
      
       @Column(name="loandate") 
      private Date loandate;
@@ -42,42 +43,43 @@ public class Catalogloanrecord implements Serializable{
       @Column(name="recieveddate") 
     private Date recieveddate;
     
-     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "catalogrecord_id",nullable = false)
-    private int catalogrecord;	
+     @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "catalogrecord_id", referencedColumnName = "id")
+    private Catalogrecord catalogrecord;	
     
-     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id",nullable = false)
-    private int customer;	
+     @ManyToOne (fetch = FetchType.LAZY)
+     @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    private Customer customer;	
    
-     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee_id",nullable = false)
-    private int employee;	
+     @ManyToOne (fetch = FetchType.LAZY)
+     @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    private Employee employee;	
 
     
     public Catalogloanrecord(){	
     }
     
     
-    public Catalogloanrecord( int id,int customer,int catalogrecord,Date recieveddate,Date loandate, String loancode,int employee    ){	
+    public Catalogloanrecord( int id,Customer customer,Catalogrecord catalogrecord,Date recieveddate,Date loandate, String loancode,Employee employee    ){	
         this.id=id;
         this.catalogrecord=catalogrecord;
         this.customer=customer;
         this.loandate= loandate;
         this.recieveddate=recieveddate;
         this.loancode=loancode;
+        this.employee=employee;
     
     }	
   
     
-       public Catalogloanrecord(int customer,int catalogrecord,Date recieveddate,Date loandate, String loancode,int employee    ){	
+       public Catalogloanrecord(Customer customer,Catalogrecord catalogrecord,Date recieveddate,Date loandate, String loancode,Employee employee    ){	
         
         this.catalogrecord=catalogrecord;
         this.customer=customer;
         this.loandate= loandate;
         this.recieveddate=recieveddate;
         this.loancode=loancode;
-    
+        this.employee=employee;
     }
     
     
@@ -86,17 +88,17 @@ public class Catalogloanrecord implements Serializable{
     }
     
    
-    public int getCustomer() {
+    public Customer getCustomer() {
         return this.customer;
     }
  
 
-    public int getEmployee() {
+    public Employee getEmployee() {
         return this.employee;
     }
 
     
-    public int getCatalogrecord() {
+    public Catalogrecord getCatalogrecord() {
         return catalogrecord;
     }
 
@@ -128,15 +130,16 @@ public class Catalogloanrecord implements Serializable{
         this.id = id;
     }
 
-    public void setCatalogrecord(int catalogrecord) {
+    public void setCatalogrecord(Catalogrecord catalogrecord) {
         this.catalogrecord = catalogrecord;
     }
 
-    public void setCustomer(int customer) {
+
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    public void setEmployee(int employee) {
+    public void setEmployee(Employee employee) {
         this.employee = employee;
     }
     

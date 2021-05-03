@@ -31,7 +31,7 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
         
         String insertAuthor = "INSERT INTO author(id, authorcode, firstname, lastname) "
                 + "values('" + author.getId() + 
-                "', '" + author.getAuthorCode()+
+                "', '" + author.getAuthorcode()+
                 "', '" + author.getFname() + 
                 "', '" + author.getLname() + "')";    
         
@@ -44,7 +44,7 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
     @Override
     public void updateAuthorJDBC(Author author) throws Exception {
            
-        String updateAuthor = "UPDATE author SET authorcode = '" + author.getAuthorCode()+ 
+        String updateAuthor = "UPDATE author SET authorcode = '" + author.getAuthorcode()+ 
                 "', firstname = '" + author.getFname() + 
                 "', lastname = '" + author.getFname() + 
                 

@@ -9,11 +9,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;	
 import javax.persistence.Table;	
 import java.util.Date;		
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -30,17 +32,12 @@ public class Catalogrecord implements Serializable {
 
 
     @Id	
-    @Column(name="title")
-     private String title;
-     @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-     @OneToMany(mappedBy = "catalogrecord")
-    private List<Catalogloanrecord> Catalogloanrecords; 
-    
-    
-   	
-    
+    @Column(name="title")
+     private String title;
+
     @Column(name="datereleased")	
     private Date datereleased;	
     
@@ -51,29 +48,33 @@ public class Catalogrecord implements Serializable {
     private String catalogcode;	
 
     
-     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "genre_id" )
-     private Integer genre;
-     
-     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "documenttype_id" ) 
-    private Integer documenttype;
+     @OneToMany(cascade = CascadeType.ALL)
+    private Set<Catalogloanrecord> catalogloanrecords = new HashSet();
     
-     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id" )
-     private Integer author;
-     
-    @ManyToOne(fetch = FetchType.LAZY)
-     private Integer publisher;
-    
-     
-   
 
-    public List<Catalogloanrecord> getCatalogloanrecords() {
-        return Catalogloanrecords;
-    }
     
+     @ManyToOne(fetch = FetchType.LAZY)
+     @JoinColumn(name = "genre_id", referencedColumnName = "id")
+     private Genre genre;
+     
+     
+    @ManyToOne(fetch = FetchType.LAZY)
+     @JoinColumn(name = "documenttype_id", referencedColumnName = "id")
+    private Documenttype documenttype;
+    
+     @ManyToOne(fetch = FetchType.LAZY)
+      @JoinColumn(name = "author_id", referencedColumnName = "id")
+     private Author author;
+     
+    @ManyToOne(fetch = FetchType.LAZY)
+     @JoinColumn(name = "publisher_id", referencedColumnName = "id")
+     private Publisher publisher;
+    
+   
+    public Set<Catalogloanrecord> getCatalogloanrecords() {
+        return catalogloanrecords;
+    }
+
    
     public Catalogrecord(){	
     }	
@@ -81,7 +82,7 @@ public class Catalogrecord implements Serializable {
     
    
 
-public Catalogrecord(Integer id,String title, Date datereleased,String conditionstatement,String catalogcode,Integer genre,Integer documenttype,Integer author,Integer publisher){
+public Catalogrecord(Integer id,String title, Date datereleased,String conditionstatement,String catalogcode,Genre genre,Documenttype documenttype,Author author,Publisher publisher){
    this.id=id;
     this.title=title;
     this.author=author;
@@ -95,7 +96,7 @@ public Catalogrecord(Integer id,String title, Date datereleased,String condition
 
 
 
-public Catalogrecord(String title, Date datereleased,String conditionstatement,String catalogcode,Integer genre,Integer documenttype,Integer author,Integer publisher){
+public Catalogrecord(String title, Date datereleased,String conditionstatement,String catalogcode,Genre genre,Documenttype documenttype,Author author,Publisher publisher){
   this.title=title;
     this.author=author;
     this.publisher=publisher;
@@ -115,26 +116,6 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
         return this.id;
     }
     
-   
-    public Integer getAuthor() {
-        return this.author;
-    }
- 
-  
-    public Integer getGenre() {
-        return this.genre;
-    }
-
-    
-    public Integer getPublisher() {
-        return this.publisher;
-    }
-    
-    
-    public Integer getDocumenttype() {
-        return this.documenttype;
-    }
-    
     public  String getTitle() {	
         return title;	
     }	
@@ -149,6 +130,42 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
 
     public String getCatalogcode() {
         return catalogcode;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public Documenttype getDocumenttype() {
+        return documenttype;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setCatalogloanrecords(Set<Catalogloanrecord> catalogloanrecords) {
+        this.catalogloanrecords = catalogloanrecords;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public void setDocumenttype(Documenttype documenttype) {
+        this.documenttype = documenttype;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
     
      
@@ -172,21 +189,6 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
         this.catalogcode = catalogcode;
     }
 
-    public void setGenre(Integer genre) {
-        this.genre = genre;
-    }
 
-    public void setDocumenttype(Integer documenttype) {
-        this.documenttype = documenttype;
-    }
-
-    public void setAuthor(Integer author) {
-        this.author = author;
-    }
-
-    public void setPublisher(Integer publisher) {
-        this.publisher = publisher;
-    }
-    
      
 }

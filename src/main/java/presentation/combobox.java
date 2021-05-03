@@ -88,7 +88,7 @@ public class combobox extends JDBCMainConfiguration {
              while (rs.next()){
            
                author = new Author(rs.getInt("id"),rs.getString("authorcode"));
-               map.put(author.getAuthorCode(),author.getId());
+               map.put(author.getAuthorcode(),author.getId());
                  //genrecombo.addItem(rs.getString("name"));
              } 
         } catch (SQLException ex) {

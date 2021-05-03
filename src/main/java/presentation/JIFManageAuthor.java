@@ -253,13 +253,13 @@ table Author=new table();
 
     private void createjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createjButton1ActionPerformed
          
-              int id=Integer.parseInt(idj.getText().trim());
+           //   int id=Integer.parseInt(idj.getText().trim());
         String fname=firstnameJtf1.getText().trim();
         String lname=lastnameJtf2.getText().trim();
        
         String authorcode=authcodJtf1.getText().trim();
         
-        Author anAuthor=new Author(id,fname,lname,authorcode);
+        Author anAuthor=new Author(fname,lname,authorcode);
       
         AuthorManager authorMgr = new AuthorManager();
         authorMgr.addAuthor(anAuthor,"HIBER");

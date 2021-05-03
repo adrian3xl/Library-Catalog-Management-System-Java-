@@ -228,8 +228,8 @@ public class JIFManageCustomer extends javax.swing.JInternalFrame {
        String phonenumber=cellnumber_tb.getText().trim();
         String address=address_tb.getText().trim();
          String customercode=code_tb.getText().trim();
-         int id=Integer.parseInt(idj.getText().trim());
-         Customer anCustomer=new Customer(id,fname,lname,phonenumber,address,customercode);
+       //  int id=Integer.parseInt(idj.getText().trim());
+         Customer anCustomer=new Customer(fname,lname,phonenumber,address,customercode);
       
         CustomerManager CustomerMgr = new CustomerManager();
         CustomerMgr.addCustomer(anCustomer);

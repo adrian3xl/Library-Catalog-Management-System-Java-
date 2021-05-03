@@ -35,11 +35,11 @@ public class Employee extends Person {
 
      
       @OneToMany(fetch = FetchType.LAZY,mappedBy = "employee", cascade = CascadeType.ALL)
-      private List<Catalogloanrecord> Catalogloanrecords;
+      private Set<Catalogloanrecord> catalogloanrecords;
       
         
-    public List<Catalogloanrecord> getCatalogloanrecords() {
-        return Catalogloanrecords;
+    public Set<Catalogloanrecord> getCatalogloanrecords() {
+        return catalogloanrecords;
     }
      
        public Employee( int id, String fname, String lname,String jobtitle,String password, String employeecode) {

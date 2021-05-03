@@ -110,7 +110,7 @@ combobox aut=new combobox();
         setClosable(true);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Catalog Record");
+        jLabel1.setText("Manage Catalog Record");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Title");

@@ -33,11 +33,11 @@ public class Customer extends Person {
 
       
           @OneToMany(fetch = FetchType.LAZY,mappedBy = "customer", cascade = CascadeType.ALL)
-       private List<Catalogloanrecord> Catalogloanrecords;
+       private Set<Catalogloanrecord> catalogloanrecords;
       
     
-    public List<Catalogloanrecord> getCatalogloanrecords() {
-        return Catalogloanrecords;
+    public Set<Catalogloanrecord> getCatalogloanrecords() {
+        return catalogloanrecords;
     }
       
     public Customer(int id, String fname, String lname, String address, String customercode, String phonenumber ) {
@@ -47,6 +47,17 @@ public class Customer extends Person {
         this.phonenumber=phonenumber;
         this.address=address;
         this.setId(id);
+
+    }
+    
+    
+      public Customer( String fname, String lname, String address, String customercode, String phonenumber ) {
+        this.customercode = customercode;
+        this.setFname(fname);
+        this.setLname(lname);
+        this.phonenumber=phonenumber;
+        this.address=address;
+       
 
     }
     

@@ -50,7 +50,8 @@ public class MainMenuForm extends javax.swing.JFrame {
         jInternalFrame1.setClosable(true);
         jInternalFrame1.setVisible(true);
 
-        time_tb.setBackground(new java.awt.Color(255, 0, 0));
+        time_tb.setFont(new java.awt.Font("Castellar", 2, 12)); // NOI18N
+        time_tb.setForeground(new java.awt.Color(255, 0, 0));
         time_tb.setText("time/date");
 
         jdp1.setLayer(time_tb, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -69,7 +70,7 @@ public class MainMenuForm extends javax.swing.JFrame {
             .addGroup(jdp1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(time_tb, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(692, Short.MAX_VALUE))
+                .addContainerGap(704, Short.MAX_VALUE))
         );
 
         jMenu3.setText("Manage Records");

@@ -6,6 +6,7 @@
 package Domain;
 
 import java.util.List;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,7 +35,7 @@ public class Publisher extends Person {
     }
 
       @OneToMany(fetch = FetchType.LAZY,mappedBy = "publisher", cascade = CascadeType.ALL)
-     private List<Catalogrecord> Catalogrecords;
+     private Set<Catalogrecord> catalogrecords;
    
       
       
@@ -44,6 +45,12 @@ public Publisher(int id, String publishercode)
         this.setId(id);
     }
 
+public Publisher(String fname, String lname, String publishercode)
+    {
+       this.publishercode = publishercode;
+        this.setFname(fname);
+      this.setLname(lname);
+    }
       public Publisher()
     {
         
@@ -57,8 +64,8 @@ public Publisher(int id, String publishercode)
         return publishercode;
     }
     
-  public void setCatalogrecords(List<Catalogrecord> Catalogrecords) {
-        this.Catalogrecords = Catalogrecords;
+  public void setCatalogrecords(Set<Catalogrecord> Catalogrecords) {
+        this.catalogrecords = Catalogrecords;
     }
   
    @Override

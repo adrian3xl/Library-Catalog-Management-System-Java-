@@ -6,6 +6,7 @@
 package Domain;
 import Domain.Person;
 import java.io.Serializable;	
+import java.util.HashSet;
 import java.util.List;
 import javax.persistence.Column;	
 import javax.persistence.Entity;	
@@ -41,13 +42,17 @@ public class Author extends Person{
         this.setId(id);
        
     }
-   
-      @OneToMany(fetch = FetchType.LAZY,mappedBy = "author", cascade = CascadeType.ALL)
-      private List<Catalogrecord> Catalogrecords;
-
-
-
-
+    
+       public Author(String fname, String lname, String authorcode) {
+        this.authorcode = authorcode;
+        this.setFname(fname);
+        this.setLname(lname);
+       
+       
+    }
+       
+      
+    
 
     public Author(int id,String authorcode)
     {  
@@ -60,24 +65,29 @@ public class Author extends Person{
     {  
 
     }
+   
+       
+   
+      @OneToMany(mappedBy = "author")
+      private List<Catalogrecord> catalogrecords;
+      
+  
+   public List<Catalogrecord> getCatalogrecords() {
+        return catalogrecords;
+    }
 
-    public String getAuthorCode() {
+    public String getAuthorcode() {
         return authorcode;
     }
-    
+
     public void setAuthorcode(String authorcode) {
         this.authorcode = authorcode;
     }
 
-    public void getAuthorCode(String authorcode) {
-        this.authorcode = authorcode;
+    public void setCatalogrecords(List<Catalogrecord> catalogrecords) {
+        this.catalogrecords = catalogrecords;
     }
-    public void setCatalogrecords(List<Catalogrecord> Catalogrecords) {
-      this.Catalogrecords = Catalogrecords;
-  }
 
-    
-    
     @Override
     public String toString() {
         return "{" + super.toString() + "Author{authorcode=" + authorcode + '}';

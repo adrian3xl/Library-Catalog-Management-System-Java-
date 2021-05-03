@@ -13,6 +13,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -26,15 +27,16 @@ import javax.persistence.Table;
 
 public class Genre implements Serializable {	
 
-     @Id	
+        @Id	
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+        
     @Column(name="name")	
     private String name;	
-    @Column(name = "id")
-    private int id;
-  
+
     
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "genre", cascade = CascadeType.ALL)
-    private List<Catalogrecord> Catalogrecords;
+    private Set<Catalogrecord> catalogrecords;
    
     public Genre( int id,String name) {	
         this.name=name;	
@@ -42,10 +44,13 @@ public class Genre implements Serializable {
 
 
     }	
+public Genre( String name) {	
+        this.name=name;	
 
+    }
     
-    public List<Catalogrecord> getCatalogrecords() {
-        return Catalogrecords;
+    public Set<Catalogrecord> getCatalogrecords() {
+        return catalogrecords;
     }
     
     

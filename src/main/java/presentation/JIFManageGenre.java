@@ -51,6 +51,8 @@ public class JIFManageGenre extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        setClosable(true);
+
         Genre_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -231,9 +233,9 @@ public class JIFManageGenre extends javax.swing.JInternalFrame {
 
     private void createjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createjButton1ActionPerformed
 
-        int id=Integer.parseInt(idj.getText().trim());
+     //   int id=Integer.parseInt(idj.getText().trim());
         String name=nameJtf1.getText().trim();
-        Genre anGenre=new Genre(id,name);
+        Genre anGenre=new Genre(name);
 
         GenreManager pubMgr = new GenreManager();
         pubMgr.addGenre(anGenre);

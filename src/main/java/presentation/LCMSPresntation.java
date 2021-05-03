@@ -290,7 +290,7 @@ public class LCMSPresntation {
             System.out.println("ID: " + anAuthor.getId()+"\n");
             System.out.println("First Name: " + anAuthor.getFname()+"\n");
             System.out.println("Last Name: " + anAuthor.getLname()+"\n");
-            System.out.println("Author code: " + anAuthor.getAuthorCode()+"\n");
+            System.out.println("Author code: " + anAuthor.getAuthorcode()+"\n");
         }
         else if(jdbcChoice==5)
         {
@@ -1397,7 +1397,7 @@ public class LCMSPresntation {
             System.out.println("ID: " + anAuthor.getId()+"\n");
             System.out.println("First Name: " + anAuthor.getFname()+"\n");
             System.out.println("Last Name: " + anAuthor.getLname()+"\n");
-            System.out.println("Author code: " + anAuthor.getAuthorCode()+"\n");
+            System.out.println("Author code: " + anAuthor.getAuthorcode()+"\n");
         }
         else if(ORMChoice==5)
         {
@@ -1416,7 +1416,7 @@ public class LCMSPresntation {
             System.out.println("ID: " + authors.get(i).getId()+"\n");
             System.out.println("First Name: " + authors.get(i).getFname()+"\n");
             System.out.println("Last Name: " + authors.get(i).getLname()+"\n");
-            System.out.println("Author code: " + authors.get(i).getAuthorCode()+"\n");
+            System.out.println("Author code: " + authors.get(i).getAuthorcode()+"\n");
             }
         }
         else if(ORMChoice==6)

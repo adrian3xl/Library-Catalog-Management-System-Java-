@@ -115,7 +115,7 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Catalog loan Record");
+        jLabel1.setText("Manage Catalog Loan Record");
 
         empcombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

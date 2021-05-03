@@ -13,6 +13,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -26,14 +27,15 @@ import javax.persistence.Table;
 public class Documenttype implements Serializable {
   
       @Id	
-    @Column(name="id")
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
        private int id;
+      
       @Column(name="name")
     private String name;	
 
      
       @OneToMany(fetch = FetchType.LAZY,mappedBy = "documenttype", cascade = CascadeType.ALL)
-      private List<Catalogrecord> Catalogrecords;
+      private Set<Catalogrecord> catalogrecords;
       
     public Documenttype( int id,String name) {	
        this.setId(id);
@@ -41,12 +43,17 @@ public class Documenttype implements Serializable {
   
     }	
 
+  public Documenttype(String name) {	
+      
+        this.name=name;
   
+    }	
+
  
 
    
-    public List<Catalogrecord> getCatalogrecords() {
-        return Catalogrecords;
+    public Set<Catalogrecord> getCatalogrecords() {
+        return catalogrecords;
     }
     
 

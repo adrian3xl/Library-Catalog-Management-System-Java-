@@ -52,6 +52,8 @@ public class JIFManageDocType extends javax.swing.JInternalFrame {
         idj = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
+        setClosable(true);
+
         jLabel2.setText(" Name");
 
         doctype_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -230,9 +232,9 @@ public class JIFManageDocType extends javax.swing.JInternalFrame {
 
     private void createjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createjButton1ActionPerformed
 
-        int id=Integer.parseInt(idj.getText().trim());
+       // int id=Integer.parseInt(idj.getText().trim());
         String name=nameJtf1.getText().trim();
-        Documenttype anDocumenttype=new Documenttype(id,name);
+        Documenttype anDocumenttype=new Documenttype(name);
 
         DocumenttypeManager DocumenttypeMgr = new DocumenttypeManager();
         DocumenttypeMgr.addDocumenttype(anDocumenttype);

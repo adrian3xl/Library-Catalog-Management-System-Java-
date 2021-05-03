@@ -287,13 +287,13 @@ public class JIFManagePublisher extends javax.swing.JInternalFrame {
 
     private void createjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createjButton1ActionPerformed
 
-        int id=Integer.parseInt(idj.getText().trim());
+       // int id=Integer.parseInt(idj.getText().trim());
         String fname=firstnameJtf1.getText().trim();
         String lname=lastnameJtf2.getText().trim();
 
         String publishercode=authcodJtf1.getText().trim();
 
-        Publisher anPublisher=new Publisher(id,fname,lname,publishercode);
+        Publisher anPublisher=new Publisher(fname,lname,publishercode);
 
         PublisherManager pubMgr = new PublisherManager();
         pubMgr.addPublisher(anPublisher,"HIBER1");
