@@ -50,7 +50,7 @@ public class DocumenttypeManagerTest {
         System.out.println("addDocumenttype");
         Documenttype anDocumenttype = null;
         DocumenttypeManager instance = new DocumenttypeManager();
-        instance.addDocumenttype(anDocumenttype);
+        instance.addDocumenttype(anDocumenttype,"HIBER11");
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -64,7 +64,7 @@ public class DocumenttypeManagerTest {
         int documenttypeId = 0;
         DocumenttypeManager instance = new DocumenttypeManager();
         Documenttype expResult = null;
-        Documenttype result = instance.getDocumenttype(documenttypeId);
+        Documenttype result = instance.getDocumenttype(documenttypeId,"HIBER11");
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -78,7 +78,7 @@ public class DocumenttypeManagerTest {
         System.out.println("updateDocumenttype");
         Documenttype anDocumenttype = null;
         DocumenttypeManager instance = new DocumenttypeManager();
-        instance.updateDocumenttype(anDocumenttype);
+        instance.updateDocumenttype(anDocumenttype,"HIBER11");
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -91,7 +91,7 @@ public class DocumenttypeManagerTest {
         System.out.println("getAllDocumenttype");
         DocumenttypeManager instance = new DocumenttypeManager();
          List<Documenttype> expResult = null;
-        List<Documenttype>result = instance.getAllDocumenttype();
+        List<Documenttype>result = instance.getAllDocumenttypes("HIBER11");
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -106,7 +106,7 @@ public class DocumenttypeManagerTest {
         Class Documenttype = null;
         int documenttypeId = 0;
         DocumenttypeManager instance = new DocumenttypeManager();
-        instance.deleteDocumenttype(Documenttype, documenttypeId);
+        instance.deleteDocumenttype(Documenttype, documenttypeId,"HIBER11");
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

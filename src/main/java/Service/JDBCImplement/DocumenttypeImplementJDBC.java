@@ -10,11 +10,13 @@ import Domain.Documenttype;
 import Service.IDocumenttypeServiceJDBC;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Adrian
  */
+@Component("JDBC11")
 public class DocumenttypeImplementJDBC extends JDBCMainConfiguration implements IDocumenttypeServiceJDBC {
  Statement statement;
     @Override

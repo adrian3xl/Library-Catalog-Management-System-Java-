@@ -8,12 +8,15 @@ package Service;
 import Domain.Documenttype;
 import java.sql.ResultSet;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Adrian
  */
-public interface IDocumenttypeService {
+
+@Component
+public interface IDocumenttypeService extends IService {
     
 public final String NAME="IDocumenttypeService";
     
@@ -26,5 +29,16 @@ public final String NAME="IDocumenttypeService";
     public List getAllDocumenttype () throws Exception;
     
     public void deleteDocumenttype (Class<?> Documenttype, int documenttypeId) throws Exception; 
+    
+     public void addDocumenttypeJDBC(Documenttype documenttype) throws Exception ; //method for adding Documenttype
+    
+    public void updateDocumenttypeJDBC(Documenttype documenttype) throws Exception ; //method for updating a Documenttype
+    
+    public Documenttype getDocumenttypeJDBC(int id) throws Exception ; //method to select Documenttype
+    
+    public ResultSet getAllDocumenttypeJDBC() throws Exception;
+    
+    public void deleteDocumenttypeJDBC(int id) throws Exception; 
+    
     
 }

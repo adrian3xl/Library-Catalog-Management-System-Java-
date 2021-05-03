@@ -195,7 +195,7 @@ public class JIFManageDocType extends javax.swing.JInternalFrame {
             theDocumentType.setName(nameJtf1.getText());
 
             DocumenttypeManager DocumentTypeMgr=new DocumenttypeManager();
-            DocumentTypeMgr.updateDocumenttype(theDocumentType);
+            DocumentTypeMgr.updateDocumenttype(theDocumentType,"HIBER11");
 
             doctype_table.setModel(new DefaultTableModel(null, new Object[]{"id","Name"}));
             Doc__Type.fillDocTypeJTable(doctype_table,"");
@@ -216,7 +216,7 @@ public class JIFManageDocType extends javax.swing.JInternalFrame {
             try{
                 int doctypeId=Integer.parseInt(idj.getText());
                 DocumenttypeManager DocumenttypeMgr=new DocumenttypeManager();
-                DocumenttypeMgr.deleteDocumenttype(Documenttype.class, doctypeId);
+                DocumenttypeMgr.deleteDocumenttype(Documenttype.class, doctypeId,"HIBER11");
                 JOptionPane.showMessageDialog(rootPane, "Documenttype Deleted", "", JOptionPane.INFORMATION_MESSAGE);
 
                 doctype_table.setModel(new DefaultTableModel(null, new Object[]{"id","Name"}));
@@ -237,7 +237,7 @@ public class JIFManageDocType extends javax.swing.JInternalFrame {
         Documenttype anDocumenttype=new Documenttype(name);
 
         DocumenttypeManager DocumenttypeMgr = new DocumenttypeManager();
-        DocumenttypeMgr.addDocumenttype(anDocumenttype);
+        DocumenttypeMgr.addDocumenttype(anDocumenttype,"HIBER11");
         JOptionPane.showMessageDialog(rootPane, "Successful Save", "", JOptionPane.INFORMATION_MESSAGE);
 
         doctype_table.setModel(new DefaultTableModel(null, new Object[]{"id","Name"}));

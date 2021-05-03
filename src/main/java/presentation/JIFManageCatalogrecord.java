@@ -387,10 +387,10 @@ combobox aut=new combobox();
      
  
         
-       Catalogrecord anCatalogrecord=new Catalogrecord(title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
+     //  Catalogrecord anCatalogrecord=new Catalogrecord(title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
 
         CatalogrecordManager CatalogrecordMgr = new CatalogrecordManager();
-        CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
+     //   CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
 
         record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition","Catalog Code"}));
         catalogrec.fillCatalogRecordJTable(record_table,"");

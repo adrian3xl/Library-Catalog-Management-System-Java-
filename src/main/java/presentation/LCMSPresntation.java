@@ -1668,7 +1668,7 @@ public class LCMSPresntation {
             System.out.println("Enter Documenttype name: ");
             anDocumenttype.setName(aScanner.nextLine());
  
-            DocumenttypeORM.addDocumenttype(anDocumenttype);
+            DocumenttypeORM.addDocumenttype(anDocumenttype,"HIBER11");
             System.out.println("Documenttype Added Using ORM");
             
         }
@@ -1682,7 +1682,7 @@ public class LCMSPresntation {
             System.out.println("Enter Documenttype name: ");
             anDocumenttype.setName(aScanner.nextLine());
             
-            DocumenttypeORM.updateDocumenttype(anDocumenttype);
+            DocumenttypeORM.updateDocumenttype(anDocumenttype,"HIBER11");
             System.out.println("Document type updated Using ORM");
         }
         else if(ORMChoice==3)
@@ -1691,7 +1691,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-            DocumenttypeORM.deleteDocumenttype(Documenttype.class,aScanner.nextInt());
+            DocumenttypeORM.deleteDocumenttype(Documenttype.class,aScanner.nextInt(),"HIBER11");
             System.out.println("Documenttype deleted using ORM");
         }
         else if(ORMChoice==4)
@@ -1703,7 +1703,7 @@ public class LCMSPresntation {
             
             System.out.println("Enter ID: ");
             int id = aScanner.nextInt();
-            anDocumenttype =  DocumenttypeORM.getDocumenttype(id);
+            anDocumenttype =  DocumenttypeORM.getDocumenttype(id,"HIBER11");
             
             //Runtime.getRuntime().exec("cls");
             
@@ -1722,7 +1722,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System.in);
             
             
-            documenttype = DocumenttypeORM.getAllDocumenttype();
+            documenttype = DocumenttypeORM.getAllDocumenttypes("HIBER11");
             System.out.println("ResultSet of Document type return using ORM\n");
             
             for(int i=0; i<  documenttype.size(); i++){

@@ -15,12 +15,17 @@ import Service.IDocumenttypeService;
 import Service.IAuthorService;
 import com.mysql.cj.protocol.Resultset;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import org.springframework.stereotype.Component;
 /**
  *
  * @author Adrian
  */
+@Component("HIBER11")
 public class DocumenttypeImplement extends HibernateMainConfig implements IDocumenttypeService {
 
+     Statement statement;
+     
     @Override
     public void addDocumenttype(Documenttype documenttype) throws Exception {
                 
@@ -146,6 +151,31 @@ public class DocumenttypeImplement extends HibernateMainConfig implements IDocum
                       session.flush();
                       session.close();
                      }
+    }
+
+    @Override
+    public void addDocumenttypeJDBC(Documenttype documenttype) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateDocumenttypeJDBC(Documenttype documenttype) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Documenttype getDocumenttypeJDBC(int id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ResultSet getAllDocumenttypeJDBC() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteDocumenttypeJDBC(int id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
