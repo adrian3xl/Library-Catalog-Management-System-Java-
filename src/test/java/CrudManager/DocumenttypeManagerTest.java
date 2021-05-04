@@ -110,5 +110,34 @@ public class DocumenttypeManagerTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getAllDocumenttypes method, of class DocumenttypeManager.
+     */
+    @Test
+    public void testGetAllDocumenttypes() {
+        System.out.println("getAllDocumenttypes");
+        String using = "";
+        DocumenttypeManager instance = new DocumenttypeManager();
+        List<Documenttype> expResult = null;
+        List<Documenttype> result = instance.getAllDocumenttypes(using);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getAllDocumenttypesJDBC method, of class DocumenttypeManager.
+     */
+    @Test
+    public void testGetAllDocumenttypesJDBC() {
+        System.out.println("getAllDocumenttypesJDBC");
+        DocumenttypeManager instance = new DocumenttypeManager();
+        ResultSet expResult = null;
+        ResultSet result = instance.getAllDocumenttypesJDBC();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

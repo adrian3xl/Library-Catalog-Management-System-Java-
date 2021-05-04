@@ -110,5 +110,50 @@ public class EmployeeManagerTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of validateUser method, of class EmployeeManager.
+     */
+    @Test
+    public void testValidateUser() {
+        System.out.println("validateUser");
+        String username = "";
+        EmployeeManager instance = new EmployeeManager();
+        Boolean expResult = null;
+        Boolean result = instance.validateUser(username);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of validateUsernameAndPwd method, of class EmployeeManager.
+     */
+    @Test
+    public void testValidateUsernameAndPwd() {
+        System.out.println("validateUsernameAndPwd");
+        Employee user = null;
+        EmployeeManager instance = new EmployeeManager();
+        Boolean expResult = null;
+        Boolean result = instance.validateUsernameAndPwd(user);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of validateEmpCodeAndPwd method, of class EmployeeManager.
+     */
+    @Test
+    public void testValidateEmpCodeAndPwd() {
+        System.out.println("validateEmpCodeAndPwd");
+        Employee employee = null;
+        EmployeeManager instance = new EmployeeManager();
+        Boolean expResult = null;
+        Boolean result = instance.validateEmpCodeAndPwd(employee);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

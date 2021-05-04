@@ -6,6 +6,7 @@
 package CrudManager;
 
 import Domain.Publisher;
+import java.sql.ResultSet;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -106,6 +107,20 @@ public class PublisherManagerTest {
         int publisherId = 0;
         PublisherManager instance = new PublisherManager();
        // instance.deletePublisher(Publisher, publisherId);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getAllPublishersJDBC method, of class PublisherManager.
+     */
+    @Test
+    public void testGetAllPublishersJDBC() {
+        System.out.println("getAllPublishersJDBC");
+        PublisherManager instance = new PublisherManager();
+        ResultSet expResult = null;
+        ResultSet result = instance.getAllPublishersJDBC();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
