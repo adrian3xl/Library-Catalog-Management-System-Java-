@@ -81,7 +81,7 @@ public class LCMS_ClientTest {
      */
     @Test
     public void testSendEmpllogin() {
-        System.out.println("sendEmpllogin");
+        System.out.println("send Employee login");
      
         Employee employee = new Employee("EMP1","password");
         LCMS_Client instance = new LCMS_Client();

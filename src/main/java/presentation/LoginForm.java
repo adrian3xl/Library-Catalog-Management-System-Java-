@@ -5,22 +5,14 @@
  */
 package presentation;
 
-import CrudManager.EmployeeManager;
 import Domain.Employee;
 import Service.JDBCImplement.JDBCMainConfiguration;
-import com.github.adrian3xl.sharedinterface.CheckTime;
 import static com.github.adrian3xl.sharedinterface.CheckTime.formattedDate;
-import java.awt.Component;
-import java.awt.PopupMenu;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,7 +25,7 @@ public class LoginForm extends javax.swing.JFrame {
           Connection con;
           Statement stmt;
    
-    private EmployeeManager EmployeeMgr;  
+  //  private EmployeeManager EmployeeMgr;  
     /**
      * Creates new form LoginForm
      */

@@ -8,31 +8,26 @@ package presentation;
 //import CrudManager.ConnectionManager;
 import CrudManager.EmployeeManager;
 import Domain.Employee;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
+
 import java.io.EOFException;
 import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintStream;
-import java.io.PrintWriter;
+
 import java.io.StreamCorruptedException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Component;
+
 
 /**
  *
  * @author Adrian
  */
 public class LCMS_Server  implements Runnable {
-    
+ 
     
     private ServerSocket servSock;
     private Socket connection;
