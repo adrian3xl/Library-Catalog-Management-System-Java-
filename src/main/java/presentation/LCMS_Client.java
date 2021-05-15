@@ -105,10 +105,10 @@ public class LCMS_Client {
         
         try
         {
-            System.out.println("creating student on client");
+            System.out.println("creating employee on client");
             os.writeObject(employee);
             
-            System.out.println("Student sent to server");
+            System.out.println("Employee sent to server");
         }
         catch(IOException ex)
         {

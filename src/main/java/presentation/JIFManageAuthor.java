@@ -313,6 +313,7 @@ table Author=new table();
         catch(Exception ex)
                 {
                   ex.printStackTrace();
+                  logger.error(ex.getMessage());
                 }
     }//GEN-LAST:event_update_btActionPerformed
 

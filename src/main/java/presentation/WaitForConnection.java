@@ -5,6 +5,8 @@
  */
 package presentation;
 
+import Service.Exceptions.ServiceLoadException;
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -17,8 +19,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class WaitForConnection {
     
     public static void main(String args[]){
-        
+    
         LCMS_Server lcms_server= new LCMS_Server();
        lcms_server.start();
+ 
     }
 }
