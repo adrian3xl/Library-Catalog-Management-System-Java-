@@ -374,10 +374,10 @@ combobox aut=new combobox();
   
     //    int id=Integer.parseInt(idj.getText().trim());
         String title=title_tb.getText().trim();
-        Integer genre_id=Integer.parseInt(gen_lb.getText());
-        Integer doc_id=Integer.parseInt(doc_lb.getText());
-        Integer author_id=Integer.parseInt(auth_lb.getText());
-        Integer pub_id=Integer.parseInt(pub_lb.getText());
+        //Integer genre_id=Integer.parseInt(gen_lb.getText());
+       // Integer doc_id=Integer.parseInt(doc_lb.getText());
+       // Integer author_id=Integer.parseInt(auth_lb.getText());
+       // Integer pub_id=Integer.parseInt(pub_lb.getText());
         
         String conditionstatement=condi_tb.getText();
         String code=code_tb.getText().trim();
@@ -388,9 +388,11 @@ combobox aut=new combobox();
  
         
      //  Catalogrecord anCatalogrecord=new Catalogrecord(title,releasedate,conditionstatement,code,genre_id,doc_id,author_id,pub_id);
+  Catalogrecord anCatalogrecord=new Catalogrecord(title,releasedate,conditionstatement,code);
 
+     
         CatalogrecordManager CatalogrecordMgr = new CatalogrecordManager();
-     //   CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
+       CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
 
         record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition","Catalog Code"}));
         catalogrec.fillCatalogRecordJTable(record_table,"");

@@ -82,6 +82,14 @@ public class Catalogloanrecord implements Serializable{
         this.employee=employee;
     }
     
+        public Catalogloanrecord(Date recieveddate,Date loandate, String loancode){	
+        
+   
+        this.loandate= loandate;
+        this.recieveddate=recieveddate;
+        this.loancode=loancode;
+     
+    }
     
     public int getId() {
         return this.id;

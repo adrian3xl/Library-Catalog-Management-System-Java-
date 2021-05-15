@@ -348,9 +348,10 @@ public class JIFManageCatalogloan extends javax.swing.JInternalFrame {
        
      
       //  Catalogloanrecord anCatalogloanrecord= new  Catalogloanrecord(catalogrecord_id,cust_id,loandate,releasedate,code,empl_id);
+Catalogloanrecord anCatalogloanrecord= new  Catalogloanrecord(loandate,releasedate,code );
 
         CatalogloanrecordManager CatalogloanMgr = new CatalogloanrecordManager();
-      //   CatalogloanMgr.addCatalogloanrecord(anCatalogloanrecord);
+        CatalogloanMgr.addCatalogloanrecord(anCatalogloanrecord);
 
         record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Catalog", "Customer", "Loan Date ", "Recieved Date", "Loan Code", "Employee"}));
         loan.fillCatalogloanJTable(record_table, "");
