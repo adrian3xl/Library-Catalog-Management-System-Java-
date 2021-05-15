@@ -21,7 +21,7 @@ public class CatalogrecordImplementJDBC extends JDBCMainConfiguration implements
     Statement statement;
     @Override
     public void addCatalogrecordJDBC(Catalogrecord catalogrecord) throws Exception {
-         String insertCatalogrecord = "INSERT INTO catalogrecord(id, genre, title, author_id, publisher_id, documenttype_id,datereleased,conditionstatement,catalogcode) "
+         String insertCatalogrecord = "INSERT INTO catalogrecord(id, genre_id, title, author_id, publisher_id, documenttype_id,datereleased,conditionstatement,catalogcode) "
                 + "values('" + catalogrecord.getId() + 
                 "', '" + catalogrecord.getTitle()+
                 "', '" + catalogrecord.getAuthor()+ 
@@ -41,7 +41,7 @@ public class CatalogrecordImplementJDBC extends JDBCMainConfiguration implements
     @Override
     public void updateCatalogrecordJDBC(Catalogrecord catalogrecord) throws Exception {
              String updateCatalogrecord = "UPDATE catalogrecord SET catalogcode = '" + catalogrecord.getCatalogcode()+ 
-                "', genre= '" + catalogrecord.getGenre()+ 
+                "', genre_id= '" + catalogrecord.getGenre()+ 
                 "',  title = '" + catalogrecord.getTitle()+ 
                   "', author_id = '" + catalogrecord.getAuthor()+ 
                    "', publisher_id = '" + catalogrecord.getPublisher()+ 

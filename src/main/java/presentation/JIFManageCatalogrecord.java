@@ -394,6 +394,11 @@ combobox aut=new combobox();
         CatalogrecordManager CatalogrecordMgr = new CatalogrecordManager();
        CatalogrecordMgr.addCatalogrecord(anCatalogrecord);
 
+       
+       
+       
+       
+       
         record_table.setModel(new DefaultTableModel(null, new Object[]{"id", "Title", "Genre", "Document Type", "Author", "Publisher", "Date Released", "Condition","Catalog Code"}));
         catalogrec.fillCatalogRecordJTable(record_table,"");
 
